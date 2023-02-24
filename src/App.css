@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+.leaflet-tile-container {
+  filter: sepia(0.2) grayscale(0.5) opacity(0.8);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero {
+  font-family: Muni;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.caseListItem:hover {
+  background-color: #f0f4f8;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.infoText {
+  font-size: 12px;
+  color: #0d6efd;
 }
 
-.App-link {
-  color: #61dafb;
+.bg-clean,
+.btn-bg-clean {
+  background-color: #f0f4f8 !important;
+  border: 1px solid lightgray !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bg-filter {
+  background-color: white !important;
+  border: 1px solid #54d1db !important;
+  color: #2cb1bc !important;
+}
+
+.accordion-button,
+.accordion-body {
+  padding: 0 !important;
+}
+.accordion-item {
+  background: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black !important;
+  background-color: white !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:focus {
+  border-color: none !important;
+  box-shadow: none !important;
+}
+
+:root {
+  --main-color: darkturquoise;
+  --main-color-hover: rgb(104, 117, 217, 0.2);
+  --track-color: #ddd;
+  /* Default mark color*/
+  --mark-color: #aaaaaa;
+}
+
+.customSlider {
+  margin: auto;
+}
+
+.customSlider-track {
+  top: 6px;
+  height: 4px;
+  cursor: pointer;
+  background: var(--main-color);
+}
+
+.disabled > .customSlider-track {
+  top: 6px;
+  height: 4px;
+  background: var(--track-color);
+}
+
+.customSlider-track.customSlider-track-0 {
+  background: var(--track-color);
+}
+
+.customSlider-track.customSlider-track-2 {
+  background: var(--track-color);
+}
+
+.customSlider-thumb {
+  cursor: pointer;
+  background: var(--main-color);
+  width: 8px;
+  height: 18px;
+  outline: none;
+}
+
+.disabled > .customSlider-thumb {
+  background: var(--track-color);
+  width: 8px;
+  height: 18px;
+  outline: none;
+}
+
+.customSlider-thumb:hover {
+  box-shadow: 0 0 0 8px var(--main-color-hover);
+}
+
+.disabled > .customSlider-thumb:hover {
+  box-shadow: none;
+}
+
+.customSlider-mark {
+  cursor: pointer;
+  top: 6px;
+  width: 1.5px;
+  height: 8px;
+  background-color: var(--mark-color);
+}
+
+.customSlider-mark.customSlider-mark-before {
+  background-color: var(--main-color);
+}
+
+.customSlider-mark.customSlider-mark-active {
+  display: none;
+}
+
+.year {
+  font-weight: bold;
 }
