@@ -1,11 +1,11 @@
 import * as React from "react";
-//import MapComponent from "./../map/Map";
+import MapComponent from "./../map/Map";
 import PanelComponent from "./../panel/Panel";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const Layout: React.FC = ({}) => {
+const Layout = ({}): JSX.Element => {
   return (
     <Container fluid style={{ padding: 0 }}>
       <Row>
@@ -20,7 +20,7 @@ const Layout: React.FC = ({}) => {
             right: 0,
           }}
         >
-          // MapComponent
+          <MapComponent />
         </Col>
         <Col
           md="3"

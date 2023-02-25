@@ -1,7 +1,7 @@
 import React from "react";
 import packageJson from "../../../package.json";
 
-const Hero: React.FC = ({}) => {
+const Hero = ({}): JSX.Element => {
   return (
     <div
       className="hero font-bold text-xl pt-12 pb-4 px-4 text-white bg-cover"
