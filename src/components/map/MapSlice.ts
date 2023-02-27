@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-//import { LatLngTuple } from "leaflet";
 
 export interface MapState {
   //  center: LatLngTuple;
