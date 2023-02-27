@@ -40,7 +40,7 @@ const MapComponent = ({}): JSX.Element => {
     renderSubLayers: (props) => {
       const {
         bbox: { west, south, east, north },
-      } = props.tile;
+      }: any = props.tile;
 
       return [
         new BitmapLayer(props, {
