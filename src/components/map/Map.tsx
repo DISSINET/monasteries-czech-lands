@@ -6,9 +6,9 @@ import { TileLayer } from "@deck.gl/geo-layers/typed";
 const MapComponent = ({}): JSX.Element => {
   // Viewport settings
   const INITIAL_VIEW_STATE = {
-    longitude: -122.41669,
-    latitude: 37.7853,
-    zoom: 13,
+    longitude: 16.8,
+    latitude: 49.7,
+    zoom: 7,
     pitch: 0,
     bearing: 0,
   };
@@ -51,10 +51,10 @@ const MapComponent = ({}): JSX.Element => {
       ];
     },
   });
-  
-  const lineLayer =new LineLayer({ id: "line-layer", data }); 
 
-  const layers = [ tileLayer, lineLayer];
+  const lineLayer = new LineLayer({ id: "line-layer", data });
+
+  const layers = [tileLayer, lineLayer];
 
   return (
     <DeckGL
