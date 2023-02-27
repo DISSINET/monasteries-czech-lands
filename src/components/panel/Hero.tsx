@@ -18,9 +18,7 @@ const Hero = ({}): JSX.Element => {
         Monasteries{" "}
         <span style={{ fontSize: "13px" }}> v. {packageJson.version}</span>
       </h4>
-      <span>
-        Religious houses in the Czech Lands from the beginnings to the present
-      </span>
+      <span>Religious houses in the Czech Lands</span>
     </div>
   );
 };
