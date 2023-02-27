@@ -1,6 +1,7 @@
 import React from "react";
 import DeckGL from "@deck.gl/react/typed";
-import { LineLayer, BitmapLayer } from "@deck.gl/layers/typed";
+import { LineLayer, BitmapLayer, GeoJsonLayer } from "@deck.gl/layers/typed";
+import locations from "../../data/monasteries-sample.json";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
 
 const MapComponent = ({}): JSX.Element => {
@@ -11,15 +12,8 @@ const MapComponent = ({}): JSX.Element => {
     zoom: 7,
     pitch: 0,
     bearing: 0,
+    maxZoom: 13,
   };
-
-  // Data to be used by the LineLayer
-  const data = [
-    {
-      sourcePosition: [-122.41669, 37.7853],
-      targetPosition: [-122.41669, 37.781],
-    },
-  ];
 
   const tileLayer = new TileLayer({
     // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
@@ -32,7 +26,7 @@ const MapComponent = ({}): JSX.Element => {
     maxRequests: 20,
     pickable: true,
     minZoom: 0,
-    maxZoom: 19,
+    maxZoom: 13,
     tileSize: 256,
     // zoomOffset: devicePixelRatio === 1 ? -1 : 0,
     renderSubLayers: (props) => {
@@ -50,9 +44,23 @@ const MapComponent = ({}): JSX.Element => {
     },
   });
 
-  const lineLayer = new LineLayer({ id: "line-layer", data });
+  const monasteries = new GeoJsonLayer({
+    id: "monasteries",
+    data: [locations],
+    pickable: true,
+    stroked: true,
+    filled: true,
+    extruded: true,
+    pointType: "circle",
+    lineWidthScale: 20,
+    lineWidthMinPixels: 2,
+    getFillColor: [160, 160, 180, 200],
+    getPointRadius: 1000,
+    getLineWidth: 1,
+    getElevation: 30,
+  });
 
-  const layers = [tileLayer, lineLayer];
+  const layers = [tileLayer, monasteries];
 
   return (
     <DeckGL
