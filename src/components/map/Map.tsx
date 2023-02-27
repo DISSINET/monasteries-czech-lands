@@ -24,9 +24,7 @@ const MapComponent = ({}): JSX.Element => {
   const tileLayer = new TileLayer({
     // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
     data: [
-      "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      "https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}",
     ],
 
     // Since these OSM tiles support HTTP/2, we can make many concurrent requests
@@ -36,7 +34,7 @@ const MapComponent = ({}): JSX.Element => {
     minZoom: 0,
     maxZoom: 19,
     tileSize: 256,
-    zoomOffset: devicePixelRatio === 1 ? -1 : 0,
+    // zoomOffset: devicePixelRatio === 1 ? -1 : 0,
     renderSubLayers: (props) => {
       const {
         bbox: { west, south, east, north },
