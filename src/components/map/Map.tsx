@@ -3,26 +3,116 @@ import DeckGL from "@deck.gl/react/typed";
 import { LineLayer, BitmapLayer, GeoJsonLayer } from "@deck.gl/layers/typed";
 import locations from "../../data/monasteries-sample.json";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
+import { ButtonGroup, Button } from "react-bootstrap";
+import { useState } from "react";
+import {
+  AiOutlinePlus,
+  AiOutlineMinus,
+  AiOutlineCompass,
+  AiOutlineCompress,
+  AiOutlineExpand,
+  AiOutlineExpandAlt,
+  AiOutlineArrowUp,
+  AiOutlineDash,
+  AiOutlineLine,
+} from "react-icons/ai";
 
 const MapComponent = ({}): JSX.Element => {
-  // Viewport settings
-  const INITIAL_VIEW_STATE = {
+  const [viewState, setViewState] = useState({
     longitude: 16.8,
     latitude: 49.7,
     zoom: 7,
     pitch: 0,
     bearing: 0,
-    maxZoom: 13,
-  };
+    maxZoom: 13, //not working too well
+  });
+
+  function MapControls() {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: "20px",
+          width: "30px",
+          left: "11px",
+          zIndex: 1000,
+          backgroundColor: "white",
+        }}
+      >
+        <ButtonGroup
+          vertical
+          size="sm"
+          style={{
+            width: "30px",
+          }}
+        >
+          <Button
+            title="Zoom in"
+            variant="outline-dark"
+            onClick={() => {
+              //map.setView(center, zoom);
+            }}
+          >
+            <AiOutlinePlus />
+          </Button>
+          <Button
+            title="Zoom out"
+            variant="outline-dark"
+            onClick={() => {
+              //map.setView(center, zoom);
+            }}
+          >
+            <AiOutlineMinus />
+          </Button>
+        </ButtonGroup>
+        <ButtonGroup
+          className="mt-2"
+          vertical
+          size="sm"
+          style={{
+            width: "30px",
+          }}
+        >
+          <Button
+            size="sm"
+            variant="outline-dark"
+            title="Reset map orientation"
+            onClick={() => {
+              //map.setView(center, zoom);
+            }}
+          >
+            <AiOutlineArrowUp />
+          </Button>
+          <Button
+            size="sm"
+            variant="outline-dark"
+            title="Reset map pitch"
+            onClick={() => {
+              //map.setView(center, zoom);
+            }}
+          >
+
+<AiOutlineLine />
+          </Button>
+          <Button
+            size="sm"
+            variant="outline-dark"
+            title="Full data extent"
+            onClick={() => {
+              //map.setView(center, zoom);
+            }}
+          >
+            <AiOutlineExpand />
+          </Button>
+        </ButtonGroup>
+      </div>
+    );
+  }
 
   const tileLayer = new TileLayer({
-    // https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Tile_servers
     data: [
       "https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}",
     ],
-
-    // Since these OSM tiles support HTTP/2, we can make many concurrent requests
-    // and we aren't limited by the browser to a certain number per domain.
     maxRequests: 20,
     pickable: true,
     minZoom: 0,
@@ -63,11 +153,15 @@ const MapComponent = ({}): JSX.Element => {
   const layers = [tileLayer, monasteries];
 
   return (
-    <DeckGL
-      initialViewState={INITIAL_VIEW_STATE}
-      controller={true}
-      layers={layers}
-    />
+    <>
+      <MapControls />
+      <DeckGL
+        viewState={viewState}
+        onViewStateChange={(e: any) => setViewState(e.viewState)}
+        controller={true}
+        layers={layers}
+      />
+    </>
   );
 };
 
