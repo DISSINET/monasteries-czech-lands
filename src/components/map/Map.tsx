@@ -3,110 +3,16 @@ import DeckGL from "@deck.gl/react/typed";
 import { LineLayer, BitmapLayer, GeoJsonLayer } from "@deck.gl/layers/typed";
 import locations from "../../data/monasteries-sample.json";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
-import { ButtonGroup, Button } from "react-bootstrap";
-import { useState } from "react";
-import {
-  AiOutlinePlus,
-  AiOutlineMinus,
-  AiOutlineCompass,
-  AiOutlineCompress,
-  AiOutlineExpand,
-  AiOutlineExpandAlt,
-  AiOutlineArrowUp,
-  AiOutlineDash,
-  AiOutlineLine,
-} from "react-icons/ai";
+import { useAppSelector, useAppDispatch } from "./../../app/hooks";
+import { updateMapState } from "./MapSlice";
+import MapControls from "./MapControls";
 
 const MapComponent = ({}): JSX.Element => {
-  const [viewState, setViewState] = useState({
-    longitude: 16.8,
-    latitude: 49.7,
-    zoom: 7,
-    pitch: 0,
-    bearing: 0,
-    maxZoom: 13, //not working too well
-  });
+  const mapState = useAppSelector((state) => state.map);
+  const dispatch = useAppDispatch();
 
-  function MapControls() {
-    return (
-      <div
-        style={{
-          position: "fixed",
-          top: "20px",
-          width: "30px",
-          left: "11px",
-          zIndex: 1000,
-          backgroundColor: "white",
-        }}
-      >
-        <ButtonGroup
-          vertical
-          size="sm"
-          style={{
-            width: "30px",
-          }}
-        >
-          <Button
-            title="Zoom in"
-            variant="outline-dark"
-            onClick={() => {
-              //map.setView(center, zoom);
-            }}
-          >
-            <AiOutlinePlus />
-          </Button>
-          <Button
-            title="Zoom out"
-            variant="outline-dark"
-            onClick={() => {
-              //map.setView(center, zoom);
-            }}
-          >
-            <AiOutlineMinus />
-          </Button>
-        </ButtonGroup>
-        <ButtonGroup
-          className="mt-2"
-          vertical
-          size="sm"
-          style={{
-            width: "30px",
-          }}
-        >
-          <Button
-            size="sm"
-            variant="outline-dark"
-            title="Reset map orientation"
-            onClick={() => {
-              //map.setView(center, zoom);
-            }}
-          >
-            <AiOutlineArrowUp />
-          </Button>
-          <Button
-            size="sm"
-            variant="outline-dark"
-            title="Reset map pitch"
-            onClick={() => {
-              //map.setView(center, zoom);
-            }}
-          >
-
-<AiOutlineLine />
-          </Button>
-          <Button
-            size="sm"
-            variant="outline-dark"
-            title="Full data extent"
-            onClick={() => {
-              //map.setView(center, zoom);
-            }}
-          >
-            <AiOutlineExpand />
-          </Button>
-        </ButtonGroup>
-      </div>
-    );
+  function dispatchMapState(val: any) {
+    dispatch(updateMapState(val));
   }
 
   const tileLayer = new TileLayer({
@@ -156,8 +62,8 @@ const MapComponent = ({}): JSX.Element => {
     <>
       <MapControls />
       <DeckGL
-        viewState={viewState}
-        onViewStateChange={(e: any) => setViewState(e.viewState)}
+        viewState={mapState}
+        onViewStateChange={(e: any) => dispatchMapState(e.viewState)}
         controller={true}
         layers={layers}
       />
