@@ -9,6 +9,7 @@ const Hero = ({}): JSX.Element => {
         paddingTop: "2em",
         background: " cover",
         backgroundPosition: "right",
+        backgroundSize: "cover",
         backgroundImage: `url(
             "https://cdn.muni.cz/media/3132847/out_gradient.png?mode=crop&center=0.54,0.86&rnd=131981761180000000&width=974&heightratio=0.23715"
           )`,
