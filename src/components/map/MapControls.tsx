@@ -77,7 +77,9 @@ const MapControls = ({}): JSX.Element => {
             dispatch(restoreDefaultBearing());
           }}
         >
-          <AiOutlineArrowUp />
+          <AiOutlineArrowUp
+            style={{ transform: `rotate(${mapState.bearing}deg)` }}
+          />
         </Button>
         <Button
           size="sm"
@@ -88,7 +90,9 @@ const MapControls = ({}): JSX.Element => {
             dispatch(restoreDefaultPitch());
           }}
         >
-          <AiOutlineDash />
+          <AiOutlineDash
+            style={{ transform: `rotate(${mapState.pitch}deg)` }}
+          />
         </Button>
         <Button
           size="sm"
