@@ -8,6 +8,7 @@ export interface MapState {
   bearing: number;
   minZoom: number;
   maxZoom: number;
+  transitionDuration: number;
 }
 
 const initialState: MapState = {
@@ -18,6 +19,8 @@ const initialState: MapState = {
   bearing: 0,
   minZoom: 5,
   maxZoom: 9,
+  transitionDuration: 500,
+  //transitionEasing: TODO
 };
 
 export const mapSlice = createSlice({

@@ -59,7 +59,7 @@ const MapComponent = ({}): JSX.Element => {
   const layers = [tileLayer, monasteries];
 
   return (
-    <>
+    <div onContextMenu={evt => evt.preventDefault()}>
       <MapControls />
       <DeckGL
         viewState={mapState}
@@ -67,7 +67,7 @@ const MapComponent = ({}): JSX.Element => {
         controller={true}
         layers={layers}
       />
-    </>
+    </div>
   );
 };
 
