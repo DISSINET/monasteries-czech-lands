@@ -6,6 +6,7 @@ import { TileLayer } from "@deck.gl/geo-layers/typed";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { updateMapState } from "./MapSlice";
 import MapControls from "./MapControls";
+import MapScale from "./MapScale";
 
 const MapComponent = ({}): JSX.Element => {
   const mapState = useAppSelector((state) => state.map);
@@ -59,8 +60,9 @@ const MapComponent = ({}): JSX.Element => {
   const layers = [tileLayer, monasteries];
 
   return (
-    <div onContextMenu={evt => evt.preventDefault()}>
+    <div onContextMenu={(evt) => evt.preventDefault()}>
       <MapControls />
+      <MapScale />
       <DeckGL
         viewState={mapState}
         onViewStateChange={(e: any) => dispatchMapState(e.viewState)}

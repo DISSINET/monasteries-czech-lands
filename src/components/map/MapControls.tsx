@@ -24,7 +24,7 @@ const MapControls = ({}): JSX.Element => {
     <div
       className="mt-2"
       style={{
-        position: "fixed",
+        position: "absolute",
         width: "30px",
         left: "11px",
         zIndex: 1000,
