@@ -62,7 +62,7 @@ const MapComponent = ({}): JSX.Element => {
   return (
     <div onContextMenu={(evt) => evt.preventDefault()}>
       <MapControls />
-      <MapScale />
+      <MapScale definitionLayer={tileLayer}/>
       <DeckGL
         viewState={mapState}
         onViewStateChange={(e: any) => dispatchMapState(e.viewState)}
