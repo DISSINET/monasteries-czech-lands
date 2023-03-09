@@ -1,7 +1,21 @@
 import { useEffect, useState } from "react";
 import Hero from "./Hero";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
-import { Modal, Accordion, Button, CloseButton, Image } from "react-bootstrap";
+import {
+  Modal,
+  Accordion,
+  Button,
+  CloseButton,
+  Image,
+  InputGroup,
+  Dropdown,
+  Offcanvas,
+  Form,
+} from "react-bootstrap";
+import { DictOrders } from "../../shared/dictionaries/orders";
+import { DictStatuses } from "../../shared/dictionaries/statuses";
+import { BsCheckLg, BsListUl } from "react-icons/bs";
+
 //import legend from "./../../assets/legend.png";
 
 type PanelComponentProps = {};
@@ -19,6 +33,8 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   const [infoModal, toggleInfoModal] = useState(false);
   const handleInfoModalClose = () => toggleInfoModal(false);
   const handleInfoModalShow = () => toggleInfoModal(true);
+  const [showOrders, setShowOrders] = useState(false);
+  const [showStatuses, setShowStatuses] = useState(false);
 
   return (
     <div
@@ -41,24 +57,81 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         }}
       >
         <div id="section1">
-          <Accordion flush defaultActiveKey="0">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>
-                <b>Section1</b>
-              </Accordion.Header>
-              <Accordion.Body></Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
+          <InputGroup size="sm">
+            <InputGroup.Text
+              style={{ cursor: "pointer", flexGrow: 1 }}
+              onClick={() => setShowOrders(true)}
+            >
+              <BsListUl style={{ marginRight: "6px" }} />
+              Order
+            </InputGroup.Text>
+          </InputGroup>
+          <Offcanvas
+            show={showOrders}
+            onHide={() => setShowOrders(false)}
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <b>Filter by Order</b>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              {DictOrders.map((e) => {
+                return (
+                  <Dropdown.Item id={e.id} className="ps-4">
+                    <>
+                      <BsCheckLg
+                        style={{
+                          color: "blue",
+                        }}
+                      />{" "}
+                      {e.value}
+                    </>
+                  </Dropdown.Item>
+                );
+              })}
+            </Offcanvas.Body>
+          </Offcanvas>
         </div>
-        <div id="legend">
-          <Accordion flush defaultActiveKey="0">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>
-                <b>Legend</b>
-              </Accordion.Header>
-              <Accordion.Body></Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
+
+        <div id="section2">
+          <InputGroup size="sm">
+            <InputGroup.Text
+              style={{ cursor: "pointer", flexGrow: 1 }}
+              onClick={() => setShowStatuses(true)}
+            >
+              <BsListUl style={{ marginRight: "6px" }} />
+              Status
+            </InputGroup.Text>
+            <Offcanvas
+              show={showStatuses}
+              onHide={() => setShowStatuses(false)}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+                <b>Filter by Status</b>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                {DictStatuses.map((e) => {
+                  return (
+                    <Dropdown.Item id={e.id} className="ps-4">
+                      <>
+                        <BsCheckLg
+                          style={{
+                            color: "blue",
+                          }}
+                        />{" "}
+                        {e.value}
+                      </>
+                    </Dropdown.Item>
+                  );
+                })}
+              </Offcanvas.Body>
+            </Offcanvas>
+          </InputGroup>
+        </div>
+
+        <div id="section3">
+          <b>Time</b>
         </div>
         <div
           className="pt-12"
