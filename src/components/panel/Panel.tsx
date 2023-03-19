@@ -2,21 +2,20 @@ import { useEffect, useState } from "react";
 import Hero from "./Hero";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import {
+  Container,
   Modal,
-  Accordion,
   Button,
   CloseButton,
-  Image,
   InputGroup,
-  Dropdown,
   Offcanvas,
-  Form,
   ListGroup,
+  Row,
 } from "react-bootstrap";
 import { DictOrders } from "../../shared/dictionaries/orders";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
 import { BsCheckLg, BsListUl } from "react-icons/bs";
 import { selectOrders, selectStatuses } from "./../MainSlice";
+import FilterView from "./FilterView";
 
 //import legend from "./../../assets/legend.png";
 
@@ -85,7 +84,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     clearAction: any = null
   ) {
     return (
-      <InputGroup size="sm">
+      <>
         <InputGroup.Text
           onClick={action}
           style={{ cursor: "pointer", flexGrow: 1 }}
@@ -100,7 +99,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         ) : (
           ""
         )}
-      </InputGroup>
+      </>
     );
   }
 
@@ -125,24 +124,36 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         }}
       >
         <div id="section1">
-          {filterControl(
-            "Order",
-            handleShowOrders,
-            selectedOrderLabels,
-            clearOrders
-          )}
+          <InputGroup size="sm" style={{ marginBottom: "6px" }}>
+            {filterControl(
+              "Order",
+              handleShowOrders,
+              selectedOrderLabels,
+              clearOrders
+            )}
+          </InputGroup>
+          <FilterView type={1} />
           <Offcanvas
             show={showOrders}
             onHide={() => setShowOrders(false)}
             placement="end"
           >
             <Offcanvas.Header closeButton>
-              {filterControl(
-                "Filter by order",
-                null,
-                selectedOrderLabels,
-                clearOrders
-              )}
+              <Container>
+                <Row>
+                  <InputGroup size="sm" style={{ marginBottom: "6px" }}>
+                    {filterControl(
+                      "Filter by order",
+                      null,
+                      selectedOrderLabels,
+                      clearOrders
+                    )}
+                  </InputGroup>
+                </Row>
+                <Row>
+                  <FilterView type={1} />
+                </Row>
+              </Container>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <ListGroup>
@@ -173,24 +184,36 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         </div>
 
         <div id="section2">
-          {filterControl(
-            "Status",
-            handleShowStatuses,
-            selectedStatusLabels,
-            clearStatuses
-          )}
+          <InputGroup size="sm" style={{ marginBottom: "6px" }}>
+            {filterControl(
+              "Status",
+              handleShowStatuses,
+              selectedStatusLabels,
+              clearStatuses
+            )}
+          </InputGroup>
+          <FilterView type={2} />
           <Offcanvas
             show={showStatuses}
             onHide={() => setShowStatuses(false)}
             placement="end"
           >
             <Offcanvas.Header closeButton>
-              {filterControl(
-                "Filter by status",
-                handleShowStatuses,
-                selectedStatusLabels,
-                clearStatuses
-              )}
+              <Container>
+                <Row>
+                  <InputGroup size="sm" style={{ marginBottom: "6px" }}>
+                    {filterControl(
+                      "Filter by status",
+                      handleShowStatuses,
+                      selectedStatusLabels,
+                      clearStatuses
+                    )}
+                  </InputGroup>
+                </Row>
+                <Row>
+                  <FilterView type={2} />
+                </Row>
+              </Container>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <ListGroup>
