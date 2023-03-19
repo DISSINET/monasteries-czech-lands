@@ -11,6 +11,7 @@ import {
   Dropdown,
   Offcanvas,
   Form,
+  ListGroup,
 } from "react-bootstrap";
 import { DictOrders } from "../../shared/dictionaries/orders";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
@@ -144,27 +145,29 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
               )}
             </Offcanvas.Header>
             <Offcanvas.Body>
-              {DictOrders.map((e) => {
-                return (
-                  <Dropdown.Item
-                    id={e.id}
-                    className="ps-4 mt-2"
-                    onClick={() => selectOrder(e.value)}
-                  >
-                    <>
-                      <BsCheckLg
-                        style={{
-                          color: "blue",
-                          opacity: selectedOrderLabels.includes(e.value)
-                            ? 1
-                            : 0,
-                        }}
-                      />{" "}
-                      {e.value}
-                    </>
-                  </Dropdown.Item>
-                );
-              })}
+              <ListGroup>
+                {DictOrders.map((e) => {
+                  return (
+                    <ListGroup.Item
+                      id={e.id}
+                      action
+                      onClick={() => selectOrder(e.value)}
+                    >
+                      <>
+                        <BsCheckLg
+                          style={{
+                            color: "blue",
+                            opacity: selectedOrderLabels.includes(e.value)
+                              ? 1
+                              : 0,
+                          }}
+                        />{" "}
+                        {e.value}
+                      </>
+                    </ListGroup.Item>
+                  );
+                })}
+              </ListGroup>
             </Offcanvas.Body>
           </Offcanvas>
         </div>
@@ -190,27 +193,29 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
               )}
             </Offcanvas.Header>
             <Offcanvas.Body>
-              {DictStatuses.map((e) => {
-                return (
-                  <Dropdown.Item
-                    id={e.id}
-                    className="ps-4 m-2"
-                    onClick={() => selectStatus(e.value)}
-                  >
-                    <>
-                      <BsCheckLg
-                        style={{
-                          color: "blue",
-                          opacity: selectedStatusLabels.includes(e.value)
-                            ? 1
-                            : 0,
-                        }}
-                      />{" "}
-                      {e.value}
-                    </>
-                  </Dropdown.Item>
-                );
-              })}
+              <ListGroup>
+                {DictStatuses.map((e) => {
+                  return (
+                    <ListGroup.Item
+                      id={e.id}
+                      action
+                      onClick={() => selectStatus(e.value)}
+                    >
+                      <>
+                        <BsCheckLg
+                          style={{
+                            color: "blue",
+                            opacity: selectedStatusLabels.includes(e.value)
+                              ? 1
+                              : 0,
+                          }}
+                        />{" "}
+                        {e.value}
+                      </>
+                    </ListGroup.Item>
+                  );
+                })}
+              </ListGroup>
             </Offcanvas.Body>
           </Offcanvas>
         </div>
