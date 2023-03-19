@@ -19,13 +19,13 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
 
   function removeOrder(event: any) {
     let selectedOrders = new Set(selectedOrderLabels);
-      selectedOrders.delete(event.target.id);
+    selectedOrders.delete(event.target.id);
     dispatch(selectOrders(Array.from(selectedOrders)));
   }
 
   function removeStatus(event: any) {
     let selectedStatuses = new Set(selectedStatusLabels);
-      selectedStatuses.delete(event.target.id);
+    selectedStatuses.delete(event.target.id);
     dispatch(selectStatuses(Array.from(selectedStatuses)));
   }
 

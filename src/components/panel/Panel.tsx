@@ -16,6 +16,7 @@ import { DictStatuses } from "../../shared/dictionaries/statuses";
 import { BsCheckLg, BsListUl } from "react-icons/bs";
 import { selectOrders, selectStatuses } from "./../MainSlice";
 import FilterView from "./FilterView";
+import TimeFilter from "./TimeSlider";
 
 //import legend from "./../../assets/legend.png";
 
@@ -244,7 +245,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         </div>
 
         <div id="section3">
-          <b>Time</b>
+        <TimeFilter/>
         </div>
         <div
           className="pt-12"
