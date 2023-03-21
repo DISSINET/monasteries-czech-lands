@@ -17,8 +17,7 @@ const TimeSlider = ({}: TimeSliderProps): JSX.Element => {
     <>
       <div style={{ marginBottom: "12px", marginTop: "8px" }}>
         <small>
-          From{" "}
-          <span className="year">{timeFilter[0]}</span> to{" "}
+          From <span className="year">{timeFilter[0]}</span> to{" "}
           <span className="year">{timeFilter[1]}</span>
         </small>
         {timeFilter.includes(1000) && timeFilter.includes(1155) ? "" : ""}

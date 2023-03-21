@@ -19,8 +19,8 @@
 
 .bg-filter {
   background-color: white !important;
-  border: 1px solid #54d1db !important;
-  color: #0d6efd !important;
+  border: 1px solid #62b0e8 !important;
+  color: #2680c2 !important;
 }
 
 .accordion-button,
@@ -43,7 +43,7 @@
 }
 
 :root {
-  --main-color: #0d6efd;
+  --main-color: #62b0e8;
   --main-color-hover: rgb(104, 117, 217, 0.2);
   --track-color: #ddd;
   /* Default mark color*/
@@ -116,4 +116,5 @@
 
 .year {
   font-weight: bold;
+  color: #2680c2;
 }

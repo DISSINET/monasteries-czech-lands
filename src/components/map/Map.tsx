@@ -1,6 +1,10 @@
 import React from "react";
 import DeckGL from "@deck.gl/react/typed";
-import { LineLayer, BitmapLayer, GeoJsonLayer } from "@deck.gl/layers/typed";
+import {
+  BitmapLayer,
+  ScatterplotLayer,
+  GeoJsonLayer,
+} from "@deck.gl/layers/typed";
 import locations from "../../data/monasteries-sample.json";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
@@ -16,14 +20,14 @@ const MapComponent = ({}): JSX.Element => {
     dispatch(updateMapState(val));
   }
 
-  const tileLayer = new TileLayer({
+  const countryLevel = new TileLayer({
     data: [
       "https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}",
     ],
     maxRequests: 20,
     pickable: true,
     minZoom: 0,
-    maxZoom: 13,
+    maxZoom: 9,
     tileSize: 256,
     // zoomOffset: devicePixelRatio === 1 ? -1 : 0,
     renderSubLayers: (props) => {
@@ -41,33 +45,66 @@ const MapComponent = ({}): JSX.Element => {
     },
   });
 
-  const monasteries = new GeoJsonLayer({
+  const cityLevel = new TileLayer({
+    data: [
+      "https://a.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+      "https://b.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+      "https://c.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+      "https://d.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+    ],
+    maxRequests: 20,
+    pickable: true,
+    minZoom: 0,
+    maxZoom: 15,
+    tileSize: 256,
+    // zoomOffset: devicePixelRatio === 1 ? -1 : 0,
+    renderSubLayers: (props) => {
+      const {
+        bbox: { west, south, east, north },
+      }: any = props.tile;
+
+      return [
+        new BitmapLayer(props, {
+          data: null,
+          image: props.data,
+          bounds: [west, south, east, north],
+        }),
+      ];
+    },
+  });
+
+  const monasteries = new ScatterplotLayer({
     id: "monasteries",
-    data: [locations],
+    data: locations,
     pickable: true,
     stroked: true,
     filled: true,
-    extruded: true,
-    pointType: "circle",
-    lineWidthScale: 20,
-    lineWidthMinPixels: 2,
-    getFillColor: [160, 160, 180, 200],
-    getPointRadius: 1000,
-    getLineWidth: 1,
     getElevation: 30,
+    getPosition: (d: any) => d.geometry.coordinates,
+
+    opacity: 0.8,
+    radiusScale: 6,
+    radiusMinPixels: 3,
+    radiusMaxPixels: 100,
+    lineWidthMinPixels: 1,
+    getFillColor: (d) => [255, 140, 0],
+    getLineColor: (d) => [0, 0, 0],
   });
 
-  const layers = [tileLayer, monasteries];
+  const layers = [cityLevel, monasteries];
 
   return (
     <div onContextMenu={(evt) => evt.preventDefault()}>
       <MapControls />
-      <MapScale definitionLayer={tileLayer}/>
       <DeckGL
         viewState={mapState}
         onViewStateChange={(e: any) => dispatchMapState(e.viewState)}
         controller={true}
         layers={layers}
+        getTooltip={({ object }) =>
+          object &&
+          `${object.properties.monastery_id}\n${object.properties.source_label}`
+        }
       />
     </div>
   );

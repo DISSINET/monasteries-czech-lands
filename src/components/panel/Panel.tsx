@@ -94,7 +94,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
           {label}
         </InputGroup.Text>
         {stateArray.length > 0 ? (
-          <Button variant="outline-primary" size="sm" onClick={clearAction}>
+          <Button variant="outline-secondary" size="sm" onClick={clearAction}>
             clear
           </Button>
         ) : (
@@ -168,7 +168,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                       <>
                         <BsCheckLg
                           style={{
-                            color: "blue",
+                            color: "#2680c2",
                             opacity: selectedOrderLabels.includes(e.value)
                               ? 1
                               : 0,
@@ -228,7 +228,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                       <>
                         <BsCheckLg
                           style={{
-                            color: "blue",
+                            color: "#2680c2",
                             opacity: selectedStatusLabels.includes(e.value)
                               ? 1
                               : 0,
@@ -245,7 +245,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         </div>
 
         <div id="section3">
-        <TimeFilter/>
+          <TimeFilter />
         </div>
         <div
           className="pt-12"

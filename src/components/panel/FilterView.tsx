@@ -56,7 +56,7 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
               </small>
             </Badge>
             {i != selectedOrderLabels.length - 1 ? (
-              <i style={{ color: "#2CB1BC" }}>
+              <i style={{ color: "#2680c2" }}>
                 <small> or </small>
               </i>
             ) : (
@@ -95,7 +95,7 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
               </small>
             </Badge>
             {i != selectedStatusLabels.length - 1 ? (
-              <i style={{ color: "#2CB1BC" }}>
+              <i style={{ color: "#2680c2" }}>
                 <small> or </small>
               </i>
             ) : (

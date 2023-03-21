@@ -1,4 +1,8 @@
-[
+{
+"type": "FeatureCollection",
+"name": "monasteries-sample",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
 { "type": "Feature", "properties": { "source": "705d3824-fc8c-41df-a336-dcc7d596dc97", "certainty": 1, "confidence": "1", "x": 49.4866783, "y": 12.7375236, "elvl": 3, "id": "00527c2f-1d42-49f0-89c3-01b061f2299a", "note": null, "record_id": "00527c2f-1d42-49f0-89c3-01b061f2299a", "component_id": "c7083a96-5796-4b4b-8952-48bcd5c5084b", "monastery_id": "7629e2d5-9b13-4885-9477-51509a5ff0bc", "source_label": "Czech Lands (Buben)" }, "geometry": { "type": "Point", "coordinates": [ 12.7375236, 49.4866783 ] } },
 { "type": "Feature", "properties": { "source": "705d3824-fc8c-41df-a336-dcc7d596dc97", "certainty": 1, "confidence": "1", "x": 50.0675494, "y": 14.0127183, "elvl": 3, "id": "006bc357-c24e-41f4-a7ca-057b4040b879", "note": null, "record_id": "006bc357-c24e-41f4-a7ca-057b4040b879", "component_id": "6fd28404-ddec-4cf2-ba04-c9cd0eea3d65", "monastery_id": "b81d1c0c-6677-45f9-9fdb-0bf14925a2de", "source_label": "Czech Lands (Buben)" }, "geometry": { "type": "Point", "coordinates": [ 14.0127183, 50.0675494 ] } },
 { "type": "Feature", "properties": { "source": "705d3824-fc8c-41df-a336-dcc7d596dc97", "certainty": 1, "confidence": "2", "x": 50.3849633, "y": 13.17186, "elvl": 3, "id": "008de32d-b313-481b-a37b-5f4b6929756f", "note": "Geo-certainty: town", "record_id": "008de32d-b313-481b-a37b-5f4b6929756f", "component_id": "d11cb176-92ae-442a-a4be-81dfff8dd7d2", "monastery_id": "e75b3445-6704-483b-a2f3-1f4b18f254c5", "source_label": "Czech Lands (Buben)" }, "geometry": { "type": "Point", "coordinates": [ 13.17186, 50.3849633 ] } },
@@ -740,3 +744,4 @@
 { "type": "Feature", "properties": { "source": "705d3824-fc8c-41df-a336-dcc7d596dc97", "certainty": 1, "confidence": "1", "x": 49.3208178, "y": 13.6993817, "elvl": 3, "id": "ffadf039-639e-4f93-9d1f-1c21602842f5", "note": null, "record_id": "ffadf039-639e-4f93-9d1f-1c21602842f5", "component_id": "dbb80a54-6cd3-4433-8ecc-7a21b1760722", "monastery_id": "5343ca8a-d86d-48c7-9eeb-14f9363e003a", "source_label": "Czech Lands (Buben)" }, "geometry": { "type": "Point", "coordinates": [ 13.6993817, 49.3208178 ] } },
 { "type": "Feature", "properties": { "source": "705d3824-fc8c-41df-a336-dcc7d596dc97", "certainty": 1, "confidence": "1", "x": 48.85799, "y": 16.04772, "elvl": 3, "id": "fff2e20d-87df-432c-aa30-4a020fedde20", "note": null, "record_id": "fff2e20d-87df-432c-aa30-4a020fedde20", "component_id": "4b29e537-fa75-4319-81c7-31ef15771a1c", "monastery_id": "0d3062a9-7351-415c-a8ba-747a0649a127", "source_label": "Czech Lands (Buben)" }, "geometry": { "type": "Point", "coordinates": [ 16.04772, 48.85799 ] } }
 ]
+}
