@@ -82,13 +82,11 @@ const MapComponent = ({}): JSX.Element => {
     getElevation: 30,
     getPosition: (d: any) => d.geometry.coordinates,
 
-    opacity: 0.8,
-    radiusScale: 6,
-    radiusMinPixels: 3,
-    radiusMaxPixels: 100,
+    opacity: 0.6,
+    radiusMinPixels: mapState.zoom * 0.5,
     lineWidthMinPixels: 1,
-    getFillColor: (d) => [255, 140, 0],
-    getLineColor: (d) => [0, 0, 0],
+    getFillColor: (d) => [0, 0, 220],
+    getLineColor: (d) => [255, 255, 255],
   });
 
   const layers = [cityLevel, monasteries];
