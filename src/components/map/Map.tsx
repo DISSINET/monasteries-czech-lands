@@ -5,7 +5,7 @@ import {
   ScatterplotLayer,
   GeoJsonLayer,
 } from "@deck.gl/layers/typed";
-import locations from "../../data/monasteries-sample.json";
+import locations from "../../data/monasteries.json";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { updateMapState } from "./MapSlice";
@@ -80,8 +80,7 @@ const MapComponent = ({}): JSX.Element => {
     stroked: true,
     filled: true,
     getElevation: 30,
-    getPosition: (d: any) => d.geometry.coordinates,
-
+    getPosition: (d: any) => d.geo,
     opacity: 0.6,
     radiusMinPixels: mapState.zoom * 0.5,
     lineWidthMinPixels: 1,
@@ -101,7 +100,7 @@ const MapComponent = ({}): JSX.Element => {
         layers={layers}
         getTooltip={({ object }) =>
           object &&
-          `${object.properties.monastery_id}\n${object.properties.source_label}`
+          `${object.id}\n${object.communities_count}`
         }
       />
     </div>
