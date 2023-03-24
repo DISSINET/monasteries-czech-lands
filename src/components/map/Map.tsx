@@ -99,8 +99,7 @@ const MapComponent = ({}): JSX.Element => {
         controller={true}
         layers={layers}
         getTooltip={({ object }) =>
-          object &&
-          `${object.id}\n${object.communities_count}`
+          object && `${object.name}`
         }
       />
     </div>
