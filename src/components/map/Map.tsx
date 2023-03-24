@@ -10,6 +10,7 @@ import locations from "../../data/monasteries.json";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { updateMapState } from "./MapSlice";
+import { selectMonastery } from "./../MainSlice";
 import MapControls from "./MapControls";
 import MapScale from "./MapScale";
 
@@ -25,6 +26,10 @@ const MapComponent = ({}): JSX.Element => {
 
   function dispatchMapState(val: any) {
     dispatch(updateMapState(val));
+  }
+
+  function dispatchSelectedMonastery(mon: any) {
+    dispatch(selectMonastery(mon));
   }
 
   const cityLevel = new TileLayer({
@@ -56,14 +61,13 @@ const MapComponent = ({}): JSX.Element => {
   });
 
   function setVisibility(item: any) {
-    console.log(item);
     //selectedOrderIDs
     //selectedStatusIDs
     //let itemStatuses
     if (selectedOrderIDs.length === 0 && selectedStatusIDs.length === 0) {
       return 1;
     } else {
-    // TODO
+      // TODO
       let itemStatusMatch = 0;
       let itemComMatch = 0;
       item.communities.map((com: any) => {
@@ -121,6 +125,7 @@ const MapComponent = ({}): JSX.Element => {
       <DeckGL
         viewState={mapState}
         onViewStateChange={(e: any) => dispatchMapState(e.viewState)}
+        onClick={(object) => object && dispatchSelectedMonastery(object.object)}
         controller={true}
         layers={layers}
         getTooltip={({ object }) => object && `${object.name}`}

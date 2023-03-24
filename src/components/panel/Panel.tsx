@@ -10,6 +10,7 @@ import {
   Offcanvas,
   ListGroup,
   Row,
+  Card,
 } from "react-bootstrap";
 import { DictOrders } from "../../shared/dictionaries/orders";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
@@ -48,6 +49,10 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
 
   const selectedStatusIDs = useAppSelector(
     (state) => state.main.selectedStatusIDs
+  );
+
+  const selectedMonastery = useAppSelector(
+    (state) => state.main.selectedMonastery
   );
 
   function selectOrder(selectedOrder: string) {
@@ -169,9 +174,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                         <BsCheckLg
                           style={{
                             color: "#2680c2",
-                            opacity: selectedOrderIDs.includes(e.id)
-                              ? 1
-                              : 0,
+                            opacity: selectedOrderIDs.includes(e.id) ? 1 : 0,
                           }}
                         />{" "}
                         {e.value}
@@ -229,9 +232,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                         <BsCheckLg
                           style={{
                             color: "#2680c2",
-                            opacity: selectedStatusIDs.includes(e.id)
-                              ? 1
-                              : 0,
+                            opacity: selectedStatusIDs.includes(e.id) ? 1 : 0,
                           }}
                         />{" "}
                         {e.value}
@@ -246,6 +247,33 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
 
         <div id="section3">
           <TimeFilter />
+        </div>
+        <div id="section3">
+          {Object.keys(selectedMonastery).length !== 0 && (
+            <Card>
+              <Card.Header>
+                <small className="text-muted">
+                  Selected location{"  "}
+                  <small>
+                    {selectedMonastery["geo"][0]} {selectedMonastery["geo"][1]}
+                  </small>
+                </small>
+              </Card.Header>
+              <Card.Body>
+                <Card.Title>{selectedMonastery["name"]}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">
+                  Card Subtitle
+                </Card.Subtitle>
+                <Card.Text>Communities:</Card.Text>
+                <Card.Text>Statuses:</Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>
+                  <small>Sources:</small>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card>
+          )}
         </div>
         <div
           className="pt-12"
