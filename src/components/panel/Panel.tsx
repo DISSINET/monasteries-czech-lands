@@ -42,16 +42,16 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   const [showStatuses, setShowStatuses] = useState(false);
   const handleShowStatuses = () => setShowStatuses(true);
 
-  const selectedOrderLabels = useAppSelector(
-    (state) => state.main.selectedOrderLabels
+  const selectedOrderIDs = useAppSelector(
+    (state) => state.main.selectedOrderIDs
   );
 
-  const selectedStatusLabels = useAppSelector(
-    (state) => state.main.selectedStatusLabels
+  const selectedStatusIDs = useAppSelector(
+    (state) => state.main.selectedStatusIDs
   );
 
   function selectOrder(selectedOrder: string) {
-    let selectedOrders = new Set(selectedOrderLabels);
+    let selectedOrders = new Set(selectedOrderIDs);
     if (selectedOrders.has(selectedOrder)) {
       selectedOrders.delete(selectedOrder);
     } else {
@@ -61,7 +61,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   }
 
   function selectStatus(selectedStatus: string) {
-    let selectedStatuses = new Set(selectedStatusLabels);
+    let selectedStatuses = new Set(selectedStatusIDs);
     if (selectedStatuses.has(selectedStatus)) {
       selectedStatuses.delete(selectedStatus);
     } else {
@@ -129,7 +129,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
             {filterControl(
               "Order",
               handleShowOrders,
-              selectedOrderLabels,
+              selectedOrderIDs,
               clearOrders
             )}
           </InputGroup>
@@ -146,7 +146,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                     {filterControl(
                       "Filter by order",
                       null,
-                      selectedOrderLabels,
+                      selectedOrderIDs,
                       clearOrders
                     )}
                   </InputGroup>
@@ -163,13 +163,13 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                     <ListGroup.Item
                       id={e.id}
                       action
-                      onClick={() => selectOrder(e.value)}
+                      onClick={() => selectOrder(e.id)}
                     >
                       <>
                         <BsCheckLg
                           style={{
                             color: "#2680c2",
-                            opacity: selectedOrderLabels.includes(e.value)
+                            opacity: selectedOrderIDs.includes(e.id)
                               ? 1
                               : 0,
                           }}
@@ -189,7 +189,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
             {filterControl(
               "Status",
               handleShowStatuses,
-              selectedStatusLabels,
+              selectedStatusIDs,
               clearStatuses
             )}
           </InputGroup>
@@ -206,7 +206,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                     {filterControl(
                       "Filter by status",
                       handleShowStatuses,
-                      selectedStatusLabels,
+                      selectedStatusIDs,
                       clearStatuses
                     )}
                   </InputGroup>
@@ -223,13 +223,13 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                     <ListGroup.Item
                       id={e.id}
                       action
-                      onClick={() => selectStatus(e.value)}
+                      onClick={() => selectStatus(e.id)}
                     >
                       <>
                         <BsCheckLg
                           style={{
                             color: "#2680c2",
-                            opacity: selectedStatusLabels.includes(e.value)
+                            opacity: selectedStatusIDs.includes(e.id)
                               ? 1
                               : 0,
                           }}

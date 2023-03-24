@@ -3,35 +3,37 @@ import { Badge } from "react-bootstrap";
 import { selectOrders, selectStatuses } from "./../MainSlice";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { BsXLg } from "react-icons/bs";
+import { DictOrders } from "../../shared/dictionaries/orders";
+import { DictStatuses } from "../../shared/dictionaries/statuses";
 
 type FilterViewProps = {
   type: number;
 };
 
 const FilterView = ({ type }: FilterViewProps): JSX.Element => {
-  const selectedOrderLabels = useAppSelector(
-    (state) => state.main.selectedOrderLabels
+  const selectedOrderIDs = useAppSelector(
+    (state) => state.main.selectedOrderIDs
   );
-  const selectedStatusLabels = useAppSelector(
-    (state) => state.main.selectedStatusLabels
+  const selectedStatusIDs = useAppSelector(
+    (state) => state.main.selectedStatusIDs
   );
   const dispatch = useAppDispatch();
 
   function removeOrder(event: any) {
-    let selectedOrders = new Set(selectedOrderLabels);
+    let selectedOrders = new Set(selectedOrderIDs);
     selectedOrders.delete(event.target.id);
     dispatch(selectOrders(Array.from(selectedOrders)));
   }
 
   function removeStatus(event: any) {
-    let selectedStatuses = new Set(selectedStatusLabels);
+    let selectedStatuses = new Set(selectedStatusIDs);
     selectedStatuses.delete(event.target.id);
     dispatch(selectStatuses(Array.from(selectedStatuses)));
   }
 
   function buildOrderFilterView() {
     const filterV =
-      selectedOrderLabels.map((e: string, i) => {
+      selectedOrderIDs.map((e: string, i) => {
         return (
           <>
             <Badge
@@ -45,7 +47,11 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
                 textAlign: "left",
               }}
             >
-              {e}
+              {DictOrders.map((order) => {
+                if (order.id === e) {
+                  return order.value;
+                }
+              })}
               <small>
                 {" "}
                 <BsXLg
@@ -55,7 +61,7 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
                 />
               </small>
             </Badge>
-            {i != selectedOrderLabels.length - 1 ? (
+            {i != selectedOrderIDs.length - 1 ? (
               <i style={{ color: "#2680c2" }}>
                 <small> or </small>
               </i>
@@ -70,7 +76,7 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
 
   function buildStatusFIlterView() {
     const filterV =
-      selectedStatusLabels.map((e: string, i) => {
+      selectedStatusIDs.map((e: string, i) => {
         return (
           <>
             <Badge
@@ -84,7 +90,11 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
                 textAlign: "left",
               }}
             >
-              {e}
+              {DictStatuses.map((status) => {
+                if (status.id === e) {
+                  return status.value;
+                }
+              })}
               <small>
                 {" "}
                 <BsXLg
@@ -94,7 +104,7 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
                 />
               </small>
             </Badge>
-            {i != selectedStatusLabels.length - 1 ? (
+            {i != selectedStatusIDs.length - 1 ? (
               <i style={{ color: "#2680c2" }}>
                 <small> or </small>
               </i>

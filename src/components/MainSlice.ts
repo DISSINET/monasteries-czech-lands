@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface MainSlice {
-  selectedOrderLabels: Array<string>;
-  selectedStatusLabels: Array<string>;
+  selectedOrderIDs: Array<string>;
+  selectedStatusIDs: Array<string>;
   timeFilter: Array<number>;
 }
 
 const initialState: MainSlice = {
-  selectedOrderLabels: [],
-  selectedStatusLabels: [],
+  selectedOrderIDs: [],
+  selectedStatusIDs: [],
   timeFilter: [1000, 2023],
 };
 
@@ -18,11 +18,11 @@ export const mainSlice = createSlice({
   reducers: {
     selectOrders: (state, action: PayloadAction<Array<string>>) => {
       let newSelectedOrders = action.payload;
-      state.selectedOrderLabels = newSelectedOrders;
+      state.selectedOrderIDs = newSelectedOrders;
     },
     selectStatuses: (state, action: PayloadAction<Array<string>>) => {
       let newSelectedStatuses = action.payload;
-      state.selectedStatusLabels = newSelectedStatuses;
+      state.selectedStatusIDs = newSelectedStatuses;
     },
     setTimeFilter: (state, action: PayloadAction<Array<number>>) => {
       let newTimeFilter = action.payload;

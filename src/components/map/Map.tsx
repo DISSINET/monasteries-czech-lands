@@ -16,6 +16,12 @@ import MapScale from "./MapScale";
 const MapComponent = ({}): JSX.Element => {
   const mapState = useAppSelector((state) => state.map);
   const dispatch = useAppDispatch();
+  const selectedOrderIDs = useAppSelector(
+    (state) => state.main.selectedOrderIDs
+  );
+  const selectedStatusIDs = useAppSelector(
+    (state) => state.main.selectedStatusIDs
+  );
 
   function dispatchMapState(val: any) {
     dispatch(updateMapState(val));
@@ -49,7 +55,24 @@ const MapComponent = ({}): JSX.Element => {
     },
   });
 
-  function setVisibility() {}
+  function setVisibility(item: any) {
+    console.log(item);
+    //selectedOrderIDs
+    //selectedStatusIDs
+    //let itemStatuses
+    if (selectedOrderIDs.length === 0 && selectedStatusIDs.length === 0) {
+      return 1;
+    } else {
+    // TODO
+      let itemStatusMatch = 0;
+      let itemComMatch = 0;
+      item.communities.map((com: any) => {
+        if (selectedOrderIDs.includes(com.order)) {
+          itemComMatch = 1;
+        }
+      });
+    }
+  }
 
   function setColor(count: number): any {
     let colorScale = [
@@ -83,8 +106,8 @@ const MapComponent = ({}): JSX.Element => {
     getFillColor: (d) => setColor(d.communities_count as number),
     getLineColor: (d) => [255, 255, 255],
     // props added by DataFilterExtension
-    getFilterValue: (d: any) => d.communities_count,
-    filterRange: [1, 8],
+    getFilterValue: (d: any) => setVisibility(d),
+    filterRange: [1, 1],
 
     // Define extensions
     extensions: [new DataFilterExtension({ filterSize: 1 })],
