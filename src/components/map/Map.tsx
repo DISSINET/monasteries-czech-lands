@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { DataFilterExtension } from "@deck.gl/extensions/typed";
 import {
@@ -16,13 +16,17 @@ import MapScale from "./MapScale";
 
 const MapComponent = ({}): JSX.Element => {
   const mapState = useAppSelector((state) => state.map);
-  const dispatch = useAppDispatch();
   const selectedOrderIDs = useAppSelector(
     (state) => state.main.selectedOrderIDs
   );
   const selectedStatusIDs = useAppSelector(
     (state) => state.main.selectedStatusIDs
   );
+  const selectedMonastery = useAppSelector(
+    (state) => state.main.selectedMonastery
+  );
+
+  const dispatch = useAppDispatch();
 
   function dispatchMapState(val: any) {
     dispatch(updateMapState(val));
@@ -63,18 +67,10 @@ const MapComponent = ({}): JSX.Element => {
   function setVisibility(item: any) {
     //selectedOrderIDs
     //selectedStatusIDs
-    //let itemStatuses
     if (selectedOrderIDs.length === 0 && selectedStatusIDs.length === 0) {
       return 1;
     } else {
-      // TODO
-      let itemStatusMatch = 0;
-      let itemComMatch = 0;
-      item.communities.map((com: any) => {
-        if (selectedOrderIDs.includes(com.order)) {
-          itemComMatch = 1;
-        }
-      });
+      return 0;
     }
   }
 
@@ -111,13 +107,23 @@ const MapComponent = ({}): JSX.Element => {
     getLineColor: (d) => [255, 255, 255],
     // props added by DataFilterExtension
     getFilterValue: (d: any) => setVisibility(d),
+    // like useEffect <function>:<value change that triggers rerun>
+    updateTriggers: {
+      getFilterValue: [selectedOrderIDs, selectedStatusIDs],
+    },
     filterRange: [1, 1],
+    pickingRadius: 2,
 
     // Define extensions
     extensions: [new DataFilterExtension({ filterSize: 1 })],
 
     // On click
     onClick: (object) => object && dispatchSelectedMonastery(object.object),
+
+    // prevent Z-fighting in tilted view
+    parameters: {
+      depthTest: false,
+    },
   });
 
   const layers = [cityLevel, monasteries];
