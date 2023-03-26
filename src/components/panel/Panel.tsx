@@ -17,9 +17,11 @@ import { DictStatuses } from "../../shared/dictionaries/statuses";
 import { GoLocation } from "react-icons/go";
 import { BsCheckLg, BsListUl } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
-import { selectOrders, selectStatuses } from "./../MainSlice";
+import { selectOrders, selectStatuses, selectMonastery } from "./../MainSlice";
 import FilterView from "./FilterView";
 import TimeFilter from "./TimeSlider";
+import calculateDatation from "./../../utils/calculateDatation";
+import { Monastery } from "./../../types";
 
 //import legend from "./../../assets/legend.png";
 
@@ -83,6 +85,24 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
 
   function clearStatuses() {
     dispatch(selectStatuses([]));
+  }
+
+  function deselectMonastery() {
+    dispatch(selectMonastery({} as Monastery));
+  }
+
+  function getCommunityName(id: string) {
+    let comName = DictOrders.map((e) => {
+      return e.id === id ? e.value : "";
+    });
+    return comName;
+  }
+
+  function getStatusName(id: string) {
+    let stName = DictStatuses.map((e) => {
+      return e.id === id ? e.value : "";
+    });
+    return stName;
   }
 
   function filterControl(
@@ -250,7 +270,12 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         <div id="section3">
           <TimeFilter />
         </div>
-        <div id="section3">
+        <div
+          id="section4"
+          style={{
+            marginBottom: "60px",
+          }}
+        >
           {Object.keys(selectedMonastery).length !== 0 && (
             <Card>
               <Card.Header className="text-muted">
@@ -271,16 +296,49 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                         {selectedMonastery["geo"][0]}
                       </>
                     </small>
+                    <CloseButton
+                      aria-label="Hide"
+                      onClick={deselectMonastery}
+                      style={{
+                        position: "absolute",
+                        right: "10px",
+                        top: "10px",
+                      }}
+                    />{" "}
                   </small>
                 </span>
               </Card.Header>
               <Card.Body>
                 <Card.Title>{selectedMonastery["name"]}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
+                <Card.Subtitle className="mb-3 text-muted">
                   <small>{selectedMonastery["other_names"].join("; ")}</small>
                 </Card.Subtitle>
-                <Card.Text>Communities:</Card.Text>
-                <Card.Text>Statuses:</Card.Text>
+                <small>Communities:</small>
+                <ul>
+                  {selectedMonastery["communities"].map((com: any) => {
+                    return (
+                      <li>
+                        {getCommunityName(com["order"])}{" "}
+                        <small>
+                          <i>({calculateDatation.apply(null, com["time"])}) </i>
+                        </small>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <small>Statuses:</small>
+                <ul>
+                  {selectedMonastery["statuses"].map((st: any) => {
+                    return (
+                      <li>
+                        {getStatusName(st["status"])}{" "}
+                        <small>
+                          <i>({calculateDatation.apply(null, st["time"])}) </i>
+                        </small>
+                      </li>
+                    );
+                  })}
+                </ul>
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>
@@ -293,7 +351,18 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                             return (
                               <li>
                                 {src["title"]}{" "}
-                                {src["url"] ? <a href={src["url"]} title={src["url"]} target="_blank" > <BiLinkExternal /> </a> : "" }
+                                {src["url"] ? (
+                                  <a
+                                    href={src["url"]}
+                                    title={src["url"]}
+                                    target="_blank"
+                                  >
+                                    {" "}
+                                    <BiLinkExternal />{" "}
+                                  </a>
+                                ) : (
+                                  ""
+                                )}
                               </li>
                             );
                           })}

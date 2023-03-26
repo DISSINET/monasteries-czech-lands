@@ -29,7 +29,6 @@ const MapComponent = ({}): JSX.Element => {
   }
 
   function dispatchSelectedMonastery(mon: any) {
-    console.log(mon);
     dispatch(selectMonastery(mon));
   }
 
