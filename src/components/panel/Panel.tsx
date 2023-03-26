@@ -16,6 +16,7 @@ import { DictOrders } from "../../shared/dictionaries/orders";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
 import { GoLocation } from "react-icons/go";
 import { BsCheckLg, BsListUl } from "react-icons/bs";
+import { BiLinkExternal } from "react-icons/bi";
 import { selectOrders, selectStatuses } from "./../MainSlice";
 import FilterView from "./FilterView";
 import TimeFilter from "./TimeSlider";
@@ -83,7 +84,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   function clearStatuses() {
     dispatch(selectStatuses([]));
   }
-  
+
   function filterControl(
     label: string,
     action: any = null,
@@ -262,7 +263,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                     );
                   }}
                 >
-                  <GoLocation />
+                  <GoLocation />{" "}
                   <small>
                     <small>
                       <>
@@ -276,14 +277,30 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
               <Card.Body>
                 <Card.Title>{selectedMonastery["name"]}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">
-                  Card Subtitle
+                  <small>{selectedMonastery["other_names"].join("; ")}</small>
                 </Card.Subtitle>
                 <Card.Text>Communities:</Card.Text>
                 <Card.Text>Statuses:</Card.Text>
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>
-                  <small>Sources:</small>
+                  <>
+                    <small>
+                      Sources:
+                      <small>
+                        <ul>
+                          {selectedMonastery["sources"].map((src: any) => {
+                            return (
+                              <li>
+                                {src["title"]}{" "}
+                                {src["url"] ? <a href={src["url"]} title={src["url"]} target="_blank" > <BiLinkExternal /> </a> : "" }
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </small>
+                    </small>
+                  </>
                 </ListGroup.Item>
               </ListGroup>
             </Card>

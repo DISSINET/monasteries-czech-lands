@@ -1,6 +1,7 @@
 export interface Monastery {
   name: string;
   geo: Array<Number>;
-  [commmunities: string]: {
-  };
+  other_names: Array<String>;
+  commmunities: {};
+  sources: Array<Object>;
 }
