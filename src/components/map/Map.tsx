@@ -115,6 +115,9 @@ const MapComponent = ({}): JSX.Element => {
 
     // Define extensions
     extensions: [new DataFilterExtension({ filterSize: 1 })],
+
+    // On click
+    onClick: (object) => object && dispatchSelectedMonastery(object.object),
   });
 
   const layers = [cityLevel, monasteries];
@@ -125,7 +128,6 @@ const MapComponent = ({}): JSX.Element => {
       <DeckGL
         viewState={mapState}
         onViewStateChange={(e: any) => dispatchMapState(e.viewState)}
-        onClick={(object) => object && dispatchSelectedMonastery(object.object)}
         controller={true}
         layers={layers}
         getTooltip={({ object }) => object && `${object.name}`}
