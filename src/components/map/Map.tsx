@@ -29,6 +29,7 @@ const MapComponent = ({}): JSX.Element => {
   }
 
   function dispatchSelectedMonastery(mon: any) {
+    console.log(mon);
     dispatch(selectMonastery(mon));
   }
 
@@ -80,8 +81,8 @@ const MapComponent = ({}): JSX.Element => {
 
   function setColor(count: number): any {
     let colorScale = [
-      [0, 0, 255],
-      [0, 0, 255],
+      [51, 51, 255],
+      [51, 51, 255],
       [0, 0, 180],
       [0, 0, 180],
       [0, 0, 180],

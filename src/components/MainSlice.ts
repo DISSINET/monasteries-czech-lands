@@ -1,17 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Monastery } from "./../types";
 
 export interface MainSlice {
   selectedOrderIDs: Array<string>;
   selectedStatusIDs: Array<string>;
   timeFilter: Array<number>;
-  selectedMonastery: Object;
+  selectedMonastery: Monastery;
 }
 
 const initialState: MainSlice = {
   selectedOrderIDs: [],
   selectedStatusIDs: [],
   timeFilter: [1000, 2023],
-  selectedMonastery: {},
+  selectedMonastery: <Monastery>{},
 };
 
 export const mainSlice = createSlice({
@@ -30,7 +31,7 @@ export const mainSlice = createSlice({
       let newTimeFilter = action.payload;
       state.timeFilter = newTimeFilter;
     },
-    selectMonastery: (state, action: PayloadAction<Object>) => {
+    selectMonastery: (state, action: PayloadAction<Monastery>) => {
       let newSelectedMonastery = action.payload;
       state.selectedMonastery = newSelectedMonastery;
     },

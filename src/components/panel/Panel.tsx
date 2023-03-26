@@ -14,6 +14,7 @@ import {
 } from "react-bootstrap";
 import { DictOrders } from "../../shared/dictionaries/orders";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
+import { GoLocation } from "react-icons/go";
 import { BsCheckLg, BsListUl } from "react-icons/bs";
 import { selectOrders, selectStatuses } from "./../MainSlice";
 import FilterView from "./FilterView";
@@ -82,7 +83,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   function clearStatuses() {
     dispatch(selectStatuses([]));
   }
-
+  
   function filterControl(
     label: string,
     action: any = null,
@@ -251,13 +252,26 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         <div id="section3">
           {Object.keys(selectedMonastery).length !== 0 && (
             <Card>
-              <Card.Header>
-                <small className="text-muted">
-                  Selected location{"  "}
+              <Card.Header className="text-muted">
+                <span
+                  style={{ cursor: "pointer" }}
+                  title="Copy coordinates"
+                  onClick={() => {
+                    navigator.clipboard.writeText(
+                      `${selectedMonastery["geo"][1]}, ${selectedMonastery["geo"][0]}`
+                    );
+                  }}
+                >
+                  <GoLocation />
                   <small>
-                    {selectedMonastery["geo"][0]} {selectedMonastery["geo"][1]}
+                    <small>
+                      <>
+                        {selectedMonastery["geo"][1]},
+                        {selectedMonastery["geo"][0]}
+                      </>
+                    </small>
                   </small>
-                </small>
+                </span>
               </Card.Header>
               <Card.Body>
                 <Card.Title>{selectedMonastery["name"]}</Card.Title>
