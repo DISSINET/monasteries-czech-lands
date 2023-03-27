@@ -65,13 +65,23 @@ const MapComponent = ({}): JSX.Element => {
   });
 
   function setVisibility(item: any) {
-    //selectedOrderIDs
-    //selectedStatusIDs
-    if (selectedOrderIDs.length === 0 && selectedStatusIDs.length === 0) {
-      return 1;
+    let is_comm = [];
+    let is_stat = [];
+    if (selectedOrderIDs.length === 0) {
+      is_comm.push(1);
     } else {
-      return 0;
+      is_comm = item.communities.map((c: any) => {
+        return selectedOrderIDs.includes(c.order) ? 1 : 0;
+      });
     }
+    if (selectedStatusIDs.length === 0) {
+      is_stat.push(1);
+    } else {
+      is_stat = item.statuses.map((c: any) => {
+        return selectedStatusIDs.includes(c.status) ? 1 : 0;
+      });
+    }
+    return is_comm.includes(1) && is_stat.includes(1) ? 1 : 0;
   }
 
   function setColor(count: number): any {
@@ -105,6 +115,9 @@ const MapComponent = ({}): JSX.Element => {
     lineWidthMinPixels: 1,
     getFillColor: (d) => setColor(d.communities_count as number),
     getLineColor: (d) => [255, 255, 255],
+    // hover buffer around object
+    pickingRadius: 2,
+
     // props added by DataFilterExtension
     getFilterValue: (d: any) => setVisibility(d),
     // like useEffect <function>:<value change that triggers rerun>
@@ -112,7 +125,6 @@ const MapComponent = ({}): JSX.Element => {
       getFilterValue: [selectedOrderIDs, selectedStatusIDs],
     },
     filterRange: [1, 1],
-    pickingRadius: 2,
 
     // Define extensions
     extensions: [new DataFilterExtension({ filterSize: 1 })],
