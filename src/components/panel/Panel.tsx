@@ -28,14 +28,6 @@ import { Monastery } from "./../../types";
 type PanelComponentProps = {};
 
 const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
-  useEffect(
-    () => {
-      //update function
-    },
-    [
-      // registered constants
-    ]
-  );
 
   const dispatch = useAppDispatch();
 
@@ -50,11 +42,9 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   const selectedOrderIDs = useAppSelector(
     (state) => state.main.selectedOrderIDs
   );
-
   const selectedStatusIDs = useAppSelector(
     (state) => state.main.selectedStatusIDs
   );
-
   const selectedMonastery = useAppSelector(
     (state) => state.main.selectedMonastery
   );

@@ -1,11 +1,7 @@
 import { useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { DataFilterExtension } from "@deck.gl/extensions/typed";
-import {
-  BitmapLayer,
-  ScatterplotLayer,
-  GeoJsonLayer,
-} from "@deck.gl/layers/typed";
+import { BitmapLayer, ScatterplotLayer } from "@deck.gl/layers/typed";
 import locations from "../../data/monasteries.json";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
@@ -25,6 +21,7 @@ const MapComponent = ({}): JSX.Element => {
   const selectedMonastery = useAppSelector(
     (state) => state.main.selectedMonastery
   );
+  const timeFilter = useAppSelector((state) => state.main.timeFilter);
 
   const dispatch = useAppDispatch();
 
@@ -68,19 +65,32 @@ const MapComponent = ({}): JSX.Element => {
     let is_comm = [];
     let is_stat = [];
     if (selectedOrderIDs.length === 0) {
-      is_comm.push(1);
+      is_comm = item.communities.map((c: any) => {
+        return c.time[0] >= timeFilter[0] && c.time[1] <= timeFilter[1] ? 1 : 0;
+      });
     } else {
       is_comm = item.communities.map((c: any) => {
-        return selectedOrderIDs.includes(c.order) ? 1 : 0;
+        return selectedOrderIDs.includes(c.order) &&
+          c.time[0] >= timeFilter[0] &&
+          c.time[1] <= timeFilter[1]
+          ? 1
+          : 0;
       });
     }
     if (selectedStatusIDs.length === 0) {
-      is_stat.push(1);
+      is_stat = item.statuses.map((c: any) => {
+        return c.time[0] >= timeFilter[0] && c.time[1] <= timeFilter[1] ? 1 : 0;
+      });
     } else {
       is_stat = item.statuses.map((c: any) => {
-        return selectedStatusIDs.includes(c.status) ? 1 : 0;
+        return selectedStatusIDs.includes(c.status) &&
+          c.time[0] >= timeFilter[0] &&
+          c.time[1] <= timeFilter[1]
+          ? 1
+          : 0;
       });
     }
+    console.log(item);
     return is_comm.includes(1) && is_stat.includes(1) ? 1 : 0;
   }
 
@@ -122,7 +132,7 @@ const MapComponent = ({}): JSX.Element => {
     getFilterValue: (d: any) => setVisibility(d),
     // like useEffect <function>:<value change that triggers rerun>
     updateTriggers: {
-      getFilterValue: [selectedOrderIDs, selectedStatusIDs],
+      getFilterValue: [selectedOrderIDs, selectedStatusIDs, timeFilter],
     },
     filterRange: [1, 1],
 
