@@ -90,7 +90,6 @@ const MapComponent = ({}): JSX.Element => {
           : 0;
       });
     }
-    console.log(item);
     return is_comm.includes(1) && is_stat.includes(1) ? 1 : 0;
   }
 

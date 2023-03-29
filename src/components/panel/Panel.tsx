@@ -28,7 +28,6 @@ import { Monastery } from "./../../types";
 type PanelComponentProps = {};
 
 const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
-
   const dispatch = useAppDispatch();
 
   const [infoModal, toggleInfoModal] = useState(false);
@@ -338,23 +337,28 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                       <small>
                         <ul>
                           {selectedMonastery["sources"].map((src: any) => {
-                            return (
-                              <li>
-                                {src["title"]}{" "}
-                                {src["url"] ? (
-                                  <a
-                                    href={src["url"]}
-                                    title={src["url"]}
-                                    target="_blank"
-                                  >
-                                    {" "}
-                                    <BiLinkExternal />{" "}
-                                  </a>
-                                ) : (
-                                  ""
-                                )}
-                              </li>
-                            );
+                            if (
+                              src["title"].includes("Encyklopedie") ||
+                              src["title"].includes("Buben")
+                            ) {
+                              return (
+                                <li>
+                                  {src["title"]}{" "}
+                                  {src["url"] ? (
+                                    <a
+                                      href={src["url"]}
+                                      title={src["url"]}
+                                      target="_blank"
+                                    >
+                                      {" "}
+                                      <BiLinkExternal />{" "}
+                                    </a>
+                                  ) : (
+                                    ""
+                                  )}
+                                </li>
+                              );
+                            }
                           })}
                         </ul>
                       </small>
