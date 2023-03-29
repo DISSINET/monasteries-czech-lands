@@ -175,23 +175,90 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
             <Offcanvas.Body>
               <ListGroup>
                 {DictOrders.map((e) => {
-                  return (
-                    <ListGroup.Item
-                      id={e.id}
-                      action
-                      onClick={() => selectOrder(e.id)}
-                    >
-                      <>
-                        <BsCheckLg
-                          style={{
-                            color: "#2680c2",
-                            opacity: selectedOrderIDs.includes(e.id) ? 1 : 0,
-                          }}
-                        />{" "}
-                        {e.value}
-                      </>
-                    </ListGroup.Item>
-                  );
+                  // only CZ orders
+                  if (
+                    [
+                      "0",
+                      "3",
+                      "10",
+                      "12",
+                      "15",
+                      "17",
+                      "18",
+                      "19",
+                      "20",
+                      "22",
+                      "23",
+                      "26",
+                      "27",
+                      "28",
+                      "29",
+                      "31",
+                      "33",
+                      "34",
+                      "36",
+                      "38",
+                      "41",
+                      "47",
+                      "49",
+                      "50",
+                      "51",
+                      "52",
+                      "53",
+                      "54",
+                      "55",
+                      "56",
+                      "57",
+                      "58",
+                      "59",
+                      "60",
+                      "61",
+                      "62",
+                      "63",
+                      "64",
+                      "65",
+                      "66",
+                      "67",
+                      "68",
+                      "69",
+                      "70",
+                      "71",
+                      "72",
+                      "73",
+                      "74",
+                      "75",
+                      "76",
+                      "78",
+                      "79",
+                      "80",
+                      "81",
+                      "82",
+                      "83",
+                      "84",
+                      "85",
+                      "86",
+                      "88",
+                      "100",
+                    ].includes(e.id)
+                  ) {
+                    return (
+                      <ListGroup.Item
+                        id={e.id}
+                        action
+                        onClick={() => selectOrder(e.id)}
+                      >
+                        <>
+                          <BsCheckLg
+                            style={{
+                              color: "#2680c2",
+                              opacity: selectedOrderIDs.includes(e.id) ? 1 : 0,
+                            }}
+                          />{" "}
+                          {e.value}
+                        </>
+                      </ListGroup.Item>
+                    );
+                  }
                 })}
               </ListGroup>
             </Offcanvas.Body>

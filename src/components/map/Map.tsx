@@ -125,7 +125,8 @@ const MapComponent = ({}): JSX.Element => {
     getFillColor: (d) => setColor(d.communities_count as number),
     getLineColor: (d) => [255, 255, 255],
     // hover buffer around object
-    pickingRadius: 2,
+    pickingRadius: 50, //TODO doesnt work
+    getCursor: ({ isHovering } :any) => (isHovering ? "pointer" : "arrow"),
 
     // props added by DataFilterExtension
     getFilterValue: (d: any) => setVisibility(d),
@@ -158,6 +159,7 @@ const MapComponent = ({}): JSX.Element => {
         controller={true}
         layers={layers}
         getTooltip={({ object }) => object && `${object.name}`}
+        getCursor={({ isDragging }) => (isDragging ? "arrow" : "grab")}
       />
     </div>
   );
