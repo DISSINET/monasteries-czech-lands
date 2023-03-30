@@ -141,9 +141,16 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         }}
       >
         <div id="section1">
-          <InputGroup size="sm" style={{ marginBottom: "6px" }}>
+          <span>
+            <b>Filter locations</b>
+          </span>
+          <br />
+          <InputGroup
+            size="sm"
+            style={{ marginBottom: "6px", marginTop: "8px" }}
+          >
             {filterControl(
-              "Order",
+              "by Order",
               handleShowOrders,
               selectedOrderIDs,
               clearOrders
@@ -266,9 +273,12 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         </div>
 
         <div id="section2">
-          <InputGroup size="sm" style={{ marginBottom: "6px" }}>
+          <InputGroup
+            size="sm"
+            style={{ marginTop: "-8px", marginBottom: "6px" }}
+          >
             {filterControl(
-              "Status",
+              "by Status",
               handleShowStatuses,
               selectedStatusIDs,
               clearStatuses
@@ -323,17 +333,17 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
           </Offcanvas>
         </div>
 
-        <div id="section3">
+        <div id="section3" style={{ marginTop: "-12px" }}>
           <TimeFilter />
         </div>
         <div
           id="section4"
-          style={{
-            marginBottom: "60px",
-          }}
         >
-          {Object.keys(selectedMonastery).length !== 0 && (
-            <Card>
+          <span>
+            <b>Location details</b>
+          </span>
+          {Object.keys(selectedMonastery).length !== 0 ? (
+            <Card style={{ marginTop: "8px" }}>
               <Card.Header className="text-muted">
                 <span
                   style={{ cursor: "pointer" }}
@@ -434,8 +444,29 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 </ListGroup.Item>
               </ListGroup>
             </Card>
+          ) : (
+            <>
+              <br />
+              <span style={{ marginTop: "8px" }} className="text-muted">
+                <small>
+                  <i>Select location from the map</i>
+                </small>
+              </span>
+            </>
           )}
         </div>
+        <div
+          id="section5"
+          style={{
+            marginBottom: "60px",
+          }}
+        >
+          <span>
+            <b>Legend</b>
+          </span>
+          </div>
+
+
         <div
           className="pt-12"
           style={{
