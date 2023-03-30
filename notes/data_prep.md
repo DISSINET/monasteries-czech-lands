@@ -16,7 +16,7 @@ from rethinkdb import RethinkDB
 r = RethinkDB()
 r.connect( "localhost", 27015, "monasteries").repl()
 
-result = r.table('records').pluck('monastery_id', {'components': {'data', 'type'}}).group('monastery_id').map(lambda mon:
+result = r.table('records').filter({'source':'705d3824-fc8c-41df-a336-dcc7d596dc97'}).pluck('monastery_id', {'components': {'data', 'type'}}).group('monastery_id').map(lambda mon:
      {
      'id': mon['monastery_id'],
      'other_names': mon['components'].filter({'type':'1'}).concat_map(lambda comp:                   [comp['data']['value']]),
