@@ -62,30 +62,40 @@ const MapComponent = ({}): JSX.Element => {
   });
 
   function setVisibility(item: any) {
+    // we look for overlapping interval
+    // for intervals [a,b], [c,d]:
+    // b > c && a < d
+
     let is_comm = [];
     let is_stat = [];
     if (selectedOrderIDs.length === 0) {
       is_comm = item.communities.map((c: any) => {
-        return c.time[0] >= timeFilter[0] && c.time[1] <= timeFilter[1] ? 1 : 0;
+        return (c.time[2] || c.time[3]) >= timeFilter[0] &&
+          (c.time[0] || c.time[1]) <= timeFilter[1]
+          ? 1
+          : 0;
       });
     } else {
       is_comm = item.communities.map((c: any) => {
         return selectedOrderIDs.includes(c.order) &&
-          c.time[0] >= timeFilter[0] &&
-          c.time[1] <= timeFilter[1]
+          (c.time[2] || c.time[3]) >= timeFilter[0] &&
+          (c.time[0] || c.time[1]) <= timeFilter[1]
           ? 1
           : 0;
       });
     }
     if (selectedStatusIDs.length === 0) {
       is_stat = item.statuses.map((c: any) => {
-        return c.time[0] >= timeFilter[0] && c.time[1] <= timeFilter[1] ? 1 : 0;
+        return (c.time[2] || c.time[3]) >= timeFilter[0] &&
+          (c.time[0] || c.time[1]) <= timeFilter[1]
+          ? 1
+          : 0;
       });
     } else {
       is_stat = item.statuses.map((c: any) => {
         return selectedStatusIDs.includes(c.status) &&
-          c.time[0] >= timeFilter[0] &&
-          c.time[1] <= timeFilter[1]
+          (c.time[2] || c.time[3]) >= timeFilter[0] &&
+          (c.time[0] || c.time[1]) <= timeFilter[1]
           ? 1
           : 0;
       });
@@ -126,7 +136,7 @@ const MapComponent = ({}): JSX.Element => {
     getLineColor: (d) => [255, 255, 255],
     // hover buffer around object
     pickingRadius: 50, //TODO doesnt work
-    getCursor: ({ isHovering } :any) => (isHovering ? "pointer" : "arrow"),
+    getCursor: ({ isHovering }: any) => (isHovering ? "pointer" : "arrow"),
 
     // props added by DataFilterExtension
     getFilterValue: (d: any) => setVisibility(d),

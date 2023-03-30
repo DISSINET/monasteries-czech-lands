@@ -336,9 +336,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         <div id="section3" style={{ marginTop: "-12px" }}>
           <TimeFilter />
         </div>
-        <div
-          id="section4"
-        >
+        <div id="section4">
           <span>
             <b>Location details</b>
           </span>
@@ -464,8 +462,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
           <span>
             <b>Legend</b>
           </span>
-          </div>
-
+        </div>
 
         <div
           className="pt-12"
