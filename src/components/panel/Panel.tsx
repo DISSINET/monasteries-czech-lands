@@ -10,6 +10,7 @@ import {
   Offcanvas,
   ListGroup,
   Row,
+  Col,
   Card,
 } from "react-bootstrap";
 import { DictOrders } from "../../shared/dictionaries/orders";
@@ -254,15 +255,19 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                         action
                         onClick={() => selectOrder(e.id)}
                       >
-                        <>
-                          <BsCheckLg
-                            style={{
-                              color: "#2680c2",
-                              opacity: selectedOrderIDs.includes(e.id) ? 1 : 0,
-                            }}
-                          />{" "}
-                          {e.value}
-                        </>
+                        <Row>
+                          <Col xs="1">
+                            <BsCheckLg
+                              style={{
+                                color: "#2680c2",
+                                opacity: selectedOrderIDs.includes(e.id)
+                                  ? 1
+                                  : 0,
+                              }}
+                            />{" "}
+                          </Col>
+                          <Col>{e.value}</Col>
+                        </Row>
                       </ListGroup.Item>
                     );
                   }
