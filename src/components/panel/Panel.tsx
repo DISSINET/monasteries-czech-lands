@@ -493,7 +493,12 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
             <CloseButton
               aria-label="Hide"
               onClick={handleInfoModalClose}
-              style={{ position: "absolute", right: "1rem", top: "1rem" }}
+              style={{
+                position: "absolute",
+                right: "1rem",
+                top: "1rem",
+                backgroundColor: "white",
+              }}
             />{" "}
             <Modal.Body>Project annotation TBA</Modal.Body>
             <Modal.Footer style={{ background: "#b8c2cc" }}></Modal.Footer>
