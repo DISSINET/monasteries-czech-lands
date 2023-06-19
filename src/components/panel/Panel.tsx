@@ -13,7 +13,7 @@ import {
   Col,
   Card,
 } from "react-bootstrap";
-import { DictOrders } from "../../shared/dictionaries/orders";
+import { DictOrdersExtended } from "../../shared/dictionaries/orders_extended";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
 import { GoLocation } from "react-icons/go";
 import { BsCheckLg, BsListUl } from "react-icons/bs";
@@ -82,8 +82,8 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   }
 
   function getCommunityName(id: string) {
-    let comName = DictOrders.map((e) => {
-      return e.id === id ? e.value : "";
+    let comName = DictOrdersExtended.map((e) => {
+      return e.ID.toString() === id ? e.label : "";
     });
     return comName;
   }
@@ -214,7 +214,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <ListGroup>
-                {DictOrders.map((e) => {
+                {DictOrdersExtended.map((e) => {
                   // only CZ orders
                   if (
                     [
@@ -279,26 +279,26 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                       "86",
                       "88",
                       "100",
-                    ].includes(e.id)
+                    ].includes(e.ID.toString())
                   ) {
                     return (
                       <ListGroup.Item
-                        id={e.id}
+                        id={e.ID.toString()}
                         action
-                        onClick={() => selectOrder(e.id)}
+                        onClick={() => selectOrder(e.ID.toString())}
                       >
                         <Row>
                           <Col xs="1">
                             <BsCheckLg
                               style={{
                                 color: "#2680c2",
-                                opacity: selectedOrderIDs.includes(e.id)
+                                opacity: selectedOrderIDs.includes(e.ID.toString())
                                   ? 1
                                   : 0,
                               }}
                             />{" "}
                           </Col>
-                          <Col>{e.value}</Col>
+                          <Col>{e.label}</Col>
                         </Row>
                       </ListGroup.Item>
                     );
