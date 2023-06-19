@@ -161,7 +161,7 @@ export var DictOrders = [
   },
   {
     id: "66",
-    value: "Friar Minor",
+    value: "Conventual Franciscans",
     alternatives: [],
   },
   { id: "11", value: "Grandmontines", alternatives: [] },
@@ -286,7 +286,7 @@ export var DictOrders = [
   },
   {
     id: "53",
-    value: "Sacramentions",
+    value: "Sacramentinos",
     alternatives: [],
   },
   {
