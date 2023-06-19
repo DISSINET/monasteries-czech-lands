@@ -95,6 +95,38 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     return stName;
   }
 
+  function listCommunities(com: any): any {
+    let sortedCom = [...com].sort((a: any, b: any) => a.time[0] - b.time[0]);
+    let comList = sortedCom.map((com: any) => {
+      return (
+        <li>
+          {getCommunityName(com["order"])}{" "}
+          <small>
+            <i>({calculateDatation.apply(null, com["time"])}) </i>
+          </small>
+        </li>
+      );
+    });
+    return comList;
+  }
+
+  function listStatuses(status: any): any {
+    let sortedStatus = [...status].sort(
+      (a: any, b: any) => a.time[0] - b.time[0]
+    );
+    let statusList = sortedStatus.map((st: any) => {
+      return (
+        <li>
+          {getStatusName(st["status"])}{" "}
+          <small>
+            <i>({calculateDatation.apply(null, st["time"])}) </i>
+          </small>
+        </li>
+      );
+    });
+    return statusList;
+  }
+
   function filterControl(
     label: string,
     action: any = null,
@@ -383,31 +415,9 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                   <small>{selectedMonastery["other_names"].join("; ")}</small>
                 </Card.Subtitle>
                 <small>Communities:</small>
-                <ul>
-                  {selectedMonastery["communities"].map((com: any) => {
-                    return (
-                      <li>
-                        {getCommunityName(com["order"])}{" "}
-                        <small>
-                          <i>({calculateDatation.apply(null, com["time"])}) </i>
-                        </small>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <ul>{listCommunities(selectedMonastery["communities"])}</ul>
                 <small>Statuses:</small>
-                <ul>
-                  {selectedMonastery["statuses"].map((st: any) => {
-                    return (
-                      <li>
-                        {getStatusName(st["status"])}{" "}
-                        <small>
-                          <i>({calculateDatation.apply(null, st["time"])}) </i>
-                        </small>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <ul>{listStatuses(selectedMonastery["statuses"])}</ul>
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>

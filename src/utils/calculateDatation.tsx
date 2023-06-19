@@ -4,7 +4,6 @@ export default function calculateDatation(
   yepq: number | boolean,
   yeaq: number | boolean
 ) {
-  console.log(yspq, ysaq, yepq, yeaq);
   if (yspq == false) {
     yspq = ysaq;
   }
