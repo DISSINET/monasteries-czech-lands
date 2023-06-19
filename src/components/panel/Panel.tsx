@@ -22,6 +22,7 @@ import { selectOrders, selectStatuses, selectMonastery } from "./../MainSlice";
 import FilterView from "./FilterView";
 import TimeFilter from "./TimeSlider";
 import calculateDatation from "./../../utils/calculateDatation";
+import treatMonasteryName from "./../../utils/treatMonasteryName";
 import { Monastery } from "./../../types";
 
 //import legend from "./../../assets/legend.png";
@@ -292,7 +293,9 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                             <BsCheckLg
                               style={{
                                 color: "#2680c2",
-                                opacity: selectedOrderIDs.includes(e.ID.toString())
+                                opacity: selectedOrderIDs.includes(
+                                  e.ID.toString()
+                                )
                                   ? 1
                                   : 0,
                               }}
@@ -410,7 +413,12 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 </span>
               </Card.Header>
               <Card.Body>
-                <Card.Title>{selectedMonastery["name"]}</Card.Title>
+                <Card.Title>
+                  {treatMonasteryName(
+                    selectedMonastery["name"],
+                    selectedMonastery["communities"]
+                  )}
+                </Card.Title>
                 <Card.Subtitle className="mb-3 text-muted">
                   <small>{selectedMonastery["other_names"].join("; ")}</small>
                 </Card.Subtitle>

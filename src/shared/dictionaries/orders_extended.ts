@@ -2419,5 +2419,6 @@ export var DictOrdersExtended = [
     image: null,
     note: null,
   },
+  { ID: "100", label: "other", alternatives: [] },
+  { ID: "0", label: "unknown", alternatives: [""] },
 ];
-
