@@ -135,10 +135,7 @@ const MapComponent = ({}): JSX.Element => {
     getFillColor: (d) => setColor(d.communities_count as number),
     getLineColor: (d) => [255, 255, 255],
     // hover buffer around object
-    pickingRadius: 50, //TODO doesnt work
-    getCursor: ({ isDragging, isHovering }) =>
-      isDragging ? "grabbing" : isHovering ? "pointer" : "arrow",
-
+    pickingRadius: 50, 
     // props added by DataFilterExtension
     getFilterValue: (d: any) => setVisibility(d),
     // like useEffect <function>:<value change that triggers rerun>

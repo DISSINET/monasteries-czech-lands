@@ -486,6 +486,33 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         >
           <span>
             <b>Legend</b>
+            <br />
+            <small>Monasteries by the number of communites:</small>
+            <br />
+            <small>
+              {" "}
+              <div
+                className="circle"
+                style={{ background: "rgb(51, 51, 255)" }}
+              ></div>{" "}
+              <small style={{ float: "left" }}>up to 3</small>{" "}
+            </small>
+            <small>
+              {" "}
+              <div
+                className="circle"
+                style={{ background: "rgb(0, 0, 180)" }}
+              ></div>{" "}
+              <small style={{ float: "left" }}>3 to 5</small>{" "}
+            </small>
+            <small>
+              {" "}
+              <div
+                className="circle"
+                style={{ background: "rgb(0, 0, 10)" }}
+              ></div>{" "}
+              <small style={{ float: "left" }}>6 and more</small>{" "}
+            </small>
           </span>
         </div>
 
