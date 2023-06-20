@@ -9,7 +9,7 @@ export default function treatMonasteryName(
   return `${name.split("-")[0]} – ${comNames.join(", ")}`;
 }
 
-function onlyUnique(value, index, array) {
+function onlyUnique(value:any, index:any, array:any) {
   return array.indexOf(value) === index;
 }
 
