@@ -50,6 +50,8 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     (state) => state.main.selectedMonastery
   );
 
+  const now = new Date();
+
   function selectOrder(selectedOrder: string) {
     let selectedOrders = new Set(selectedOrderIDs);
     if (selectedOrders.has(selectedOrder)) {
@@ -509,7 +511,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
           <Modal
             show={infoModal}
             onHide={handleInfoModalClose}
-            size="lg"
+            size="xl"
             centered
           >
             <Hero />
@@ -523,7 +525,129 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 backgroundColor: "white",
               }}
             />{" "}
-            <Modal.Body>Project annotation TBA</Modal.Body>
+            <Modal.Body>
+              <p>
+                This interactive map application presents{" "}
+                <b>
+                  the most complete available digital data set of Christian
+                  religious houses in the Czech lands
+                </b>{" "}
+                from the beginnings up to the present day. The data were
+                manually compiled on the basis of the extensive, so far
+                nine-volume <b>encyclopedia by Milan Buben</b>,{" "}
+                <i>
+                  Encyklopedie řádů, kongregací a řeholních společností
+                  katolické církve v českých zemích
+                </i>
+                .
+              </p>
+              <p>
+                The map covers <b>782 records</b> and thus represents a very
+                comprehensive resource on the development of Christian monastic
+                life in the Czech lands. However, a crucial gap is the{" "}
+                <b>absence of female religious houses</b>, because the volume on
+                those has not yet been published. Female houses are thus covered
+                only insofar as they were described as part of a record in the
+                hitherto published volumes.
+              </p>
+              <p>
+                The map allows users to explore{" "}
+                <b>monasteries and other religious houses</b> throughout history
+                and relate the data points to other relevant spatial and
+                historical datasets. The records can be
+                <b>filtered</b> by <b>religious order</b> (Benedictines,
+                Jesuites, etc.),
+                <b>status</b> (abbey, priory, etc.) and <b>time</b> (for
+                instance, only showing monasteries which were in place in the
+                medieval period).
+              </p>
+              <p>
+                Each <b>record</b> is accompanied by an <b>info box</b>, which
+                lists the <b>names</b>
+                under which the religious house is known, the <b>
+                  communities
+                </b>{" "}
+                which lived in that religious house (order and time interval),
+                and the changing <b>status</b> of the religious house. The info
+                box also allows the copying of <b>geographic coordinates</b>.
+                Finally, a vast proportion of the records are complemented with{" "}
+                <b>original photographic documentation</b> of the present state
+                of the building (or, in the case of unpreserved buildings, the
+                location).
+              </p>
+              <ul style={{ listStyle: "none" }}>
+                <li>
+                  <span>
+                    <i className="mx-2 icon icon-book" />
+                  </span>
+                  <span>
+                    Data source: Milan Buben, Encyklopedie řádů, kongregací a
+                    řeholních společností katolické církve v českých zemích I-IV
+                    (full citation below).
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <i className="mx-2 icon icon-layer-group" />
+                  </span>
+                  <span>Data: Hana Hořínková</span>
+                </li>
+                <li>
+                  <span>
+                    <i className="mx-2 icon icon-drafting-compass" />
+                  </span>
+                  <span>
+                    Map:{" "}
+                    <a
+                      href="https://pondrejk.eu/"
+                      title="personal portfolio page"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Peter Ondrejka
+                    </a>
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    <i className="mx-2 icon icon-binoculars" />
+                  </span>
+                  <span>Dataset design and supervision: David Zbíral</span>
+                </li>
+              </ul>
+              <p>
+                Acknowledgements
+                <br /> We are immensely grateful to Milan Buben for his kind
+                permission to use his encyclopedia for compiling the dataset
+                presented in this interactive map application. Any errors made
+                in the process of compiling and structuring the data into a
+                digital dataset, as well as any errors in the coordinates,
+                remain solely our responsibility.
+              </p>
+              <p>
+                Recommended citation: Hořínková, Hana; Ondrejka, Peter; Zbíral,
+                David (2023). Religious houses in the Czech Lands (v. 0.2.0).{" "}
+                <i>Dissident Networks Project (DISSINET)</i>. Retrieved{" "}
+                {now.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}{" "}
+                from{" "}
+                <a href="https://dissinet.cz/maps/monasteries-czech-lands/">
+                  https://dissinet.cz/maps/monasteries-czech-lands/
+                </a>
+                . <br />
+                Whenever citing this map and dataset, also cite the original
+                data source:
+                <br /> Buben, Milan (2002–2018).{" "}
+                <i>
+                  Encyklopedie řádů, kongregací a řeholních společností
+                  katolické církve v českých zemích I, II/1-2, III/1-4, IV/1-2
+                </i>
+                . Praha: Libri.
+              </p>
+            </Modal.Body>
             <Modal.Footer style={{ background: "#b8c2cc" }}></Modal.Footer>
           </Modal>
         </div>
