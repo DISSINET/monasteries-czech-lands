@@ -12,6 +12,7 @@ import {
   Row,
   Col,
   Card,
+  Carousel,
 } from "react-bootstrap";
 import { DictOrdersExtended } from "../../shared/dictionaries/orders_extended";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
@@ -204,6 +205,23 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         ) : (
           ""
         )}
+      </>
+    );
+  }
+
+  function buildPhotoCarousel() {
+    return (
+      <>
+        <small>Photographs:</small>
+        <Carousel indicators={false}>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={require("./../../photos/006bc357-c24e-41f4-a7ca-057b4040b879_Bratronice-verbisté/Bratronice_Verbisté_30.04.2023.jpg")}
+              alt="First slide"
+            />
+          </Carousel.Item>
+        </Carousel>
       </>
     );
   }
@@ -570,6 +588,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 <small>Statuses:</small>
                 <ul>{listStatuses(selectedMonastery["statuses"])}</ul>
                 {listDedications(selectedMonastery)}
+                {buildPhotoCarousel()}
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>
