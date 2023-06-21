@@ -130,6 +130,23 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     return statusList;
   }
 
+  function listDedications(dedication: any): any {
+    let sortedDed = [...dedication].sort(
+      (a: any, b: any) => a.time[0] - b.time[0]
+    );
+    let dedList = sortedDed.map((ded: any) => {
+      return (
+        <li>
+          {ded["dedication"]}{" "}
+          <small>
+            <i>({calculateDatation.apply(null, ded["time"])}) </i>
+          </small>
+        </li>
+      );
+    });
+    return dedList;
+  }
+
   function filterControl(
     label: string,
     action: any = null,
@@ -428,6 +445,8 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 <ul>{listCommunities(selectedMonastery["communities"])}</ul>
                 <small>Statuses:</small>
                 <ul>{listStatuses(selectedMonastery["statuses"])}</ul>
+                <small>Dedications:</small>
+                <ul>{listDedications(selectedMonastery["dedications"])}</ul>
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>
