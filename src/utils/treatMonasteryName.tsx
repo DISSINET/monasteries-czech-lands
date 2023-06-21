@@ -6,7 +6,8 @@ export default function treatMonasteryName(
 ) {
   let comIds = communities.map((e) => e["order"]).filter(onlyUnique);
   let comNames = comIds.map((e) => getComNames(e));
-  return `${name.split("-")[0]} – ${comNames.join(", ")}`;
+  let lastIndex = name.lastIndexOf("-") 
+  return `${name.slice(0, lastIndex)} – ${comNames.join(", ")}`;
 }
 
 function onlyUnique(value: any, index: any, array: any) {
