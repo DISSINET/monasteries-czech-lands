@@ -130,21 +130,31 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     return statusList;
   }
 
-  function listDedications(dedication: any): any {
-    let sortedDed = [...dedication].sort(
-      (a: any, b: any) => a.time[0] - b.time[0]
-    );
-    let dedList = sortedDed.map((ded: any) => {
-      return (
-        <li>
-          {ded["dedication"]}{" "}
-          <small>
-            <i>({calculateDatation.apply(null, ded["time"])}) </i>
-          </small>
-        </li>
+  function listDedications(mon: any): any {
+    let dedication = mon["dedications"];
+    if (mon["dedications"].length > 0) {
+      let sortedDed = [...dedication].sort(
+        (a: any, b: any) => a.time[0] - b.time[0]
       );
-    });
-    return dedList;
+      let dedList = sortedDed.map((ded: any) => {
+        return (
+          <li>
+            {ded["dedication"]}{" "}
+            <small>
+              <i>({calculateDatation.apply(null, ded["time"])}) </i>
+            </small>
+          </li>
+        );
+      });
+      return (
+        <>
+          <small>Dedications:</small>
+          <ul>{dedList}</ul>
+        </>
+      );
+    } else {
+      return "";
+    }
   }
 
   function filterControl(
@@ -445,8 +455,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 <ul>{listCommunities(selectedMonastery["communities"])}</ul>
                 <small>Statuses:</small>
                 <ul>{listStatuses(selectedMonastery["statuses"])}</ul>
-                <small>Dedications:</small>
-                <ul>{listDedications(selectedMonastery["dedications"])}</ul>
+                {listDedications(selectedMonastery)}
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>

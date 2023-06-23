@@ -1,15 +1,17 @@
-import { Record } from './record'
-import { ComponentName, ComponentGeo } from './'
+import { Record } from "./record";
+import { ComponentName, ComponentGeo } from "./";
 
 export type Monastery = {
-    id: string
-    name: string
-    parent_id: string
-    records?: Record[]
-}
+  id: string;
+  name: string;
+  parent_id: string;
+  dedications: any;
+  records?: Record[];
+  [key: string]: any;
+};
 
 export type MonasteryResponse = Monastery & {
-    score?: number
-    closestName?: ComponentName
-    closestGeo?: ComponentGeo
-}
+  score?: number;
+  closestName?: ComponentName;
+  closestGeo?: ComponentGeo;
+};
