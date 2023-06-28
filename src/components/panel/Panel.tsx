@@ -23,6 +23,7 @@ import FilterView from "./FilterView";
 import TimeFilter from "./TimeSlider";
 import calculateDatation from "./../../utils/calculateDatation";
 import treatMonasteryName from "./../../utils/treatMonasteryName";
+import translateDedication from "./../../utils/translateDedication";
 import { Monastery } from "./../../types";
 
 //import legend from "./../../assets/legend.png";
@@ -139,7 +140,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
       let dedList = sortedDed.map((ded: any) => {
         return (
           <li>
-            {ded["dedication"]}{" "}
+            {translateDedication(ded["dedication"])}{" "}
             <small>
               <i>({calculateDatation.apply(null, ded["time"])}) </i>
             </small>
