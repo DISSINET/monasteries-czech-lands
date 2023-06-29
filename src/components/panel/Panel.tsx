@@ -63,6 +63,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   );
 
   const now = new Date();
+  let dedAggr = ""; //used to build dedication tree
 
   function selectOrder(selectedOrder: string) {
     let selectedOrders = new Set(selectedOrderIDs);
@@ -466,25 +467,57 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
             <Offcanvas.Body>
               <ListGroup>
                 {Dedications.map((e) => {
-                  return (
-                    <ListGroup.Item
-                      id={String(e.id)}
-                      action
-                      onClick={() => selectDed(e.label_czech)}
-                    >
+                  if (e.aggregation_level1 == dedAggr) {
+                    return (
+                      <ListGroup.Item
+                        id={String(e.id)}
+                        action
+                        onClick={() => selectDed(e.label_czech)}
+                      >
+                        <>
+                          <BsCheckLg
+                            style={{
+                              color: "#2680c2",
+                              opacity: selectedDedications.includes(
+                                e.label_czech
+                              )
+                                ? 1
+                                : 0,
+                            }}
+                          />{" "}
+                          {e.label_english}
+                        </>
+                      </ListGroup.Item>
+                    );
+                  } else {
+                    dedAggr = e.aggregation_level1;
+                    return (
                       <>
-                        <BsCheckLg
-                          style={{
-                            color: "#2680c2",
-                            opacity: selectedDedications.includes(e.label_czech)
-                              ? 1
-                              : 0,
-                          }}
-                        />{" "}
-                        {e.label_english}
+                        <ListGroup.Item>
+                          <b>{e.aggregation_level1}</b>
+                        </ListGroup.Item>
+                        <ListGroup.Item
+                          id={String(e.id)}
+                          action
+                          onClick={() => selectDed(e.label_czech)}
+                        >
+                          <>
+                            <BsCheckLg
+                              style={{
+                                color: "#2680c2",
+                                opacity: selectedDedications.includes(
+                                  e.label_czech
+                                )
+                                  ? 1
+                                  : 0,
+                              }}
+                            />{" "}
+                            {e.label_english}
+                          </>
+                        </ListGroup.Item>
                       </>
-                    </ListGroup.Item>
-                  );
+                    );
+                  }
                 })}
               </ListGroup>
             </Offcanvas.Body>
