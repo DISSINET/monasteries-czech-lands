@@ -15,10 +15,16 @@ import {
 } from "react-bootstrap";
 import { DictOrdersExtended } from "../../shared/dictionaries/orders_extended";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
+import { Dedications } from "../../shared/dictionaries/dedications";
 import { GoLocation } from "react-icons/go";
 import { BsCheckLg, BsListUl } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
-import { selectOrders, selectStatuses, selectMonastery } from "./../MainSlice";
+import {
+  selectOrders,
+  selectStatuses,
+  selectMonastery,
+  selectDedications,
+} from "./../MainSlice";
 import FilterView from "./FilterView";
 import TimeFilter from "./TimeSlider";
 import calculateDatation from "./../../utils/calculateDatation";
@@ -40,12 +46,17 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   const handleShowOrders = () => setShowOrders(true);
   const [showStatuses, setShowStatuses] = useState(false);
   const handleShowStatuses = () => setShowStatuses(true);
+  const [showDedications, setShowDedications] = useState(false);
+  const handleShowDedications = () => setShowDedications(true);
 
   const selectedOrderIDs = useAppSelector(
     (state) => state.main.selectedOrderIDs
   );
   const selectedStatusIDs = useAppSelector(
     (state) => state.main.selectedStatusIDs
+  );
+  const selectedDedications = useAppSelector(
+    (state) => state.main.selectedDedications
   );
   const selectedMonastery = useAppSelector(
     (state) => state.main.selectedMonastery
@@ -73,8 +84,22 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     dispatch(selectStatuses(Array.from(selectedStatuses)));
   }
 
+  function selectDed(selectedDed: string) {
+    let selectedDeds = new Set(selectedDedications);
+    if (selectedDeds.has(selectedDed)) {
+      selectedDeds.delete(selectedDed);
+    } else {
+      selectedDeds.add(selectedDed);
+    }
+    dispatch(selectDedications(Array.from(selectedDeds)));
+  }
+
   function clearOrders() {
     dispatch(selectOrders([]));
+  }
+
+  function clearDedications() {
+    dispatch(selectDedications([]));
   }
 
   function clearStatuses() {
@@ -403,10 +428,73 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
           </Offcanvas>
         </div>
 
-        <div id="section3" style={{ marginTop: "-12px" }}>
+        <div id="section3">
+          <InputGroup
+            size="sm"
+            style={{ marginTop: "-8px", marginBottom: "6px" }}
+          >
+            {filterControl(
+              "by Dedication",
+              handleShowDedications,
+              selectedDedications,
+              clearDedications
+            )}
+          </InputGroup>
+          <FilterView type={3} />
+          <Offcanvas
+            show={showDedications}
+            onHide={() => setShowDedications(false)}
+            placement="end"
+          >
+            <Offcanvas.Header closeButton>
+              <Container>
+                <Row>
+                  <InputGroup size="sm" style={{ marginBottom: "6px" }}>
+                    {filterControl(
+                      "Filter by Dedication",
+                      handleShowDedications,
+                      selectedDedications,
+                      clearDedications
+                    )}
+                  </InputGroup>
+                </Row>
+                <Row>
+                  <FilterView type={3} />
+                </Row>
+              </Container>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+              <ListGroup>
+                {Dedications.map((e) => {
+                  return (
+                    <ListGroup.Item
+                      id={String(e.id)}
+                      action
+                      onClick={() => selectDed(e.label_czech)}
+                    >
+                      <>
+                        <BsCheckLg
+                          style={{
+                            color: "#2680c2",
+                            opacity: selectedDedications.includes(e.label_czech)
+                              ? 1
+                              : 0,
+                          }}
+                        />{" "}
+                        {e.label_english}
+                      </>
+                    </ListGroup.Item>
+                  );
+                })}
+              </ListGroup>
+            </Offcanvas.Body>
+          </Offcanvas>
+        </div>
+
+        <div id="section4" style={{ marginTop: "-12px" }}>
           <TimeFilter />
         </div>
-        <div id="section4">
+        <div id="section5">
           <span>
             <b>Location details</b>
           </span>
@@ -508,7 +596,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
           )}
         </div>
         <div
-          id="section5"
+          id="section6"
           style={{
             marginBottom: "60px",
           }}

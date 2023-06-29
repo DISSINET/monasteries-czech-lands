@@ -1,10 +1,15 @@
 import React from "react";
 import { Badge } from "react-bootstrap";
-import { selectOrders, selectStatuses } from "./../MainSlice";
+import {
+  selectOrders,
+  selectStatuses,
+  selectDedications,
+} from "./../MainSlice";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { BsXLg } from "react-icons/bs";
 import { DictOrders } from "../../shared/dictionaries/orders";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
+import translateDedication from "./../../utils/translateDedication";
 
 type FilterViewProps = {
   type: number;
@@ -16,6 +21,9 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
   );
   const selectedStatusIDs = useAppSelector(
     (state) => state.main.selectedStatusIDs
+  );
+  const selectedDedications = useAppSelector(
+    (state) => state.main.selectedDedications
   );
   const dispatch = useAppDispatch();
 
@@ -29,6 +37,12 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
     let selectedStatuses = new Set(selectedStatusIDs);
     selectedStatuses.delete(event.target.id);
     dispatch(selectStatuses(Array.from(selectedStatuses)));
+  }
+
+  function removeDed(event: any) {
+    let selectedDeds = new Set(selectedDedications);
+    selectedDeds.delete(event.target.id);
+    dispatch(selectDedications(Array.from(selectedDeds)));
   }
 
   function buildOrderFilterView() {
@@ -117,6 +131,45 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
     return filterV;
   }
 
+  function buildDedicationFIlterView() {
+    const filterV =
+      selectedDedications.map((e: string, i) => {
+        return (
+          <>
+            <Badge
+              id={e}
+              bg="filter"
+              pill
+              style={{
+                cursor: "default",
+                maxWidth: "300px",
+                whiteSpace: "initial",
+                textAlign: "left",
+              }}
+            >
+              {translateDedication(e)}
+              <small>
+                {" "}
+                <BsXLg
+                  id={e}
+                  style={{ cursor: "pointer" }}
+                  onClick={(event) => removeDed(event)}
+                />
+              </small>
+            </Badge>
+            {i != selectedDedications.length - 1 ? (
+              <i style={{ color: "#2680c2" }}>
+                <small> or </small>
+              </i>
+            ) : (
+              ""
+            )}
+          </>
+        );
+      }) || "";
+    return filterV;
+  }
+
   let output;
   switch (type) {
     case 1:
@@ -130,6 +183,13 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
       output = (
         <div style={{ maxHeight: "9em", overflowY: "scroll" }}>
           {buildStatusFIlterView()}
+        </div>
+      );
+      break;
+    case 3:
+      output = (
+        <div style={{ maxHeight: "9em", overflowY: "scroll" }}>
+          {buildDedicationFIlterView()}
         </div>
       );
       break;

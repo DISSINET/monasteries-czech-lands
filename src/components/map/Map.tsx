@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import DeckGL from "@deck.gl/react/typed";
 import { DataFilterExtension } from "@deck.gl/extensions/typed";
 import { BitmapLayer, ScatterplotLayer } from "@deck.gl/layers/typed";
@@ -17,6 +16,9 @@ const MapComponent = ({}): JSX.Element => {
   );
   const selectedStatusIDs = useAppSelector(
     (state) => state.main.selectedStatusIDs
+  );
+  const selectedDedications = useAppSelector(
+    (state) => state.main.selectedDedications
   );
   const selectedMonastery = useAppSelector(
     (state) => state.main.selectedMonastery
@@ -68,6 +70,7 @@ const MapComponent = ({}): JSX.Element => {
 
     let is_comm = [];
     let is_stat = [];
+    let is_ded = [];
     if (selectedOrderIDs.length === 0) {
       is_comm = item.communities.map((c: any) => {
         return (c.time[2] || c.time[3]) >= timeFilter[0] &&
@@ -100,7 +103,37 @@ const MapComponent = ({}): JSX.Element => {
           : 0;
       });
     }
-    return is_comm.includes(1) && is_stat.includes(1) ? 1 : 0;
+    if (selectedDedications.length === 0) {
+      if ("dedications" in item) {
+        console.log("a");
+        is_ded = item.dedications.map((c: any) => {
+          return (c.time[2] || c.time[3]) >= timeFilter[0] &&
+            (c.time[0] || c.time[1]) <= timeFilter[1]
+            ? 1
+            : 0;
+        });
+      } else {
+        console.log("b");
+        is_ded = [0];
+      }
+    } else {
+      if ("dedications" in item) {
+        console.log("c");
+        is_ded = item.dedications.map((c: any) => {
+          return selectedDedications.includes(c.dedication) &&
+            (c.time[2] || c.time[3]) >= timeFilter[0] &&
+            (c.time[0] || c.time[1]) <= timeFilter[1]
+            ? 1
+            : 0;
+        });
+      } else {
+        console.log("d");
+        is_ded = [0];
+      }
+    }
+    return is_comm.includes(1) && is_stat.includes(1) && is_ded.includes(1)
+      ? 1
+      : 0;
   }
 
   function setColor(count: number): any {
@@ -135,12 +168,12 @@ const MapComponent = ({}): JSX.Element => {
     getFillColor: (d) => setColor(d.communities_count as number),
     getLineColor: (d) => [255, 255, 255],
     // hover buffer around object
-    pickingRadius: 50, 
+    pickingRadius: 50,
     // props added by DataFilterExtension
     getFilterValue: (d: any) => setVisibility(d),
     // like useEffect <function>:<value change that triggers rerun>
     updateTriggers: {
-      getFilterValue: [selectedOrderIDs, selectedStatusIDs, timeFilter],
+      getFilterValue: [selectedOrderIDs, selectedStatusIDs, selectedDedications,timeFilter],
     },
     filterRange: [1, 1],
 

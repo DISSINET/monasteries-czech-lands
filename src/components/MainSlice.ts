@@ -4,6 +4,7 @@ import { Monastery } from "./../types";
 export interface MainSlice {
   selectedOrderIDs: Array<string>;
   selectedStatusIDs: Array<string>;
+  selectedDedications: Array<string>;
   timeFilter: Array<number>;
   selectedMonastery: Monastery;
 }
@@ -11,6 +12,7 @@ export interface MainSlice {
 const initialState: MainSlice = {
   selectedOrderIDs: [],
   selectedStatusIDs: [],
+  selectedDedications: [],
   timeFilter: [1000, 2023],
   selectedMonastery: <Monastery>{},
 };
@@ -27,6 +29,10 @@ export const mainSlice = createSlice({
       let newSelectedStatuses = action.payload;
       state.selectedStatusIDs = newSelectedStatuses;
     },
+    selectDedications: (state, action: PayloadAction<Array<string>>) => {
+      let newSelectedDedications = action.payload;
+      state.selectedDedications = newSelectedDedications;
+    },
     setTimeFilter: (state, action: PayloadAction<Array<number>>) => {
       let newTimeFilter = action.payload;
       state.timeFilter = newTimeFilter;
@@ -38,6 +44,11 @@ export const mainSlice = createSlice({
   },
 });
 
-export const { selectOrders, selectStatuses, setTimeFilter, selectMonastery } =
-  mainSlice.actions;
+export const {
+  selectOrders,
+  selectStatuses,
+  setTimeFilter,
+  selectDedications,
+  selectMonastery,
+} = mainSlice.actions;
 export default mainSlice.reducer;
