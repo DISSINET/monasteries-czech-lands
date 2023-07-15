@@ -105,7 +105,6 @@ const MapComponent = ({}): JSX.Element => {
     }
     if (selectedDedications.length === 0) {
       if ("dedications" in item) {
-        console.log("a");
         is_ded = item.dedications.map((c: any) => {
           return (c.time[2] || c.time[3]) >= timeFilter[0] &&
             (c.time[0] || c.time[1]) <= timeFilter[1]
@@ -113,27 +112,29 @@ const MapComponent = ({}): JSX.Element => {
             : 0;
         });
       } else {
-        console.log("b");
         is_ded = [0];
       }
     } else {
       if ("dedications" in item) {
-        console.log("c");
         is_ded = item.dedications.map((c: any) => {
-          return selectedDedications.includes(c.dedication) &&
+          return matchDedications(selectedDedications, c.dedication) &&
             (c.time[2] || c.time[3]) >= timeFilter[0] &&
             (c.time[0] || c.time[1]) <= timeFilter[1]
             ? 1
             : 0;
         });
       } else {
-        console.log("d");
         is_ded = [0];
       }
     }
     return is_comm.includes(1) && is_stat.includes(1) && is_ded.includes(1)
       ? 1
       : 0;
+  }
+
+  function matchDedications(selectedDedications: Array<string>, ded: string) {
+    let matching = selectedDedications.filter((e) => ded.includes(e));
+    return matching.length;
   }
 
   function setColor(count: number): any {
@@ -173,7 +174,12 @@ const MapComponent = ({}): JSX.Element => {
     getFilterValue: (d: any) => setVisibility(d),
     // like useEffect <function>:<value change that triggers rerun>
     updateTriggers: {
-      getFilterValue: [selectedOrderIDs, selectedStatusIDs, selectedDedications,timeFilter],
+      getFilterValue: [
+        selectedOrderIDs,
+        selectedStatusIDs,
+        selectedDedications,
+        timeFilter,
+      ],
     },
     filterRange: [1, 1],
 

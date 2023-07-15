@@ -85,12 +85,21 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     dispatch(selectStatuses(Array.from(selectedStatuses)));
   }
 
-  function selectDed(selectedDed: string) {
+  function selectDed(selectedDed: Array<any>) {
     let selectedDeds = new Set(selectedDedications);
-    if (selectedDeds.has(selectedDed)) {
-      selectedDeds.delete(selectedDed);
+    if (selectedDeds.has(selectedDed[0])) {
+      selectedDeds.delete(selectedDed[0]);
     } else {
-      selectedDeds.add(selectedDed);
+      if (selectedDed[0] !== null) {
+        selectedDeds.add(selectedDed[0]);
+      }
+    }
+    if (selectedDeds.has(selectedDed[1])) {
+      selectedDeds.delete(selectedDed[1]);
+    } else {
+      if (selectedDed[1] !== null) {
+        selectedDeds.add(selectedDed[1]);
+      }
     }
     dispatch(selectDedications(Array.from(selectedDeds)));
   }
@@ -472,7 +481,9 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                       <ListGroup.Item
                         id={String(e.id)}
                         action
-                        onClick={() => selectDed(e.label_czech)}
+                        onClick={() =>
+                          selectDed([e.label_czech, e.label_czech_2])
+                        }
                       >
                         <>
                           <BsCheckLg
@@ -499,7 +510,9 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                         <ListGroup.Item
                           id={String(e.id)}
                           action
-                          onClick={() => selectDed(e.label_czech)}
+                          onClick={() =>
+                            selectDed([e.label_czech, e.label_czech_2])
+                          }
                         >
                           <>
                             <BsCheckLg
