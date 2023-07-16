@@ -127,9 +127,15 @@ const MapComponent = ({}): JSX.Element => {
     return matching.length;
   }
 
-  function setColor(comm: Array<number>): any {
-    let startYear = Math.min(...comm.filter(Number));
+  function setColor(comm: Array<any>): any {
+
+let sortedCom = [...comm].sort((a: any, b: any) => a.time[0] - b.time[0]);
+    
+    let yrs = [...sortedCom[0].time.filter(Number)];
+    let startYear = yrs.length > 0 ? Math.min(...yrs) : 3000;
     let cat = parseInt(String(startYear / 100 - 10));
+    cat = cat < 0 ? 0 : cat;
+    console.log(cat);
     let colorScale = [
       [0, 0, 0], //<1000
       [0, 0, 10], //<1100
@@ -138,9 +144,11 @@ const MapComponent = ({}): JSX.Element => {
       [5, 112, 176], // <1400
       [54, 144, 192], // <1500
       [116, 169, 207], // <1600
-      [166, 189, 219],// <1700
-      [208, 209, 230],// <1800
-      [236, 231, 242],// <1900
+      [166, 189, 219], // <1700
+      [208, 209, 230], // <1800
+      [236, 231, 242], // <1900
+      [236, 231, 242], // <1900
+      [236, 231, 242], // <1900
     ];
     return colorScale[cat];
   }
@@ -156,7 +164,7 @@ const MapComponent = ({}): JSX.Element => {
     opacity: 0.6,
     radiusMinPixels: mapState.zoom * 0.5,
     lineWidthMinPixels: 1,
-    getFillColor: (d) => setColor(d.communities[0]["time"]),
+    getFillColor: (d) => setColor(d.communities),
     getLineColor: (d) => [51, 51, 255],
     // hover buffer around object
     pickingRadius: 50,

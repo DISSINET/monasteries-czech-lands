@@ -4,6 +4,13 @@ export default function calculateDatation(
   yepq: number | boolean,
   yeaq: number | boolean
 ) {
+  const nonFalse = [yspq, ysaq, yepq, yeaq].filter(Boolean);
+  if (nonFalse.length == 1) {
+    ysaq = nonFalse[0];
+    yspq = nonFalse[0];
+    yepq = nonFalse[0];
+    yeaq = nonFalse[0];
+  }
   if (yspq == false) {
     yspq = ysaq;
   }
