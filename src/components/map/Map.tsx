@@ -127,22 +127,22 @@ const MapComponent = ({}): JSX.Element => {
     return matching.length;
   }
 
-  function setColor(count: number): any {
+  function setColor(comm: Array<number>): any {
+    let startYear = Math.min(...comm.filter(Number));
+    let cat = parseInt(String(startYear / 100 - 10));
     let colorScale = [
-      [51, 51, 255],
-      [51, 51, 255],
-      [0, 0, 180],
-      [0, 0, 180],
-      [0, 0, 180],
-      [0, 0, 10],
-      [0, 0, 10],
-      [0, 0, 10],
-      [0, 0, 10],
-      [0, 0, 10],
-      [0, 0, 10],
-      [0, 0, 10],
+      [0, 0, 0], //<1000
+      [0, 0, 10], //<1100
+      [2, 56, 88], // <1200
+      [4, 90, 141], // <1300
+      [5, 112, 176], // <1400
+      [54, 144, 192], // <1500
+      [116, 169, 207], // <1600
+      [166, 189, 219],// <1700
+      [208, 209, 230],// <1800
+      [236, 231, 242],// <1900
     ];
-    return colorScale[count];
+    return colorScale[cat];
   }
 
   const monasteries = new ScatterplotLayer({
@@ -156,8 +156,8 @@ const MapComponent = ({}): JSX.Element => {
     opacity: 0.6,
     radiusMinPixels: mapState.zoom * 0.5,
     lineWidthMinPixels: 1,
-    getFillColor: (d) => setColor(d.communities_count as number),
-    getLineColor: (d) => [255, 255, 255],
+    getFillColor: (d) => setColor(d.communities[0]["time"]),
+    getLineColor: (d) => [51, 51, 255],
     // hover buffer around object
     pickingRadius: 50,
     // props added by DataFilterExtension
