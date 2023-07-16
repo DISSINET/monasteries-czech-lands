@@ -13,11 +13,12 @@
 
 .circle {
   border-radius: 50%;
-  height: 0.5em;
+  height: 0.55em;
   margin-top: 0.4em;
   margin-right: 0.3em;
-  margin-left: 1em;
-  width: 0.5em;
+  margin-left: 0.3em;
+  border: 0.8px solid rgb(51, 51, 255);
+  width: 0.55em;
   float: left;
 }
 
