@@ -4,7 +4,7 @@ import { Monastery } from "./../types";
 export interface MainSlice {
   selectedOrderIDs: Array<string>;
   selectedStatusIDs: Array<string>;
-  selectedDedications: Array<string>;
+  selectedDedications: Array<any>;
   timeFilter: Array<number>;
   selectedMonastery: Monastery;
 }
@@ -29,7 +29,7 @@ export const mainSlice = createSlice({
       let newSelectedStatuses = action.payload;
       state.selectedStatusIDs = newSelectedStatuses;
     },
-    selectDedications: (state, action: PayloadAction<Array<string>>) => {
+    selectDedications: (state, action: PayloadAction<Array<any>>) => {
       let newSelectedDedications = action.payload;
       state.selectedDedications = newSelectedDedications;
     },

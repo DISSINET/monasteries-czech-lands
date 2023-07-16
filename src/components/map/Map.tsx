@@ -132,8 +132,10 @@ const MapComponent = ({}): JSX.Element => {
       : 0;
   }
 
-  function matchDedications(selectedDedications: Array<string>, ded: string) {
-    let matching = selectedDedications.filter((e) => ded.includes(e));
+  function matchDedications(selectedDedications: Array<any>, ded: string) {
+    let matching = selectedDedications.filter(
+      (e) => ded.includes(e.label_czech) || ded.includes(e.label_czech_2)
+    );
     return matching.length;
   }
 

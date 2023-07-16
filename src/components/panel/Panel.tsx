@@ -85,21 +85,12 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     dispatch(selectStatuses(Array.from(selectedStatuses)));
   }
 
-  function selectDed(selectedDed: Array<any>) {
+  function selectDed(selectedDedOb: Object) {
     let selectedDeds = new Set(selectedDedications);
-    if (selectedDeds.has(selectedDed[0])) {
-      selectedDeds.delete(selectedDed[0]);
+    if (selectedDeds.has(selectedDedOb)) {
+      selectedDeds.delete(selectedDedOb);
     } else {
-      if (selectedDed[0] !== null) {
-        selectedDeds.add(selectedDed[0]);
-      }
-    }
-    if (selectedDeds.has(selectedDed[1])) {
-      selectedDeds.delete(selectedDed[1]);
-    } else {
-      if (selectedDed[1] !== null) {
-        selectedDeds.add(selectedDed[1]);
-      }
+      selectedDeds.add(selectedDedOb);
     }
     dispatch(selectDedications(Array.from(selectedDeds)));
   }
@@ -481,19 +472,13 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                       <ListGroup.Item
                         id={String(e.id)}
                         action
-                        onClick={() =>
-                          selectDed([e.label_czech, e.label_czech_2])
-                        }
+                        onClick={() => selectDed(e)}
                       >
                         <>
                           <BsCheckLg
                             style={{
                               color: "#2680c2",
-                              opacity: selectedDedications.includes(
-                                e.label_czech
-                              )
-                                ? 1
-                                : 0,
+                              opacity: selectedDedications.includes(e) ? 1 : 0,
                             }}
                           />{" "}
                           {e.label_english}
@@ -510,17 +495,13 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                         <ListGroup.Item
                           id={String(e.id)}
                           action
-                          onClick={() =>
-                            selectDed([e.label_czech, e.label_czech_2])
-                          }
+                          onClick={() => selectDed(e)}
                         >
                           <>
                             <BsCheckLg
                               style={{
                                 color: "#2680c2",
-                                opacity: selectedDedications.includes(
-                                  e.label_czech
-                                )
+                                opacity: selectedDedications.includes(e)
                                   ? 1
                                   : 0,
                               }}

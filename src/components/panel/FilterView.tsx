@@ -41,7 +41,11 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
 
   function removeDed(event: any) {
     let selectedDeds = new Set(selectedDedications);
-    selectedDeds.delete(event.target.id);
+    selectedDeds.forEach((obj) => {
+      if (obj.id == event.target.id) {
+        selectedDeds.delete(obj);
+      }
+    });
     dispatch(selectDedications(Array.from(selectedDeds)));
   }
 
@@ -133,11 +137,11 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
 
   function buildDedicationFIlterView() {
     const filterV =
-      selectedDedications.map((e: string, i) => {
+      selectedDedications.map((e: any, i) => {
         return (
           <>
             <Badge
-              id={e}
+              id={e.id}
               bg="filter"
               pill
               style={{
@@ -147,11 +151,11 @@ const FilterView = ({ type }: FilterViewProps): JSX.Element => {
                 textAlign: "left",
               }}
             >
-              {translateDedication(e)}
+              {translateDedication(e.label_czech)}
               <small>
                 {" "}
                 <BsXLg
-                  id={e}
+                  id={e.id}
                   style={{ cursor: "pointer" }}
                   onClick={(event) => removeDed(event)}
                 />

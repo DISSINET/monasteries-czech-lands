@@ -1115,7 +1115,7 @@ export var Dedications = [
   {
     id: 141,
     label_czech: "sv. Pavel",
-    label_czech_2: null,
+    label_czech_2: "Pavel",
     label_english: "St. Paul",
     aggregation_level2: "St. Paul",
     aggregation_level1: "saint",
