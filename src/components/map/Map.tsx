@@ -104,24 +104,12 @@ const MapComponent = ({}): JSX.Element => {
       });
     }
     if (selectedDedications.length === 0) {
-      if ("dedications" in item) {
-        is_ded = item.dedications.map((c: any) => {
-          return (c.time[2] || c.time[3]) >= timeFilter[0] &&
-            (c.time[0] || c.time[1]) <= timeFilter[1]
-            ? 1
-            : 0;
-        });
-      } else {
-        is_ded = [0];
-      }
+      // don't mind dedications in time filter
+      is_ded = [1];
     } else {
       if ("dedications" in item) {
         is_ded = item.dedications.map((c: any) => {
-          return matchDedications(selectedDedications, c.dedication) &&
-            (c.time[2] || c.time[3]) >= timeFilter[0] &&
-            (c.time[0] || c.time[1]) <= timeFilter[1]
-            ? 1
-            : 0;
+          return matchDedications(selectedDedications, c.dedication) ? 1 : 0;
         });
       } else {
         is_ded = [0];
