@@ -31,6 +31,7 @@ import TimeFilter from "./TimeSlider";
 import calculateDatation from "./../../utils/calculateDatation";
 import treatMonasteryName from "./../../utils/treatMonasteryName";
 import translateDedication from "./../../utils/translateDedication";
+import { ImagePathsExisting } from "../../photos/image_paths";
 import { Monastery } from "./../../types";
 
 type PanelComponentProps = {};
@@ -209,21 +210,25 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     );
   }
 
-  function buildPhotoCarousel() {
-    return (
-      <>
-        <small>Photographs:</small>
-        <Carousel indicators={false}>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={require("./../../photos/006bc357-c24e-41f4-a7ca-057b4040b879_Bratronice-verbisté/Bratronice_Verbisté_30.04.2023.jpg")}
-              alt="First slide"
-            />
-          </Carousel.Item>
-        </Carousel>
-      </>
-    );
+  function buildPhotoCarousel(mon: any) {
+    let monDirRep = ImagePathsExisting.filter((e) => e.name == mon.record_id);
+    if (monDirRep.length > 0) {
+      return (
+        <>
+          <small>Photographs:</small>
+          <Carousel indicators={false}>
+            {monDirRep[0].contents.map((e, i) => {
+              const src = require(`./../../photos/existing/${mon.id}/${e.name}`);
+              return (
+                <Carousel.Item>
+                  <img className="d-block w-100" src={src} alt={`slide ${i}`} />
+                </Carousel.Item>
+              );
+            })}
+          </Carousel>
+        </>
+      );
+    }
   }
 
   return (
@@ -588,7 +593,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 <small>Statuses:</small>
                 <ul>{listStatuses(selectedMonastery["statuses"])}</ul>
                 {listDedications(selectedMonastery)}
-                {buildPhotoCarousel()}
+                {buildPhotoCarousel(selectedMonastery)}
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>

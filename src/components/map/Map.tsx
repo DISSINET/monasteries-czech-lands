@@ -128,14 +128,12 @@ const MapComponent = ({}): JSX.Element => {
   }
 
   function setColor(comm: Array<any>): any {
+    let sortedCom = [...comm].sort((a: any, b: any) => a.time[0] - b.time[0]);
 
-let sortedCom = [...comm].sort((a: any, b: any) => a.time[0] - b.time[0]);
-    
     let yrs = [...sortedCom[0].time.filter(Number)];
     let startYear = yrs.length > 0 ? Math.min(...yrs) : 3000;
     let cat = parseInt(String(startYear / 100 - 10));
     cat = cat < 0 ? 0 : cat;
-    console.log(cat);
     let colorScale = [
       [0, 0, 0], //<1000
       [0, 0, 10], //<1100
