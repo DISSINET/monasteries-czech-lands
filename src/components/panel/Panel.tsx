@@ -32,6 +32,7 @@ import calculateDatation from "./../../utils/calculateDatation";
 import treatMonasteryName from "./../../utils/treatMonasteryName";
 import translateDedication from "./../../utils/translateDedication";
 import { ImagePathsExisting } from "../../photos/image_paths";
+import { ImagePathsUnpreserved } from "../../photos/unpreserved_paths";
 import { Monastery } from "./../../types";
 
 type PanelComponentProps = {};
@@ -210,15 +211,26 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     );
   }
 
-  function buildPhotoCarousel(mon: any) {
-    let monDirRep = ImagePathsExisting.filter((e) => e.name == mon.record_id);
+  function buildPhotoCarousel(mon: any, type: number) {
+    let monDirRep = [];
+    let dirname: string;
+    let title: string;
+    if (type === 1) {
+      monDirRep = ImagePathsExisting.filter((e) => e.name == mon.record_id);
+      dirname = "existing";
+      title = "Photographs";
+    } else {
+      monDirRep = ImagePathsUnpreserved.filter((e) => e.name == mon.record_id);
+      dirname = "unpreserved";
+      title = "Location (unpreserved)";
+    }
     if (monDirRep.length > 0) {
       return (
         <>
-          <small>Photographs:</small>
+          <small>{title}:</small>
           <Carousel indicators={false}>
             {monDirRep[0].contents.map((e, i) => {
-              const src = require(`./../../photos/existing/${mon.id}/${e.name}`);
+              const src = require(`./../../photos/${dirname}/${mon.record_id}/${e.name}`);
               return (
                 <Carousel.Item>
                   <img className="d-block w-100" src={src} alt={`slide ${i}`} />
@@ -593,7 +605,8 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 <small>Statuses:</small>
                 <ul>{listStatuses(selectedMonastery["statuses"])}</ul>
                 {listDedications(selectedMonastery)}
-                {buildPhotoCarousel(selectedMonastery)}
+                {buildPhotoCarousel(selectedMonastery, 1)}
+                {buildPhotoCarousel(selectedMonastery, 2)}
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>
