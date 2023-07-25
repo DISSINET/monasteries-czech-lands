@@ -507,15 +507,19 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                         action
                         onClick={() => selectDed(e)}
                       >
-                        <>
-                          <BsCheckLg
-                            style={{
-                              color: "#2680c2",
-                              opacity: selectedDedications.includes(e) ? 1 : 0,
-                            }}
-                          />{" "}
-                          {e.label_english}
-                        </>
+                        <Row>
+                          <Col xs="1">
+                            <BsCheckLg
+                              style={{
+                                color: "#2680c2",
+                                opacity: selectedDedications.includes(e)
+                                  ? 1
+                                  : 0,
+                              }}
+                            />{" "}
+                          </Col>
+                          <Col>{e.label_english}</Col>
+                        </Row>
                       </ListGroup.Item>
                     );
                   } else {
@@ -530,7 +534,8 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                           action
                           onClick={() => selectDed(e)}
                         >
-                          <>
+                          <Row>
+                            <Col xs="1">
                             <BsCheckLg
                               style={{
                                 color: "#2680c2",
@@ -539,8 +544,11 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                                   : 0,
                               }}
                             />{" "}
+                            </Col>
+                            <Col>
                             {e.label_english}
-                          </>
+                            </Col>
+                          </Row>
                         </ListGroup.Item>
                       </>
                     );
