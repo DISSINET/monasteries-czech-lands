@@ -671,51 +671,52 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
             <small>
               {" "}
               <small style={{ float: "left" }}>oldest</small>{" "}
+              <div className="legendItem"></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(0,0,0)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(0, 0, 10)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(2, 56, 88)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(4, 90, 141)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(5, 112, 176)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(54, 114, 176)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(116, 169, 207)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(166, 189, 219)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(208, 209, 230)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(236, 231, 242)" }}
               ></div>
               <div
-                className="circle"
+                className="legendItem"
                 style={{ background: "rgb(236, 231, 242)" }}
               ></div>
-              <div className="circle"></div>
+              <div className="legendItem"></div>
               <small style={{ float: "left" }}> newest</small>{" "}
             </small>
           </span>

@@ -22,6 +22,15 @@
   float: left;
 }
 
+.legendItem {
+  height: 0.55em;
+  margin-top: 0.4em;
+  margin-right: 0;
+  margin-left: 0;
+  width: 1em;
+  float: left;
+}
+
 .bg-clean,
 .btn-bg-clean {
   background-color: #f0f4f8 !important;
