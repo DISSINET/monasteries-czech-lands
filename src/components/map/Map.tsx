@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { updateMapState } from "./MapSlice";
 import { selectMonastery } from "./../MainSlice";
 import MapControls from "./MapControls";
+import treatMonasteryName from "./../../utils/treatMonasteryName";
 import MapScale from "./MapScale";
 
 const MapComponent = ({}): JSX.Element => {
@@ -201,7 +202,10 @@ const MapComponent = ({}): JSX.Element => {
         onViewStateChange={(e: any) => dispatchMapState(e.viewState)}
         controller={true}
         layers={layers}
-        getTooltip={({ object }) => object && `${object.name}`}
+        getTooltip={({ object }) =>
+          object && `${
+          treatMonasteryName(object.name, object.communities)}`
+        }
         getCursor={({ isDragging }) => (isDragging ? "arrow" : "arrow")}
       />
     </div>
