@@ -40,7 +40,7 @@ type PanelComponentProps = {};
 const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   const dispatch = useAppDispatch();
 
-  const [infoModal, toggleInfoModal] = useState(false);
+  const [infoModal, toggleInfoModal] = useState(true);
   const handleInfoModalClose = () => toggleInfoModal(false);
   const handleInfoModalShow = () => toggleInfoModal(true);
   const [showOrders, setShowOrders] = useState(false);
