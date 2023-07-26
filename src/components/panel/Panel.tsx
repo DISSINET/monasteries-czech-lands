@@ -96,6 +96,19 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
     dispatch(selectDedications(Array.from(selectedDeds)));
   }
 
+  function selectDedAgg(agg: String) {
+    let selectedDeds = new Set(selectedDedications);
+    let deds = Dedications.filter((e) => e.aggregation_level1 == agg);
+    deds.forEach((ded) => {
+      if (selectedDeds.has(ded)) {
+        selectedDeds.delete(ded);
+      } else {
+        selectedDeds.add(ded);
+      }
+    });
+    dispatch(selectDedications(Array.from(selectedDeds)));
+  }
+
   function clearOrders() {
     dispatch(selectOrders([]));
   }
@@ -526,7 +539,10 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                     dedAggr = e.aggregation_level1;
                     return (
                       <>
-                        <ListGroup.Item>
+                        <ListGroup.Item
+                          onClick={() => selectDedAgg(e.aggregation_level1)}
+                          style={{ cursor: "pointer" }}
+                        >
                           <b>{e.aggregation_level1}</b>
                         </ListGroup.Item>
                         <ListGroup.Item
@@ -536,18 +552,16 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                         >
                           <Row>
                             <Col xs="1">
-                            <BsCheckLg
-                              style={{
-                                color: "#2680c2",
-                                opacity: selectedDedications.includes(e)
-                                  ? 1
-                                  : 0,
-                              }}
-                            />{" "}
+                              <BsCheckLg
+                                style={{
+                                  color: "#2680c2",
+                                  opacity: selectedDedications.includes(e)
+                                    ? 1
+                                    : 0,
+                                }}
+                              />{" "}
                             </Col>
-                            <Col>
-                            {e.label_english}
-                            </Col>
+                            <Col>{e.label_english}</Col>
                           </Row>
                         </ListGroup.Item>
                       </>

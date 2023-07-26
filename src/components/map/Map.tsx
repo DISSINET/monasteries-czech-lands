@@ -203,8 +203,7 @@ const MapComponent = ({}): JSX.Element => {
         controller={true}
         layers={layers}
         getTooltip={({ object }) =>
-          object && `${
-          treatMonasteryName(object.name, object.communities)}`
+          object && `${treatMonasteryName(object.name, object.communities)}`
         }
         getCursor={({ isDragging }) => (isDragging ? "arrow" : "arrow")}
       />
