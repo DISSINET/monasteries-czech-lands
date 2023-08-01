@@ -159,11 +159,12 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
       (a: any, b: any) => a.time[0] - b.time[0]
     );
     let statusList = sortedStatus.map((st: any) => {
+      let datation = calculateDatation.apply(null, st["time"]);
       return (
         <li>
           {getStatusName(st["status"])}{" "}
           <small>
-            <i>({calculateDatation.apply(null, st["time"])}) </i>
+            <i>({datation === "false" ? "no datation" : datation}) </i>
           </small>
         </li>
       );
@@ -178,11 +179,12 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         (a: any, b: any) => a.time[0] - b.time[0]
       );
       let dedList = sortedDed.map((ded: any) => {
+        let datation = calculateDatation.apply(null, ded["time"]);
         return (
           <li>
             {translateDedication(ded["dedication"])}{" "}
             <small>
-              <i>({calculateDatation.apply(null, ded["time"])}) </i>
+              <i>({datation === "false" ? "no datation" : datation}) </i>
             </small>
           </li>
         );
@@ -739,7 +741,13 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 style={{ background: "rgb(236, 231, 242)" }}
               ></div>
               <div className="legendItem"></div>
-              <small style={{ float: "left" }}> newest</small>{" "}
+              <small style={{ float: "left" }}> newest</small> <br />
+              <div
+                className="legendItem"
+                style={{ background: "rgb(152, 152, 152)" }}
+              ></div>
+              <div className="legendItem"></div>
+              <small style={{ float: "left" }}> no datation</small>{" "}
             </small>
           </span>
         </div>

@@ -72,6 +72,17 @@ const MapComponent = ({}): JSX.Element => {
     let is_comm = [];
     let is_stat = [];
     let is_ded = [];
+    let is_no_datation = [];
+
+    //no datation
+    let sortedCom = [...item.communities].sort(
+      (a: any, b: any) => a.time[0] - b.time[0]
+    );
+    let yrs = [...sortedCom[0].time.filter(Number)];
+    if (yrs.length === 0) {
+      is_no_datation.push(1);
+    }
+
     if (selectedOrderIDs.length === 0) {
       is_comm = item.communities.map((c: any) => {
         return (c.time[2] || c.time[3]) >= timeFilter[0] &&
@@ -116,7 +127,9 @@ const MapComponent = ({}): JSX.Element => {
         is_ded = [0];
       }
     }
-    return is_comm.includes(1) && is_stat.includes(1) && is_ded.includes(1)
+
+    return (is_comm.includes(1) && is_stat.includes(1) && is_ded.includes(1)) ||
+      is_no_datation.includes(1)
       ? 1
       : 0;
   }
@@ -132,9 +145,10 @@ const MapComponent = ({}): JSX.Element => {
     let sortedCom = [...comm].sort((a: any, b: any) => a.time[0] - b.time[0]);
 
     let yrs = [...sortedCom[0].time.filter(Number)];
-    let startYear = yrs.length > 0 ? Math.min(...yrs) : 3000;
+    let startYear = yrs.length > 0 ? Math.min(...yrs) : 2200;
     let cat = parseInt(String(startYear / 100 - 10));
     cat = cat < 0 ? 0 : cat;
+    console.log(startYear, cat);
     let colorScale = [
       [0, 0, 0], //<1000
       [0, 0, 10], //<1100
@@ -148,8 +162,17 @@ const MapComponent = ({}): JSX.Element => {
       [236, 231, 242], // <1900
       [236, 231, 242], // <1900
       [236, 231, 242], // <1900
+      [152, 152, 152], // no datation
     ];
     return colorScale[cat];
+  }
+
+  function setBorder(comm: Array<any>): any {
+    let sortedCom = [...comm].sort((a: any, b: any) => a.time[0] - b.time[0]);
+
+    let yrs = [...sortedCom[0].time.filter(Number)];
+    let borderColor = yrs.length > 0 ? [51, 51, 255] : [152, 152, 152];
+    return borderColor;
   }
 
   const monasteries = new ScatterplotLayer({
@@ -164,7 +187,7 @@ const MapComponent = ({}): JSX.Element => {
     radiusMinPixels: mapState.zoom * 0.5,
     lineWidthMinPixels: 1,
     getFillColor: (d) => setColor(d.communities),
-    getLineColor: (d) => [51, 51, 255],
+    getLineColor: (d) => setBorder(d.communities),
     // hover buffer around object
     pickingRadius: 50,
     // props added by DataFilterExtension
