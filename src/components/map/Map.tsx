@@ -70,7 +70,7 @@ const MapComponent = ({}): JSX.Element => {
     let is_comm = [];
     let is_stat = [];
     let is_ded = [];
-    let is_no_datation = [];
+    let is_no_datation = [] as Array<number>;
 
     //no datation
     if (showUndated) {
@@ -85,32 +85,39 @@ const MapComponent = ({}): JSX.Element => {
 
     if (selectedOrderIDs.length === 0) {
       is_comm = item.communities.map((c: any) => {
-        return (c.time[2] || c.time[3]) >= timeFilter[0] &&
-          (c.time[0] || c.time[1]) <= timeFilter[1]
+        return ((c.time[2] || c.time[3]) >= timeFilter[0] &&
+          (c.time[0] || c.time[1]) <= timeFilter[1]) ||
+          is_no_datation.includes(1)
           ? 1
           : 0;
       });
     } else {
       is_comm = item.communities.map((c: any) => {
         return selectedOrderIDs.includes(c.order) &&
-          (c.time[2] || c.time[3]) >= timeFilter[0] &&
-          (c.time[0] || c.time[1]) <= timeFilter[1]
+          (((c.time[2] || c.time[3]) >= timeFilter[0] &&
+            (c.time[0] || c.time[1]) <= timeFilter[1]) ||
+            is_no_datation.includes(1))
           ? 1
           : 0;
       });
     }
     if (selectedStatusIDs.length === 0) {
       is_stat = item.statuses.map((c: any) => {
-        return (c.time[2] || c.time[3]) >= timeFilter[0] &&
-          (c.time[0] || c.time[1]) <= timeFilter[1]
+        return ((c.time[2] || c.time[3]) >= timeFilter[0] &&
+          (c.time[0] || c.time[1]) <= timeFilter[1]) ||
+          is_no_datation.includes(1)
           ? 1
           : 0;
       });
     } else {
       is_stat = item.statuses.map((c: any) => {
         return selectedStatusIDs.includes(c.status) &&
-          (c.time[2] || c.time[3]) >= timeFilter[0] &&
+          (((c.time[2] || c.time[3]) >= timeFilter[0] &&
           (c.time[0] || c.time[1]) <= timeFilter[1]
+          )
+
+|| is_no_datation.includes(1)
+          )
           ? 1
           : 0;
       });
@@ -128,8 +135,7 @@ const MapComponent = ({}): JSX.Element => {
       }
     }
 
-    return (is_comm.includes(1) && is_stat.includes(1) && is_ded.includes(1)) ||
-      is_no_datation.includes(1)
+    return is_comm.includes(1) && is_stat.includes(1) && is_ded.includes(1)
       ? 1
       : 0;
   }
