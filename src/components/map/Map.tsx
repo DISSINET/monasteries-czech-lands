@@ -21,10 +21,8 @@ const MapComponent = ({}): JSX.Element => {
   const selectedDedications = useAppSelector(
     (state) => state.main.selectedDedications
   );
-  const selectedMonastery = useAppSelector(
-    (state) => state.main.selectedMonastery
-  );
   const timeFilter = useAppSelector((state) => state.main.timeFilter);
+  const showUndated = useAppSelector((state) => state.main.undated);
 
   const dispatch = useAppDispatch();
 
@@ -75,12 +73,14 @@ const MapComponent = ({}): JSX.Element => {
     let is_no_datation = [];
 
     //no datation
-    let sortedCom = [...item.communities].sort(
-      (a: any, b: any) => a.time[0] - b.time[0]
-    );
-    let yrs = [...sortedCom[0].time.filter(Number)];
-    if (yrs.length === 0) {
-      is_no_datation.push(1);
+    if (showUndated) {
+      let sortedCom = [...item.communities].sort(
+        (a: any, b: any) => a.time[0] - b.time[0]
+      );
+      let yrs = [...sortedCom[0].time.filter(Number)];
+      if (yrs.length === 0) {
+        is_no_datation.push(1);
+      }
     }
 
     if (selectedOrderIDs.length === 0) {
@@ -199,6 +199,7 @@ const MapComponent = ({}): JSX.Element => {
         selectedStatusIDs,
         selectedDedications,
         timeFilter,
+        showUndated,
       ],
     },
     filterRange: [1, 1],

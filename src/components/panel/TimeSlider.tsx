@@ -1,16 +1,22 @@
 import React from "react";
 import ReactSlider from "react-slider";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
-import { setTimeFilter } from "./../MainSlice";
+import { setTimeFilter, setUndated } from "./../MainSlice";
+import Form from "react-bootstrap/Form";
 
 type TimeSliderProps = {};
 
 const TimeSlider = ({}: TimeSliderProps): JSX.Element => {
   const timeFilter = useAppSelector((state) => state.main.timeFilter);
   const dispatch = useAppDispatch();
+  const showUndated = useAppSelector((state) => state.main.undated);
 
   function selectTimeFilter(value: Array<number>) {
     dispatch(setTimeFilter(value));
+  }
+
+  function switchUndated() {
+    dispatch(setUndated(!showUndated));
   }
 
   return (
@@ -35,6 +41,15 @@ const TimeSlider = ({}: TimeSliderProps): JSX.Element => {
         pearling
       />
       <br />
+      <span>
+        <small>
+          <Form.Switch
+            label="locations without datation"
+            checked={showUndated}
+            onChange={() => switchUndated()}
+          />
+        </small>
+      </span>
     </>
   );
 };

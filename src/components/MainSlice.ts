@@ -6,6 +6,7 @@ export interface MainSlice {
   selectedStatusIDs: Array<string>;
   selectedDedications: Array<any>;
   timeFilter: Array<number>;
+  undated: boolean;
   selectedMonastery: Monastery;
 }
 
@@ -14,6 +15,7 @@ const initialState: MainSlice = {
   selectedStatusIDs: [],
   selectedDedications: [],
   timeFilter: [1000, 2023],
+  undated: true,
   selectedMonastery: <Monastery>{},
 };
 
@@ -41,6 +43,10 @@ export const mainSlice = createSlice({
       let newSelectedMonastery = action.payload;
       state.selectedMonastery = newSelectedMonastery;
     },
+    setUndated: (state, action: PayloadAction<boolean>) => {
+      let newUndatedState = action.payload;
+      state.undated = newUndatedState;
+    },
   },
 });
 
@@ -50,5 +56,6 @@ export const {
   setTimeFilter,
   selectDedications,
   selectMonastery,
+  setUndated,
 } = mainSlice.actions;
 export default mainSlice.reducer;
