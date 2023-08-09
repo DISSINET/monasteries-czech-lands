@@ -74,11 +74,14 @@ const MapComponent = ({}): JSX.Element => {
 
     //no datation
     if (showUndated) {
+
       let sortedCom = [...item.communities].sort(
         (a: any, b: any) => a.time[0] - b.time[0]
       );
-      let yrs = [...sortedCom[0].time.filter(Number)];
-      if (yrs.length === 0) {
+      let sortedComWithDatation = sortedCom.filter(
+        (a: any) => a.time.filter(Number).length > 0
+      );
+      if (sortedComWithDatation.length === 0) {
         is_no_datation.push(1);
       }
     }
@@ -113,11 +116,8 @@ const MapComponent = ({}): JSX.Element => {
       is_stat = item.statuses.map((c: any) => {
         return selectedStatusIDs.includes(c.status) &&
           (((c.time[2] || c.time[3]) >= timeFilter[0] &&
-          (c.time[0] || c.time[1]) <= timeFilter[1]
-          )
-
-|| is_no_datation.includes(1)
-          )
+            (c.time[0] || c.time[1]) <= timeFilter[1]) ||
+            is_no_datation.includes(1))
           ? 1
           : 0;
       });
@@ -149,12 +149,16 @@ const MapComponent = ({}): JSX.Element => {
 
   function setColor(comm: Array<any>): any {
     let sortedCom = [...comm].sort((a: any, b: any) => a.time[0] - b.time[0]);
-
-    let yrs = [...sortedCom[0].time.filter(Number)];
+    let sortedComWithDatation = sortedCom.filter(
+      (a: any) => a.time.filter(Number).length > 0
+    );
+    let yrs =
+      sortedComWithDatation.length > 0
+        ? [...sortedComWithDatation[0].time.filter(Number)]
+        : [];
     let startYear = yrs.length > 0 ? Math.min(...yrs) : 2200;
     let cat = parseInt(String(startYear / 100 - 10));
     cat = cat < 0 ? 0 : cat;
-    console.log(startYear, cat);
     let colorScale = [
       [0, 0, 0], //<1000
       [0, 0, 10], //<1100
