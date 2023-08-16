@@ -23655,7 +23655,11 @@
     "statuses_count": 1
   },
   {
-    "communities": [{ "order": "31", "time": [1631, 1631, false, 2023] }],
+    "communities": [
+      { "order": "31", "time": [1631, 1631, 1950, 1950] },
+      { "order": "31", "time": [1989, 1989, 2023, false] }
+
+    ],
     "communities_count": 1,
     "created_at": "2021-06-05 19:49:21",
     "dedications": [
