@@ -1,46 +1,18 @@
-# Getting Started with Create React App
+# Religious houses in the Czech Lands
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### https://dissinet.cz/maps/monasteries-czech-lands
 
-## Available Scripts
+### [dissinet project](http://dissinet.cz)
 
-In the project directory, you can run:
+This interactive map application presents the most complete available digital data set of Christian religious houses in the Czech lands from the beginnings up to the present day. The data were manually compiled on the basis of the extensive, so far nine-volume encyclopedia by Milan Buben, Encyklopedie řádů, kongregací a řeholních společností katolické církve v českých zemích.
 
-### `npm start`
+The map covers 782 records and thus represents a very comprehensive resource on the development of Christian monastic life in the Czech lands. However, a crucial gap is the absence of female religious houses, because the volume on those has not yet been published. Female houses are thus covered only insofar as they were described as part of a record in the hitherto published volumes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The map allows users to explore monasteries and other religious houses throughout history and relate the data points to other relevant spatial and historical datasets. The records can befiltered by religious order (Benedictines, Jesuites, etc.),status (abbey, priory, etc.) and time (for instance, only showing monasteries which were in place in the medieval period).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Each record is accompanied by an info box, which lists the namesunder which the religious house is known, the communities which lived in that religious house (order and time interval), and the changing status of the religious house. The info box also allows the copying of geographic coordinates. Finally, a vast proportion of the records are complemented with original photographic documentation of the present state of the building (or, in the case of unpreserved buildings, the location).
 
-### `npm test`
+Recommended citation: Hořínková, Hana; Ondrejka, Peter; Zbíral, David (2023). Religious houses in the Czech Lands (v. 0.2.0). Dissident Networks Project (DISSINET). Retrieved August 30, 2023 from https://dissinet.cz/maps/monasteries-czech-lands/.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Whenever citing this map and dataset, also cite the original data source:
+Buben, Milan (2002–2018). Encyklopedie řádů, kongregací a řeholních společností katolické církve v českých zemích I, II/1-2, III/1-4, IV/1-2. Praha: Libri.
