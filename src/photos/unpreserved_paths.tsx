@@ -1,6 +1,17 @@
 export var ImagePathsUnpreserved = [
   {
     type: "directory",
+    name: "008de32d-b313-481b-a37b-5f4b6929756f",
+    contents: [
+      {
+        type: "file",
+        name: "Kláτterec-nad-Oh²í_Benediktíni_02_07.07.2023.jpg",
+      },
+      { type: "file", name: "Kláτterec-nad-Oh²í_Benediktíni_07.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "02adcc66-5a2e-467a-b9f4-b1195478bb89",
     contents: [
       {
@@ -17,6 +28,23 @@ export var ImagePathsUnpreserved = [
         type: "file",
         name: "Praha-Bernardinum-II._cisterciáci_NEDOCHOVANÉ_09.04.2022.jpg",
       },
+    ],
+  },
+  {
+    type: "directory",
+    name: "1b9d0df5-05f9-43ed-82bd-135a81cdfae1",
+    contents: [{ type: "file", name: "Most_Piaristé_08.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "1eff453b-3975-4926-8e63-c8559d330a46",
+    contents: [{ type: "file", name: "Klenov_Templá²i_12.08.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "2097d571-f1b0-483a-923a-4ba251a55de1",
+    contents: [
+      { type: "file", name: "Valtice_Minorité_Frantiτkáni_17.06.2023.jpg" },
     ],
   },
   {
@@ -55,6 +83,19 @@ export var ImagePathsUnpreserved = [
   },
   {
     type: "directory",
+    name: "422d33d0-54c7-44b4-8f02-d3f661371a6e",
+    contents: [{ type: "file", name: "Most_Kapucíni_08.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "474bc424-cc9c-46b9-b66e-4cd4ee494eaa",
+    contents: [
+      { type: "file", name: "Najτtejn_N╪meƒtí-rytí²i_02_08.07.2023.jpg" },
+      { type: "file", name: "Najτtejn_N╪meƒtí-rytí²i_08.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "499dfee0-abc3-4ef7-b705-9f093b4f219e",
     contents: [
       {
@@ -81,10 +122,7 @@ export var ImagePathsUnpreserved = [
     type: "directory",
     name: "4a442084-5d75-4ee4-a5f2-84b6182a2d60",
     contents: [
-      {
-        type: "file",
-        name: "Chot╪bo²_Cisterciáci_NEDOCHOVANÉ_04.07.2021.jpg",
-      },
+      { type: "file", name: "Chot╪bo²_Cisterciáci_NEDOCHOVANÉ_04.07.2021.jpg" },
     ],
   },
   {
@@ -111,10 +149,7 @@ export var ImagePathsUnpreserved = [
     type: "directory",
     name: "53b56149-b526-438c-b8b9-e51e9a876c53",
     contents: [
-      {
-        type: "file",
-        name: "Polná_N╪meƒtí-rytí²i_NEDOCHOVANÉ_04.07.2021.jpg",
-      },
+      { type: "file", name: "Polná_N╪meƒtí-rytí²i_NEDOCHOVANÉ_04.07.2021.jpg" },
     ],
   },
   {
@@ -125,6 +160,19 @@ export var ImagePathsUnpreserved = [
         type: "file",
         name: "Lysá-nad-Labem_Ivanité_poustevna-v-lese_01.05.2023.jpg",
       },
+    ],
+  },
+  {
+    type: "directory",
+    name: "606615ed-197c-4ba8-adb7-f1baf234357e",
+    contents: [{ type: "file", name: "ªatec_Minorité_07.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "61a9b2a6-fd60-4125-b2c7-3043b4598c20",
+    contents: [
+      { type: "file", name: "B∞ƒkovice_N╪meƒtí-rytí²i_02_10.07.2023.jpg" },
+      { type: "file", name: "B∞ƒkovice_N╪meƒtí-rytí²i_10.07.2023.jpg" },
     ],
   },
   {
@@ -163,6 +211,11 @@ export var ImagePathsUnpreserved = [
         name: "Brno_Veve²í-ul._Augustiniáni_nedochované_14.08.2021.jpg",
       },
     ],
+  },
+  {
+    type: "directory",
+    name: "6f464a4a-8eea-4b4e-a6a5-dcf40fe54c53",
+    contents: [{ type: "file", name: "Jiτt╪rpy_Jezuité_10.07.2023.jpg" }],
   },
   {
     type: "directory",
@@ -206,6 +259,11 @@ export var ImagePathsUnpreserved = [
   },
   {
     type: "directory",
+    name: "924c61f4-6782-4024-a9de-6f97c19046b6",
+    contents: [{ type: "file", name: "ªatec_Benediktíni_07.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "98509988-6777-4421-990e-5c326c41e486",
     contents: [
       {
@@ -226,12 +284,24 @@ export var ImagePathsUnpreserved = [
   },
   {
     type: "directory",
+    name: "a35e730a-d777-4db2-9f56-25a5c57526b4",
+    contents: [{ type: "file", name: "Louny_Dominikáni_06.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "afcd9e50-0f0e-4c43-bfe8-7b5653314879",
     contents: [
       {
         type: "file",
         name: "Praha-bl.-Sneºka_K²íºovnící-s-ƒervenou-hv╪zdou_NEDOCHOVANÉ_09.04.2022.jpg",
       },
+    ],
+  },
+  {
+    type: "directory",
+    name: "b4345bdd-1b34-46b1-a469-5485d7298c53",
+    contents: [
+      { type: "file", name: "Krupka_Jezuité_Frantiτkáni_09.07.2023.jpg" },
     ],
   },
   {
@@ -252,6 +322,20 @@ export var ImagePathsUnpreserved = [
         type: "file",
         name: "Byst²ice-nad-Pernτtejnem_Minorité_09.04.2023.jpg",
       },
+    ],
+  },
+  {
+    type: "directory",
+    name: "c5dc3920-b793-406d-bd1e-e882f35939ae",
+    contents: [
+      { type: "file", name: "Brloh_Augustiniáni-kanovníci_06.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "ca3f7cec-d5b2-4fdd-87ae-96a8ee5d6121",
+    contents: [
+      { type: "file", name: "Most_Piaristé_OC-Central_08.07.2023.jpg" },
     ],
   },
   {
@@ -303,9 +387,41 @@ export var ImagePathsUnpreserved = [
   },
   {
     type: "directory",
+    name: "ef356637-55f9-47c6-8765-35cad03a8297",
+    contents: [
+      { type: "file", name: "P²ibice_Johanité_02_17.06.2023.jpg" },
+      { type: "file", name: "P²ibice_Johanité_17.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "fcc9ee60-e7da-4f9e-b4e3-8188eef3664b",
+    contents: [
+      {
+        type: "file",
+        name: "Most_K²iºovníci-s-ƒerven∞m-k²íºem_08.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Most_K²iºovníci-s-ƒervenou-hv╪zdou_k²íºem_08.07.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "fcfa37cd-dca3-468f-9846-579c4b4104d7",
     contents: [
       { type: "file", name: "Jihlava_Kapucíni_NEDOCHOVANÉ_17.04.2021.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "fdfa9514-056c-4eab-a26f-ffeab6f41b17",
+    contents: [
+      {
+        type: "file",
+        name: "Θstí-nad-Labem_K²íºovníci-s-ƒervenou-hv╪zdou_09.07.2023.jpg",
+      },
     ],
   },
 ];

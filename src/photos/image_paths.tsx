@@ -1,6 +1,11 @@
 export var ImagePathsExisting = [
   {
     type: "directory",
+    name: "00527c2f-1d42-49f0-89c3-01b061f2299a",
+    contents: [{ type: "file", name: "Pivoσ_Augustiniáni_23.09.2022.jpg" }],
+  },
+  {
+    type: "directory",
     name: "006bc357-c24e-41f4-a7ca-057b4040b879",
     contents: [{ type: "file", name: "Bratronice_Verbisté_30.04.2023.jpg" }],
   },
@@ -9,6 +14,16 @@ export var ImagePathsExisting = [
     name: "00e2daf2-a7d5-40d3-b15b-04575f100fd9",
     contents: [
       { type: "file", name: "Praha-sv.-Tomáτ_Augustiniáni_09.04.2022.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "030b8c7b-263b-43da-948b-ce5dcb82a2a1",
+    contents: [
+      {
+        type: "file",
+        name: "Θstí-nad-Labem_Dominikáni_Obláti_09.07.2023.jpg",
+      },
     ],
   },
   {
@@ -69,6 +84,13 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "0931201a-9bef-4187-9cd4-3360c7010d91",
+    contents: [
+      { type: "file", name: "Valtice_Milosrdní-brat²i_17.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "09622c76-21f7-41cf-87dd-205aad7bc793",
     contents: [{ type: "file", name: "Piƒín_Johanité_28.09.2022.jpg" }],
   },
@@ -105,11 +127,42 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "0a356a3e-5e12-4a5c-af10-9b4db75ba0fa",
+    contents: [
+      { type: "file", name: "Ploskovice_Johanité_02_10.07.2023.jpg" },
+      { type: "file", name: "Ploskovice_Johanité_10.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "0aad6a5a-8462-4a1b-9684-e7d3ce167183",
+    contents: [{ type: "file", name: "Hodoσovice_Salesiáni_12.08.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "0ab05b22-5872-450b-ac4f-d520a80e2abe",
     contents: [
       {
         type: "file",
         name: "Praha-sv.-Mikuláτ_Premonstráti_Benediktíni_09.04.2022.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "0ae8cba2-1f48-45b4-a68d-c7e56e7e98cc",
+    contents: [
+      {
+        type: "file",
+        name: "Hn╪vín_K²iºovníci-s-ƒerven∞m-k²íºem_02_08.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Hn╪vín_K²iºovníci-s-ƒerven∞m-k²íºem_03_08.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Hn╪vín_K²iºovníci-s-ƒerven∞m-k²íºem_08.07.2023.jpg",
       },
     ],
   },
@@ -152,10 +205,25 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "0c3f3ece-fa44-4e07-a49f-07b6c08c932f",
+    contents: [{ type: "file", name: "Vino²_Salesiáni_05.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "0c7feedb-079a-460e-b098-3ca240c385a9",
     contents: [
       { type: "file", name: "ªampach_Jezuité_01_03.12.2022.jpg" },
       { type: "file", name: "ªampach_Jezuité_02_03.12.2022.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "0cbcaaec-ce93-41f3-8a38-0fa2bed7418e",
+    contents: [
+      {
+        type: "file",
+        name: "O²echov_Cisterciáci_Salesiáni_18.06.2023.jpg",
+      },
     ],
   },
   {
@@ -233,6 +301,21 @@ export var ImagePathsExisting = [
     name: "12efc955-5867-44d4-ab54-1e0419cd58c1",
     contents: [
       { type: "file", name: "Mnichovo-Hradiτt╪_Kapucíni_30.04.2022.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "136c60fd-5c92-4111-913b-23f36274fa08",
+    contents: [
+      {
+        type: "file",
+        name: "Osek_Salesiáni_Cisterciáci_02_09.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Osek_Salesiáni_Cisterciáci_03_09.07.2023.jpg",
+      },
+      { type: "file", name: "Osek_Salesiáni_Cisterciáci_09.07.2023.jpg" },
     ],
   },
   {
@@ -326,6 +409,27 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "19496f63-5f82-483c-b738-1a350068e7e5",
+    contents: [
+      { type: "file", name: "Praha_Spo²ilov_Frantiτkáni_22.08.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "19fd9e4b-38d9-416d-a030-e00365e77c3b",
+    contents: [
+      {
+        type: "file",
+        name: "¼ejkovice_Templá²i_Johanité_Jezuité_02_17.06.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "¼ejkovice_Templá²i_Johanité_Jezuité_17.06.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "1af6917a-877e-4154-92d4-b50eaa1384bf",
     contents: [
       {
@@ -375,6 +479,11 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "1d67b6a6-05dc-4dac-95d3-dffcd6a807f8",
+    contents: [{ type: "file", name: "Zlín_Salesiáni_18.06.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "1db4f844-2a94-4bb0-a92f-e1c8ceea1268",
     contents: [
       {
@@ -387,6 +496,14 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "1e26ccd3-54c1-4c2b-9b0a-e90e476605e7",
     contents: [{ type: "file", name: "Nová-Paka_Pauláni_10.10.2021.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "1f263fe3-b6b3-4e89-b64c-7b7b6e175cd3",
+    contents: [
+      { type: "file", name: "Ostrava_Salesiáni_02_13.08.2023.jpg" },
+      { type: "file", name: "Ostrava_Salesiáni_13.08.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -409,6 +526,11 @@ export var ImagePathsExisting = [
         name: "Olomouc_Frantiτkáni_Dominikáni_Jezuité_Sokolská_bude-jeτt╪-jedna_07.08.2022.jpg",
       },
     ],
+  },
+  {
+    type: "directory",
+    name: "21832813-f29f-4e1e-be51-995a28013d10",
+    contents: [{ type: "file", name: "Praha_Olτany_Ivanité_22.08.2023.jpg" }],
   },
   {
     type: "directory",
@@ -441,6 +563,11 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "23844dfd-5f9c-4486-a275-9c69e860baac",
     contents: [{ type: "file", name: "Melƒ_Jezuité_16.10.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "24bb2f01-e25b-45f5-babd-637d0b5c3b0b",
+    contents: [{ type: "file", name: "Bílina_N╪meƒtí-rytí²i_09.07.2023.jpg" }],
   },
   {
     type: "directory",
@@ -491,10 +618,28 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "2658448a-113c-4f7c-a150-c5353f0d25d9",
+    contents: [
+      {
+        type: "file",
+        name: "Valaτské-Mezi²íƒí_Salvatoriáni_12.08.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "287a2ab2-1480-420e-b8f9-295ee2d13792",
     contents: [
       { type: "file", name: "Praha_Pauláni_Staromák_19.03.2023.jpg" },
       { type: "file", name: "Praha_Pauláni_sv.-Michal_09.04.2022.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "28994205-6f42-4211-b9ef-79e10b9c5a2b",
+    contents: [
+      { type: "file", name: "Podmokly_Salesiáni_02_10.07.2023.jpg" },
+      { type: "file", name: "Podmokly_Salesiáni_10.07.2023.jpg" },
     ],
   },
   {
@@ -517,6 +662,16 @@ export var ImagePathsExisting = [
       {
         type: "file",
         name: "Rakovník_Piaristé_Premonstráti_30.04.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "2b572e5e-016a-430d-9add-1a68bb624133",
+    contents: [
+      {
+        type: "file",
+        name: "Litom╪²ice_Minorité_Dominikáni_10.07.2023.jpg",
       },
     ],
   },
@@ -553,8 +708,20 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "2c667ee3-5fa1-4ccc-aab0-4b60b02e3813",
+    contents: [{ type: "file", name: "Svat∞-Host∞n_Jezuité_12.08.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "2c8a20a3-e774-4883-91e8-9a9c5e4ddff4",
     contents: [{ type: "file", name: "Slavkovice_Pallotini_16.07.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "2cbd2407-e057-4d94-b029-46ebb6de5071",
+    contents: [
+      { type: "file", name: "Zlín-Malenovice_Verbisté_18.06.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -566,6 +733,17 @@ export var ImagePathsExisting = [
     name: "2d54f6b8-6296-4616-919e-38ecb28a532c",
     contents: [
       { type: "file", name: "Kláτterec-nad-Orlicí_Cyriaci_03.12.2022.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "2e3394c2-e95a-4a9c-8927-653cc623a911",
+    contents: [
+      {
+        type: "file",
+        name: "Fr∞dek-Místek_Redemptoristé_02_12.08.2023.jpg",
+      },
+      { type: "file", name: "Fr∞dek-Místek_Redemptoristé_12.08.2023.jpg" },
     ],
   },
   {
@@ -584,6 +762,14 @@ export var ImagePathsExisting = [
     contents: [
       { type: "file", name: "Nepomuk_Cisterciáci_01_23.09.2022.jpg" },
       { type: "file", name: "Nepomuk_Cisterciáci_02_23.09.2022.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "2fccf8fe-e1d7-411b-8435-eb90ebe1ccc5",
+    contents: [
+      { type: "file", name: "Nov∞-Jiƒín_Jezuité_02_12.08.2023.jpg" },
+      { type: "file", name: "Nov∞-Jiƒín_Jezuité_12.08.2023.jpg" },
     ],
   },
   {
@@ -622,6 +808,11 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "30c03d2b-f5d8-4101-a06c-82b18a77e5dd",
+    contents: [{ type: "file", name: "Vizovice_Cisterciáci_18.06.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "30c4bc0a-2b37-42b3-b0b9-320424d72e0f",
     contents: [{ type: "file", name: "Jihlava_Dominikáni_17.04.2021.jpg" }],
   },
@@ -629,6 +820,26 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "319605fe-4b49-42ab-8f08-7205d8573a10",
     contents: [{ type: "file", name: "Jevíƒko_Augustiniáni_04.09.2021.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "32212167-e917-4d11-a32e-e776cb593ae8",
+    contents: [
+      {
+        type: "file",
+        name: "Vranov_Pauláni_Salvatoriáni_02_19.06.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Vranov_Pauláni_Salvatoriáni_03_19.06.2023.jpg",
+      },
+      { type: "file", name: "Vranov_Pauláni_Salvatoriáni_19.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "324deda2-9b9c-4f2b-8432-748d526e5aa0",
+    contents: [{ type: "file", name: "Diváky_Jezuité_23.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -663,6 +874,26 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "339a5647-b1c2-4eb7-92e8-f33b5157f440",
+    contents: [
+      {
+        type: "file",
+        name: "Praha_Sv.-Rodina_Milosrdní-brat²i_22.08.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "33d580a1-13fc-450f-a129-aad7c5d046c3",
+    contents: [
+      { type: "file", name: "Postoloprty_Benediktíni_02_06.07.2023.jpg" },
+      { type: "file", name: "Postoloprty_Benediktíni_03_06.07.2023.jpg" },
+      { type: "file", name: "Postoloprty_Benediktíni_04_06.07.2023.jpg" },
+      { type: "file", name: "Postoloprt-y_Benediktíni_06.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "3435d958-c5c5-4958-94de-d735a57d6e8e",
     contents: [
       {
@@ -670,6 +901,18 @@ export var ImagePathsExisting = [
         name: "Bruntál_Piaristé_pravoslavn∞_P.M.-T╪τitelky_15.10.2022.jpg",
       },
     ],
+  },
+  {
+    type: "directory",
+    name: "35117b2e-fcca-47ef-8a52-3c94ad3686bb",
+    contents: [
+      { type: "file", name: "Horní-Lomná_Bosí-karmelitáni_13.08.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "3531a52f-d943-45c9-9f51-aecd0cf24f9a",
+    contents: [{ type: "file", name: "Boskovice_Dominikáni_19.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -706,6 +949,13 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "36bc16e5-6275-4664-9028-ebc7262e526f",
     contents: [{ type: "file", name: "Brno_Obláti_14.08.2021.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "3729dddf-c182-4116-86fe-a0ee6a227dca",
+    contents: [
+      { type: "file", name: "Uhersk∞-Brod_Dominikáni_18.06.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -785,6 +1035,24 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "3a6862e3-0c7c-48be-99e3-997fbb98db19",
     contents: [{ type: "file", name: "Bozkov_Saletini_01.05.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "3b377c0b-b6f5-49c2-af11-f2cbb3bfc395",
+    contents: [
+      {
+        type: "file",
+        name: "Praha-8_Vojensk∞-a-τpitální-²ád-rytí²à-sv.-Lazara-Jeruzalémského_22.08.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "3bbe4c2c-eb36-480b-82a0-ed9d36cb9564",
+    contents: [
+      { type: "file", name: "µtramberk_Jezuité_02_12.08.2023.jpg" },
+      { type: "file", name: "µtramberk_Jezuité_12.08.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -868,10 +1136,28 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "40c9cea9-91a1-400c-8adc-ba11fc304333",
+    contents: [{ type: "file", name: "Zlín_Salesiáni_Okruºní_19.06.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "40dc9770-5958-45c0-a736-24329f29879a",
+    contents: [
+      { type: "file", name: "Hrabyn╪_N╪meƒtí-rytí²i_02_13.08.2023.jpg" },
+      { type: "file", name: "Hrabyn╪_N╪meƒtí-rytí²i_13.08.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "4167f8c0-d911-42fe-9586-af52f887e60f",
     contents: [
       { type: "file", name: "Olomouc_Jezuité_K²íºkovského_07.08.2022.jpg" },
     ],
+  },
+  {
+    type: "directory",
+    name: "41863b0d-c6d9-410c-954f-ec0d410f1667",
+    contents: [{ type: "file", name: "M╪lník_Kapucíni_05.07.2023.jpg" }],
   },
   {
     type: "directory",
@@ -898,6 +1184,11 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "448fe0ef-6c3e-4074-988e-e23ef842e889",
+    contents: [{ type: "file", name: "Zaτová_Trinitá²i_12.08.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "461fdc86-3321-4a54-b614-b8dff071ffaa",
     contents: [{ type: "file", name: "Buτt╪hrad_Trapisté_01.05.2023.jpg" }],
   },
@@ -912,6 +1203,11 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "4677ec47-29dd-457a-aa0d-94c43b274bd9",
     contents: [{ type: "file", name: "Koclí²ov_Redemptoristé_01.05.2021.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "469e7ac6-e3ec-4f0f-a599-5cf7e171e7ba",
+    contents: [{ type: "file", name: "Hustopeƒe_Piaristé_17.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -968,6 +1264,20 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "492a92f6-d1a3-44a3-8097-315e7c7f7a2",
+    contents: [
+      {
+        type: "file",
+        name: "Mariánské-Radƒice_Cisterciáci_02_09.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Mariánské-Radƒice_Cisterciáci_09.07.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "4947932b-453f-4162-b75a-9fadb003c569",
     contents: [
       {
@@ -990,6 +1300,17 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "4a6d7069-c6bd-4e06-a434-5c192356946e",
+    contents: [
+      {
+        type: "file",
+        name: "Veselí-nad-Moravou_Servité_02_18.06.2023.jpg",
+      },
+      { type: "file", name: "Veselí-nad-Moravou_Servité_18.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "4a71bb25-57a7-44cd-82ed-e460314bd02a",
     contents: [
       {
@@ -1000,9 +1321,22 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "4a7ac1a7-3b41-4ae3-b918-d9deceac4184",
+    contents: [{ type: "file", name: "µtípa_Kartuziáni_16.06.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "4af9db2b-410d-432b-94e7-d130d5603389",
     contents: [
       { type: "file", name: "Ivanovicena-Hané_Johanité_10.03.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "4ceb0fac-183f-4ead-b2ed-f0858fbbceb9",
+    contents: [
+      { type: "file", name: "Slan∞_Benediktíni_02_06.07.2023.jpg" },
+      { type: "file", name: "Slan∞_Benediktíni_06.07.2023.jpg" },
     ],
   },
   {
@@ -1039,6 +1373,13 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "4fb8bc02-7da0-41a3-afa1-c5d99790c377",
+    contents: [
+      { type: "file", name: "Kadaσ_Minorité_Piaristé_07.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "5001eb2d-54ec-4b3b-af3e-03ec8bb498b6",
     contents: [{ type: "file", name: "Obytce_Johanité_23.09.2022.jpg" }],
   },
@@ -1061,6 +1402,20 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "50c4e4a7-09f3-4c82-93c1-900c7c122ed7",
     contents: [{ type: "file", name: "Svrƒovec_Jezuité_23.09.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "50cfc15e-28e7-4179-b417-9c38830fe2d6",
+    contents: [
+      {
+        type: "file",
+        name: "Praha_Sv.-Petr_N╪meƒtí-rytí²i_K²iºovníci-s-ƒervenou-hv╪zdou_02_22.08.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Praha_Sv.-Petr_N╪meƒtí-rytí²i_K²iºovníci-s-ƒervenou-hv╪zdou_22.08.2023.jpg",
+      },
+    ],
   },
   {
     type: "directory",
@@ -1095,6 +1450,11 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "52bfd753-63f0-41dc-bdd2-4509cb14b7bc",
+    contents: [{ type: "file", name: "Knínice_Premonstráti_19.06.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "53ac1bf5-8b6d-42bb-bc6a-1cb2baa6311c",
     contents: [
       {
@@ -1114,8 +1474,39 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "54300e66-7415-4139-a946-399eb2c160cf",
+    contents: [
+      {
+        type: "file",
+        name: "Fr∞dlant-nad-Ostravicí_Karmelitáni_12.08.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "55000025-dedd-4890-a02e-42a21ec568eb",
     contents: [{ type: "file", name: "Opa²any_Jezuité_19.09.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "55f5466c-228d-4ce9-878d-2a1325cf699c",
+    contents: [
+      { type: "file", name: "Konojedy_Servité_02_10.07.2023.jpg" },
+      { type: "file", name: "Konojedy_Servité_10.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "565cd8e3-9872-43b8-98e7-7819b4c504e6",
+    contents: [{ type: "file", name: "M╪lník_Augustiniáni_05.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "576a2179-e8b5-4706-88ed-2a6702f7d18e",
+    contents: [
+      { type: "file", name: "ⁿepín_N╪meƒtí-rytí²i_02_05.07.2023.jpg" },
+      { type: "file", name: "ⁿepín_N╪meƒtí-rytí²i_05.07.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -1146,8 +1537,34 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "5acf6bc7-c314-4ec9-ba81-a0a74a3bd417",
+    contents: [
+      { type: "file", name: "ªitenice_Bartolomité_02_10.07.2023.jpg" },
+      { type: "file", name: "ªitenice_Bartolomité_10.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "5ad4c72f-71be-4631-a892-2db00e24262c",
+    contents: [
+      { type: "file", name: "Broumov-Bylnice_Mariáni_18.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "5b042687-24f5-4a0a-8f0c-bfec6ee0b82a",
     contents: [{ type: "file", name: "Cheb_jezuité_Kostelní_26.09.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "5b0bfa9d-536c-4233-b4ef-1fcfbb52380c",
+    contents: [
+      { type: "file", name: "Benátky-nad-Jizerou_Ciriaci_05.07.2023.jpg" },
+      {
+        type: "file",
+        name: "Benátky-nad-Jizerou_Cyriaci_02_05.07.2023.jpg",
+      },
+    ],
   },
   {
     type: "directory",
@@ -1313,6 +1730,13 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "6445d557-c045-4276-97a4-3ecb2ad8bfb5",
+    contents: [
+      { type: "file", name: "Uherské-Hradiτt╪_Frantiτkáni_18.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "64963a15-72e3-4edb-941e-57a2c7f5ee4a",
     contents: [
       {
@@ -1379,6 +1803,15 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "6ad1327b-7f8f-4796-bf94-14c3c557670c",
+    contents: [
+      { type: "file", name: "Osv╪timany_03.jpg" },
+      { type: "file", name: "Osv╪timany_Augustiniáni_02_18.06.2023.jpg" },
+      { type: "file", name: "Osv╪timany_Augustiniáni_18.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "6bbfe6ee-f054-4f31-91ff-be027eaef9a2",
     contents: [
       {
@@ -1426,6 +1859,14 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "70783cbc-04d7-4cdd-a744-74fecc90836f",
     contents: [{ type: "file", name: "Dobronice_Jezuité_19.09.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "70c243f6-05b9-499c-94a9-123392e4bcbb",
+    contents: [
+      { type: "file", name: "µejnov_Jezuité_02_09.07.2023.jpg" },
+      { type: "file", name: "µejnov_Jezuité_09.07.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -1638,10 +2079,20 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "7db384f0-3768-4c61-8fed-84a8c6f2ebc8",
+    contents: [{ type: "file", name: "µilhé²ovice_Jezuité_13.08.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "7db8b9ce-b17e-4c93-980f-b3be02ba4712",
     contents: [
       { type: "file", name: "Sokolov_Kapucíni_Komenského_26.09.2022.jpg" },
     ],
+  },
+  {
+    type: "directory",
+    name: "7dca9c73-7e3e-4dfe-9989-361ec870a776",
+    contents: [{ type: "file", name: "Hluƒín_Redemptoristé_13.08.2023.jpg" }],
   },
   {
     type: "directory",
@@ -1655,6 +2106,17 @@ export var ImagePathsExisting = [
         type: "file",
         name: "Hradiτt╪-u-sv.-Hypolita_K²íºovníci-s-ƒervenou-hv╪zdnou_05.07.2021.jpg",
       },
+    ],
+  },
+  {
+    type: "directory",
+    name: "7fbc3a5e-52cd-4172-a432-4ea07d6d0327",
+    contents: [
+      {
+        type: "file",
+        name: "Chomutov_Jezuité_Dominikáni_02_08.07.2023.jpg",
+      },
+      { type: "file", name: "Chomutov_Jezuité_Dominikáni_08.07.2023.jpg" },
     ],
   },
   {
@@ -1712,6 +2174,23 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "837924e5-02ae-4048-bae3-3f411c45bf1e",
+    contents: [
+      { type: "file", name: "Vendryn╪_Milosrdní-brat²i_13.08.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "83b41593-e969-4c5c-a66e-90393b563ee9",
+    contents: [
+      {
+        type: "file",
+        name: "Brand∞s-nad-Labem_Piaristé_Ivana-Olbrachta_05.07.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "84a03b7f-be57-4ebb-8b79-8a53d44f91e8",
     contents: [{ type: "file", name: "Beneτov_Minorité_29.09.2022.jpg" }],
   },
@@ -1726,6 +2205,11 @@ export var ImagePathsExisting = [
     contents: [
       { type: "file", name: "Prost╪jov_Milosrdní-brat²i_27.12.2021.jpg" },
     ],
+  },
+  {
+    type: "directory",
+    name: "874f3cab-1ec2-4bb1-b117-94c024fe9b85",
+    contents: [{ type: "file", name: "T╪τany_Dominikáni_17.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -1793,6 +2277,16 @@ export var ImagePathsExisting = [
       {
         type: "file",
         name: "Praha-Na-Frantiτku_Milosrdní-brat²i_10.04.2022.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "8be1f69b-b50b-4bad-a994-3c18080ecc1b",
+    contents: [
+      {
+        type: "file",
+        name: "Dubí_Kongregace-misioná²à-nejsv╪t╪jτího-srdce-Jeºíτova_09.07.2023.jpg",
       },
     ],
   },
@@ -1909,6 +2403,19 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "917bcaf1-a2e3-49e1-8088-ba0e86a9883f",
+    contents: [
+      { type: "file", name: "Lib╪τice_Jezuité_02_10.07.2023.jpg" },
+      { type: "file", name: "Lib╪τice_Jezuité_10.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "91f1487a-b330-4ce8-860f-42b6d151ff35",
+    contents: [{ type: "file", name: "Kyjov_Kapucíni_17.06.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "91f320cb-4fae-499b-a54c-5b202999e785",
     contents: [{ type: "file", name: "Olomouc_karmelitáni_08.02.2021.jpg" }],
   },
@@ -1944,6 +2451,51 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "9428fcbb-d816-42e2-aa0a-5b4491541ff9",
+    contents: [
+      {
+        type: "file",
+        name: "Stráºnice_Piaristé_Kostelní_02_18.06.2023.jpg",
+      },
+      { type: "file", name: "Stráºnice_Piaristé_Kostelní_18.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "943c25b8-5e96-4f1b-9d0c-475f2d2b7c27",
+    contents: [
+      { type: "file", name: "Teplice_Salesiáni_02_09.07.2023.jpg" },
+      { type: "file", name: "Teplice_Salesiáni_09.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "949aa1cb-79ef-4b95-9251-95f103f2ef1f",
+    contents: [
+      { type: "file", name: "P²íbor_Piaristé_02_12.08.2023.jpg" },
+      { type: "file", name: "P²íbor_Piaristé_12.08.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "958c6734-c9ea-43bb-b0c2-376d02c79b34",
+    contents: [
+      {
+        type: "file",
+        name: "Bílina_Kongregace-sv.-Michaela-archand╪la_02_09.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Bílina_Kongregace-sv.-Michaela-archand╪la_03_09.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Bílina_Kongregace-sv.-Michaela-archand╪la_09.07.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "96773b29-7363-4b61-b80a-1a62dcc0cf8d",
     contents: [
       {
@@ -1974,8 +2526,22 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "9a442376-b7bd-42d6-9756-df7dec69ee74",
+    contents: [
+      { type: "file", name: "M╪lník_Saletini_02_05.07.2023.jpg" },
+      { type: "file", name: "M╪lník_Saletini_03_05.07.2023.jpg" },
+      { type: "file", name: "M╪lník_Saletini_05.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "9a6213a5-f903-4568-b0b1-ce4a9218e6d7",
     contents: [{ type: "file", name: "D╪tenice_Johanité_21.04.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "9a7fd3ab-1325-4d58-adb5-3157de9301ff",
+    contents: [{ type: "file", name: "Litom╪²ice_Kapucíni_10.07.2023.jpg" }],
   },
   {
     type: "directory",
@@ -2077,8 +2643,28 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "9f25bc4e-a115-4e57-9c6b-cde1f1b0e3a8",
+    contents: [{ type: "file", name: "D╪ƒín_Jezuité_10.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "9fb9b038-28ad-4a58-a06b-fdae5ab23363",
     contents: [{ type: "file", name: "K²esetice_jezuité_29.09.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "a099e9e4-e5f4-431d-aa9c-a7c1f77851bf",
+    contents: [
+      {
+        type: "file",
+        name: "Praha-Prosek_Augustiniáni-kanovníci_22.08.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "a1ba5a40-4254-4cd7-b805-3c5b0bbe9794",
+    contents: [{ type: "file", name: "Boƒ_Benediktíni_07.07.2023.jpg" }],
   },
   {
     type: "directory",
@@ -2140,10 +2726,29 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "a42767bf-1e79-474d-8346-ef3102bd6014",
+    contents: [{ type: "file", name: "Slav╪tín_Benediktíni_06.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "a51387e3-da92-49a7-9208-2b3fbd773e3f",
     contents: [
       { type: "file", name: "Opava_Jezuité_02_16.10-(1).jpg" },
       { type: "file", name: "Opava_Jezuité_02_16.10-(2).jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "a518973d-7ecf-4d1b-9c88-9030de7add81",
+    contents: [
+      {
+        type: "file",
+        name: "Roudnice-nad-Labem_Augustiniáni-kanovníci_02_06.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Roudnice-nad-Labem_Augustiniáni-kanovníci_06.07.2023.jpg",
+      },
     ],
   },
   {
@@ -2180,6 +2785,11 @@ export var ImagePathsExisting = [
         name: "Praha_Servité_Konvent-Na-Slupi_19.03.2023.jpg",
       },
     ],
+  },
+  {
+    type: "directory",
+    name: "a68fa550-f0d0-4248-8a7e-2aa1c0e0adc6",
+    contents: [{ type: "file", name: "Kyjov_Piaristé_17.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -2239,6 +2849,11 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "a8f08bd8-26c6-4662-bae6-47164ad964c2",
     contents: [{ type: "file", name: "M╪cholupy_Johanité_23.09.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "a96ba066-c8cb-41c3-a68a-a1bd229ab185",
+    contents: [{ type: "file", name: "µardice_Augustiniáni_17.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -2331,6 +2946,28 @@ export var ImagePathsExisting = [
     name: "afcf680b-e1c7-449f-9e64-dfba59b41412",
     contents: [
       { type: "file", name: "Brno-ªidenice_Premonstráti_15.08.2021.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "b013e81c-872a-4ef2-bb48-c5797141de27",
+    contents: [
+      {
+        type: "file",
+        name: "Stráºnice_Piaristé_Piaristické-nám._18.06.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "b0384852-1fe8-43c9-a66d-79ac8ef57967",
+    contents: [{ type: "file", name: "¼esk∞-T╪τín_Jezuité_13.08.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "b0f97532-9e42-4a8f-9541-ba87720692c4",
+    contents: [
+      { type: "file", name: "Nov∞-Hrozenkov_Verbisté_12.08.2023.jpg" },
     ],
   },
   {
@@ -2431,6 +3068,19 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "b6388603-5ab1-4904-a23b-d9ee3081e2d",
     contents: [{ type: "file", name: "¼esk∞-Dub_Johanité_01.05.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "b74fef32-43ac-45fd-bba6-eee021d701e7",
+    contents: [
+      { type: "file", name: "Praha_Kobylisy_Salesiáni_02_22.08.2023.jpg" },
+      { type: "file", name: "Praha_Kobylisy_Salesiáni_22.08.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "b8c68fef-5373-4cad-9749-96c47597ef9f",
+    contents: [{ type: "file", name: "Teplá-u-Bíliny_Obláti_09.07.2023.jpg" }],
   },
   {
     type: "directory",
@@ -2537,6 +3187,13 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "bedb4a23-f5cc-4d56-86d1-97e91ffcfbc5",
+    contents: [
+      { type: "file", name: "Roudnice-nad-Labem_Kapucíni_06.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "bf4a4c9a-18cd-4557-8a96-bc8bfeed2998",
     contents: [
       {
@@ -2544,6 +3201,18 @@ export var ImagePathsExisting = [
         name: "Olomouc_Minorité_Jezuité_nám.-Republiky_12.06.2021.jpg",
       },
     ],
+  },
+  {
+    type: "directory",
+    name: "bf9a91a1-04f8-421c-96de-f811ca69838e",
+    contents: [
+      { type: "file", name: "D╪ƒín_Jezuité_Kaτtanová_10.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "c03d1af2-1c1c-485e-959a-7bb6f3876ff9",
+    contents: [{ type: "file", name: "Trmice_Salesiáni_09.07.2023.jpg" }],
   },
   {
     type: "directory",
@@ -2583,6 +3252,14 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "c2f3584f-9d42-448b-a8ff-e7c6e7f0b92c",
+    contents: [
+      { type: "file", name: "Slan∞_Piaristé_02_06.07.2023.jpg" },
+      { type: "file", name: "Slan∞_Piaristé_06.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "c47b319e-b2d2-41a6-8b9f-1fb9f311305f",
     contents: [{ type: "file", name: "Opoƒno_Kapucíni_30.12.2021.jpg" }],
   },
@@ -2595,8 +3272,29 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "c5e7e063-aaf7-4264-a123-a52287e8b5be",
+    contents: [
+      { type: "file", name: "Letovice_Milosrdní-brat²i_19.06.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "c5eed23a-14b1-4f12-b9de-20d35f7b1b63",
     contents: [{ type: "file", name: "Bohutín_Jezuité_28.09.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "c785ed09-a11d-435d-b553-f1d4bda220d4",
+    contents: [
+      {
+        type: "file",
+        name: "Moravská-Ostrava_Redemptoristé_02_13.08.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Moravská-Ostrava_Redemptoristé_13.08.2023.jpg",
+      },
+    ],
   },
   {
     type: "directory",
@@ -2634,6 +3332,11 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "c89704f2-97e4-4b68-97ac-a1f6cfb16312",
     contents: [{ type: "file", name: "Pacov_Bosí-Karmelitáni_18.10.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "c8f598ff-145f-42d8-8bb7-70458a91d2e3",
+    contents: [{ type: "file", name: "Mikulov_Kapucíni_17.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -2693,6 +3396,13 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "cbd1658a-be08-4fa4-bebf-7fd41956bfe3",
+    contents: [
+      { type: "file", name: "Stránka-u-B╪lé_Augustiniáni_05.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "cbd81699-1243-4726-8dd5-b4e51e82eaac",
     contents: [{ type: "file", name: "Urƒice_Salvatoriáni_27.12.2021.jpg" }],
   },
@@ -2736,6 +3446,24 @@ export var ImagePathsExisting = [
       {
         type: "file",
         name: "Kou²im_K²íºovnící-s-ƒervenou-hv╪zdou_nic-se-nedochovalo_27.02.2022.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "cf482465-8271-4568-a2b9-4d2e16021046",
+    contents: [
+      {
+        type: "file",
+        name: "Slan∞_Bosí-karmelitáni_Frantiτkáni_02_06.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Slan∞_Bosí-karmelitáni_Frantiτkáni_03_06.07.2023.jpg",
+      },
+      {
+        type: "file",
+        name: "Slan∞_Bosí-karmelitáni_Frantiτkáni_06.07.2023.jpg",
       },
     ],
   },
@@ -2801,6 +3529,19 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "d5740aad-f936-4374-8ff3-ed107032ca1d",
+    contents: [{ type: "file", name: "Kadaσ_Frantiτkáni_07.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "d5d66410-16e5-465e-b889-1d1501e3a21a",
+    contents: [
+      { type: "file", name: "Litom╪²ice_Jezuité_02_10.07.2023.jpg" },
+      { type: "file", name: "Litom╪²ice_Jezuité_10.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "d622b100-7a74-4d52-92c6-872de507d887",
     contents: [
       { type: "file", name: "Dolní-Poƒernice_Salesiáni_19.03.2023.jpg" },
@@ -2823,6 +3564,16 @@ export var ImagePathsExisting = [
       {
         type: "file",
         name: "Praha-sv.-Vav²inec_Johanité_Templá²i_10.04.2022.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "d7c9d036-b196-457b-a038-6899fcc7a2e5",
+    contents: [
+      {
+        type: "file",
+        name: "Litom╪²ice_Dominikáni_Sv.-Michal_10.07.2023.jpg",
       },
     ],
   },
@@ -2986,6 +3737,14 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "de31a8ec-5995-48b8-9cf1-cff76061def2",
+    contents: [
+      { type: "file", name: "Podmokly_Jezuité_D╪ƒín_02_10.07.2023.jpg" },
+      { type: "file", name: "Podmokly_Jezuité_D╪ƒín_10.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "df0022fe-e6ea-4526-8cd0-3059f2d32714",
     contents: [
       {
@@ -3030,6 +3789,16 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "e07c09c9-cbb9-47de-8f63-202af07a8349",
+    contents: [
+      {
+        type: "file",
+        name: "Litom╪²ice_K²iºovníci-s-ƒervenou-hv╪zdou_10.07.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "e198398d-6ae4-4f3a-ad1f-63e42fc2619f",
     contents: [{ type: "file", name: "Zlaté-Hory_Jezuité_15.10.2022.jpg" }],
   },
@@ -3064,6 +3833,15 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "e52cc0ce-906c-4d56-98ad-cdc83554febf",
+    contents: [
+      { type: "file", name: "Kadaσ_Johanité_02_07.07.2023.jpg" },
+      { type: "file", name: "Kadaσ_Johanité_03_07.07.2023.jpg" },
+      { type: "file", name: "Kadaσ_Johanité_07.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "e589ecfc-7e7d-41c3-9ed7-f94929866f97",
     contents: [
       { type: "file", name: "Teplá_Premonstráti_01_25.09.2022.jpg" },
@@ -3075,6 +3853,14 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "e58e2c3d-d22a-4f9a-8c8d-4dd3af170a60",
     contents: [{ type: "file", name: "Habrovany_Jezuité_10.03.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "e5a2f7f1-303c-4281-891e-09c81f1ff94a",
+    contents: [
+      { type: "file", name: "Uherské-Hradiτt╪_Jezuité_02_18.06.2023.jpg" },
+      { type: "file", name: "Uherské-Hradiτt╪_Jezuité_18.06.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -3102,6 +3888,16 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "e72f6e5f-b760-4758-9ead-a9c8ec012acc",
+    contents: [
+      {
+        type: "file",
+        name: "B╪lá-pod-Bezd╪zem_Augustiniáni_05.07.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
     name: "e73af244-4d6d-4028-944b-18c44b262ce6",
     contents: [
       {
@@ -3121,6 +3917,11 @@ export var ImagePathsExisting = [
     contents: [
       { type: "file", name: "Tachov_Frantiτkáni_Muzeum_25.09.2022.jpg" },
     ],
+  },
+  {
+    type: "directory",
+    name: "e8350189-fb7c-40f1-b902-e9f46556efd1",
+    contents: [{ type: "file", name: "Uherƒice_Benediktíni_17.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -3152,6 +3953,14 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "e971ae9b-ee4b-4124-9540-36e98ccb7f2c",
+    contents: [
+      { type: "file", name: "Θτt╪k_Jezuité_02_10.07.2023.jpg" },
+      { type: "file", name: "Θτt╪k_Jezuité_10.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "eaaea87b-4aa2-49d4-9097-4d5e9bc7e9c1",
     contents: [
       { type: "file", name: "Praha-sv.-Mikuláτ_Jezuité_09.04.2022.jpg" },
@@ -3166,6 +3975,23 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "eb454741-da5b-4ac5-9a69-09b4f8e0b1a7",
     contents: [{ type: "file", name: "Brno_Jezuité_centrum_14.08.2021.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "eb964883-c2c3-4e7f-8b34-dab25dbf22ed",
+    contents: [
+      {
+        type: "file",
+        name: "Teplice_Kongregace-misioná²à-nejsv╪t╪jτího-srdce-Jeºíτova_09.07.2023.jpg",
+      },
+    ],
+  },
+  {
+    type: "directory",
+    name: "ece6e180-6d81-4dd1-9052-cc6e7e3e32ee",
+    contents: [
+      { type: "file", name: "Mladá-Boleslav_Saletini_05.07.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -3224,6 +4050,13 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "f2929195-c683-4140-9cf1-bcf900a83beb",
+    contents: [
+      { type: "file", name: "Dolní-Roƒov_Augustiniáni_06.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "f55ac805-97e4-4eb3-8fb8-19b8e0e0804b",
     contents: [
       { type: "file", name: "R∞ºoviτt╪_N╪meƒtí-rytí²i_15.10.2022.jpg" },
@@ -3233,6 +4066,11 @@ export var ImagePathsExisting = [
     type: "directory",
     name: "f5a70392-cf66-4377-b336-22dd306f7a5f",
     contents: [{ type: "file", name: "Nová-ⁿíτe_Premonstráti_04.03.2022.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "f5c67229-f617-4e31-968d-0439944e5ffa",
+    contents: [{ type: "file", name: "Mikulov_Piaristé_17.06.2023.jpg" }],
   },
   {
     type: "directory",
@@ -3315,8 +4153,20 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "fb020f03-773e-46b3-bbaf-0f5b72cb1d54",
+    contents: [{ type: "file", name: "Blatno_N╪meƒtí-rytí²i_08.07.2023.jpg" }],
+  },
+  {
+    type: "directory",
     name: "fba07d9b-dd24-40bf-ba48-3bce30faa6d2",
     contents: [{ type: "file", name: "Skalka_Jezuité_27.05.2023.jpg" }],
+  },
+  {
+    type: "directory",
+    name: "fcbfe986-739f-4892-9348-e5afa003e0be",
+    contents: [
+      { type: "file", name: "Vizovice_Milosrdní-brat²i_18.06.2023.jpg" },
+    ],
   },
   {
     type: "directory",
@@ -3340,10 +4190,25 @@ export var ImagePathsExisting = [
   },
   {
     type: "directory",
+    name: "fe935d77-e92a-4e35-9491-d9252ce56b6c",
+    contents: [
+      { type: "file", name: "Chomutov_N╪meƒtí-rytí²i_08.07.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
     name: "fea73e65-ea1b-4bc7-af44-2afc30e9c37d",
     contents: [
       { type: "file", name: "Teslíny_Benediktíni_02_30.04.2023.jpg" },
       { type: "file", name: "Teslíny_Benediktíni_30.04.2023.jpg" },
+    ],
+  },
+  {
+    type: "directory",
+    name: "ff27b819-c69a-467a-b4ac-0c28bfed59a5",
+    contents: [
+      { type: "file", name: "ªatec_Kapucíni_02_07.07.2023.jpg" },
+      { type: "file", name: "ªatec_Kapucíni_07.07.2023.jpg" },
     ],
   },
   {
