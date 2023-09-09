@@ -44,7 +44,7 @@ const TimeSlider = ({}: TimeSliderProps): JSX.Element => {
       <span>
         <small>
           <Form.Switch
-            label="locations without datation"
+            label="locations without date"
             checked={showUndated}
             onChange={() => switchUndated()}
           />
