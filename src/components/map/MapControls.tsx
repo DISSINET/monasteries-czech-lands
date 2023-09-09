@@ -71,8 +71,8 @@ const MapControls = ({}): JSX.Element => {
         <Button
           size="sm"
           variant="outline-dark"
-          disabled={mapState.bearing === 0 ? true : false}
-          title="Reset map orientation"
+          //disabled={mapState.bearing === 0 ? true : false}
+          title="Reset map orientation (right-click drag in map to change orientation)"
           onClick={() => {
             dispatch(restoreDefaultBearing());
           }}
@@ -83,9 +83,9 @@ const MapControls = ({}): JSX.Element => {
         </Button>
         <Button
           size="sm"
-          disabled={mapState.pitch === 0 ? true : false}
+          //disabled={mapState.pitch === 0 ? true : false}
           variant="outline-dark"
-          title="Reset map pitch"
+          title="Reset map pitch (right-click drag in map to change pitch)"
           onClick={() => {
             dispatch(restoreDefaultPitch());
           }}
