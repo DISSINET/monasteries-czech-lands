@@ -1,4 +1,5 @@
 export var DictOrdersExtended = [
+  /*
   {
     ID: 46,
     label: "Annonciades",
@@ -28,6 +29,7 @@ export var DictOrdersExtended = [
     image: null,
     note: null,
   },
+  */
   {
     ID: 24,
     label: "Antonines",
@@ -743,6 +745,7 @@ export var DictOrdersExtended = [
     image: null,
     note: null,
   },
+  /*
   {
     ID: 42,
     label: "Conceptionists",
@@ -771,6 +774,7 @@ export var DictOrdersExtended = [
     image: null,
     note: null,
   },
+  */
   {
     ID: 60,
     label: "Congregation of St. Michael the Archangel ",
@@ -1873,6 +1877,7 @@ export var DictOrdersExtended = [
     image: null,
     note: null,
   },
+  /*
   {
     ID: 29,
     label: "Poor Clares",
@@ -1901,6 +1906,7 @@ export var DictOrdersExtended = [
     image: null,
     note: null,
   },
+  */
   {
     ID: 23,
     label: "Praemonstratensians",
@@ -2145,6 +2151,7 @@ export var DictOrdersExtended = [
     image: null,
     note: null,
   },
+  /*
   {
     ID: 39,
     label: "Sisters of Saint Andrew",
@@ -2173,6 +2180,7 @@ export var DictOrdersExtended = [
     image: null,
     note: null,
   },
+  */
   {
     ID: 13,
     label: "Sylvestrines",
