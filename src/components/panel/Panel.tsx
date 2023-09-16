@@ -243,7 +243,7 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
       return (
         <>
           <small>{title}:</small>
-          <Carousel indicators={false}>
+          <Carousel indicators={false} controls={ monDirRep[0].contents.length > 1}>
             {monDirRep[0].contents.map((e, i) => {
               const src = require(`./../../photos/${dirname}/${mon.record_id}/${e.name}`);
               return (
