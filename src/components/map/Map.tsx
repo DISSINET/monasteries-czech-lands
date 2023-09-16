@@ -5,7 +5,7 @@ import locations from "../../data/monasteries.json";
 import { TileLayer } from "@deck.gl/geo-layers/typed";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { updateMapState } from "./MapSlice";
-import { selectMonastery } from "./../MainSlice";
+import { selectMonastery, setLocationCount } from "./../MainSlice";
 import MapControls from "./MapControls";
 import treatMonasteryName from "./../../utils/treatMonasteryName";
 import MapScale from "./MapScale";
@@ -32,6 +32,10 @@ const MapComponent = ({}): JSX.Element => {
 
   function dispatchSelectedMonastery(mon: any) {
     dispatch(selectMonastery(mon));
+  }
+
+  function dispatchSetLocationCount(count: number) {
+    dispatch(setLocationCount(count));
   }
 
   const cityLevel = new TileLayer({
@@ -62,6 +66,10 @@ const MapComponent = ({}): JSX.Element => {
     },
   });
 
+  function countFilteredItems(event: any) {
+    dispatchSetLocationCount(event.count)
+  }
+
   function setVisibility(item: any) {
     // we look for overlapping interval
     // for intervals [a,b], [c,d]:
@@ -74,7 +82,6 @@ const MapComponent = ({}): JSX.Element => {
 
     //no datation
     if (showUndated) {
-
       let sortedCom = [...item.communities].sort(
         (a: any, b: any) => a.time[0] - b.time[0]
       );
@@ -202,6 +209,7 @@ const MapComponent = ({}): JSX.Element => {
     pickingRadius: 50,
     // props added by DataFilterExtension
     getFilterValue: (d: any) => setVisibility(d),
+    onFilteredItemsChange: (d: any) => countFilteredItems(d),
     // like useEffect <function>:<value change that triggers rerun>
     updateTriggers: {
       getFilterValue: [
@@ -215,7 +223,7 @@ const MapComponent = ({}): JSX.Element => {
     filterRange: [1, 1],
 
     // Define extensions
-    extensions: [new DataFilterExtension({ filterSize: 1 })],
+    extensions: [new DataFilterExtension({ filterSize: 1, countItems: true })],
 
     // On click
     onClick: (object) => object && dispatchSelectedMonastery(object.object),

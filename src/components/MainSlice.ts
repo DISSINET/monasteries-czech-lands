@@ -8,6 +8,7 @@ export interface MainSlice {
   timeFilter: Array<number>;
   undated: boolean;
   selectedMonastery: Monastery;
+  locationCount: number;
 }
 
 const initialState: MainSlice = {
@@ -17,6 +18,7 @@ const initialState: MainSlice = {
   timeFilter: [1000, 2023],
   undated: true,
   selectedMonastery: <Monastery>{},
+  locationCount: 0,
 };
 
 export const mainSlice = createSlice({
@@ -47,6 +49,10 @@ export const mainSlice = createSlice({
       let newUndatedState = action.payload;
       state.undated = newUndatedState;
     },
+    setLocationCount: (state, action: PayloadAction<number>) => {
+      let newLocationCount = action.payload;
+      state.locationCount = newLocationCount;
+    },
   },
 });
 
@@ -57,5 +63,6 @@ export const {
   selectDedications,
   selectMonastery,
   setUndated,
+  setLocationCount,
 } = mainSlice.actions;
 export default mainSlice.reducer;

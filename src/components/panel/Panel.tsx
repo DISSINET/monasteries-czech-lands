@@ -62,6 +62,9 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
   const selectedMonastery = useAppSelector(
     (state) => state.main.selectedMonastery
   );
+  const currentLocationCount = useAppSelector(
+    (state) => state.main.locationCount
+  );
 
   const now = new Date();
   let dedAggr = ""; //used to build dedication tree
@@ -243,7 +246,10 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
       return (
         <>
           <small>{title}:</small>
-          <Carousel indicators={false} controls={ monDirRep[0].contents.length > 1}>
+          <Carousel
+            indicators={false}
+            controls={monDirRep[0].contents.length > 1}
+          >
             {monDirRep[0].contents.map((e, i) => {
               const src = require(`./../../photos/${dirname}/${mon.record_id}/${e.name}`);
               return (
@@ -280,7 +286,10 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
       >
         <div id="section1">
           <span>
-            <b>Filter locations</b>
+            <b>Filter locations</b>{" "}
+            <small>
+              <small>– {currentLocationCount} displayed</small>
+            </small>
           </span>
           <br />
           <InputGroup
