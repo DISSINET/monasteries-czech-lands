@@ -3,6 +3,7 @@ import { ComponentName, ComponentGeo } from "./";
 
 export type Monastery = {
   id: string;
+  record_id: string;
   name: string;
   parent_id: string;
   dedications: any;

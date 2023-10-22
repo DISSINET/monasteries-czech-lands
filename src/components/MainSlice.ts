@@ -7,7 +7,7 @@ export interface MainSlice {
   selectedDedications: Array<any>;
   timeFilter: Array<number>;
   undated: boolean;
-  selectedMonastery: Monastery;
+  selectedMonastery: any;
   locationCount: number;
 }
 

@@ -23,7 +23,9 @@ const MapComponent = ({}): JSX.Element => {
   );
   const timeFilter = useAppSelector((state) => state.main.timeFilter);
   const showUndated = useAppSelector((state) => state.main.undated);
-
+  const selectedMonastery = useAppSelector(
+    (state) => state.main.selectedMonastery
+  );
   const dispatch = useAppDispatch();
 
   function dispatchMapState(val: any) {
@@ -192,6 +194,17 @@ const MapComponent = ({}): JSX.Element => {
     return borderColor;
   }
 
+  function setSpotlightVisibility(item: any) {
+    if (
+      Object.keys(selectedMonastery).length > 0 &&
+      item.record_id === selectedMonastery.record_id
+    ) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
   const monasteries = new ScatterplotLayer({
     id: "monasteries",
     data: locations,
@@ -234,8 +247,29 @@ const MapComponent = ({}): JSX.Element => {
     },
   });
 
-  const layers = [cityLevel, monasteries];
+  const spotlight = new ScatterplotLayer({
+    id: "spotlight",
+    data: locations,
+    pickable: true,
+    stroked: true,
+    filled: true,
+    getPosition: (d: any) => d.geo,
+    opacity: 0.2,
+    //getRadius: 7000,
+    radiusMinPixels: mapState.zoom * 2,
 
+    //radiusMinPixels: mapState.zoom,
+    getFillColor: [255, 165, 0],
+    getFilterValue: (d: any) => setSpotlightVisibility(d),
+    updateTriggers: {
+      getFilterValue: [selectedMonastery],
+    },
+    filterRange: [1, 1],
+    // Define extensions
+    extensions: [new DataFilterExtension({ filterSize: 1 })],
+  });
+
+  const layers = [cityLevel, spotlight, monasteries];
   return (
     <div onContextMenu={(evt) => evt.preventDefault()}>
       <MapControls />
