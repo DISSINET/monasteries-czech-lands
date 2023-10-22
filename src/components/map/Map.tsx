@@ -67,7 +67,7 @@ const MapComponent = ({}): JSX.Element => {
   });
 
   function countFilteredItems(event: any) {
-    dispatchSetLocationCount(event.count)
+    dispatchSetLocationCount(event.count);
   }
 
   function setVisibility(item: any) {

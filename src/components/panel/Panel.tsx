@@ -12,7 +12,6 @@ import {
   Row,
   Col,
   Card,
-  Carousel,
 } from "react-bootstrap";
 import { DictOrdersExtended } from "../../shared/dictionaries/orders_extended";
 import { DictStatuses } from "../../shared/dictionaries/statuses";
@@ -28,11 +27,10 @@ import {
 } from "./../MainSlice";
 import FilterView from "./FilterView";
 import TimeFilter from "./TimeSlider";
+import PhotoCarousel from "./PhotoCarousel";
 import calculateDatation from "./../../utils/calculateDatation";
 import treatMonasteryName from "./../../utils/treatMonasteryName";
 import translateDedication from "./../../utils/translateDedication";
-import { ImagePathsExisting } from "../../photos/image_paths";
-import { ImagePathsUnpreserved } from "../../photos/unpreserved_paths";
 import { Monastery } from "./../../types";
 
 type PanelComponentProps = {};
@@ -227,41 +225,6 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
         )}
       </>
     );
-  }
-
-  function buildPhotoCarousel(mon: any, type: number) {
-    let monDirRep = [];
-    let dirname: string;
-    let title: string;
-    if (type === 1) {
-      monDirRep = ImagePathsExisting.filter((e) => e.name == mon.record_id);
-      dirname = "existing";
-      title = "Photographs";
-    } else {
-      monDirRep = ImagePathsUnpreserved.filter((e) => e.name == mon.record_id);
-      dirname = "unpreserved";
-      title = "Location (unpreserved)";
-    }
-    if (monDirRep.length > 0) {
-      return (
-        <>
-          <small>{title}:</small>
-          <Carousel
-            indicators={false}
-            controls={monDirRep[0].contents.length > 1}
-          >
-            {monDirRep[0].contents.map((e, i) => {
-              const src = require(`./../../photos/${dirname}/${mon.record_id}/${e.name}`);
-              return (
-                <Carousel.Item>
-                  <img className="d-block w-100" src={src} alt={`slide ${i}`} />
-                </Carousel.Item>
-              );
-            })}
-          </Carousel>
-        </>
-      );
-    }
   }
 
   return (
@@ -638,8 +601,8 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
                 <small>Statuses:</small>
                 <ul>{listStatuses(selectedMonastery["statuses"])}</ul>
                 {listDedications(selectedMonastery)}
-                {buildPhotoCarousel(selectedMonastery, 1)}
-                {buildPhotoCarousel(selectedMonastery, 2)}
+                <PhotoCarousel mon={selectedMonastery} type={1} />
+                <PhotoCarousel mon={selectedMonastery} type={2} />
               </Card.Body>
               <ListGroup className="list-group-flush">
                 <ListGroup.Item>
