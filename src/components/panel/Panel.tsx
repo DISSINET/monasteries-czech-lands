@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Hero from "./Hero";
 import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import {
