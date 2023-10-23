@@ -7,8 +7,9 @@ import { useAppSelector, useAppDispatch } from "./../../app/hooks";
 import { updateMapState } from "./MapSlice";
 import { selectMonastery, setLocationCount } from "./../MainSlice";
 import MapControls from "./MapControls";
+import MapSearch from "./MapSearch";
 import treatMonasteryName from "./../../utils/treatMonasteryName";
-import MapScale from "./MapScale";
+//import MapScale from "./MapScale";
 
 const MapComponent = ({}): JSX.Element => {
   const mapState = useAppSelector((state) => state.map);
@@ -273,6 +274,7 @@ const MapComponent = ({}): JSX.Element => {
   return (
     <div onContextMenu={(evt) => evt.preventDefault()}>
       <MapControls />
+      <MapSearch />
       <DeckGL
         viewState={mapState}
         onViewStateChange={(e: any) => dispatchMapState(e.viewState)}
