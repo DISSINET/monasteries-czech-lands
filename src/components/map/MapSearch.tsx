@@ -7,6 +7,7 @@ import { Monastery } from "./../../types";
 import "react-bootstrap-typeahead/css/Typeahead.css";
 import "react-bootstrap-typeahead/css/Typeahead.bs5.css";
 import treatMonasteryName from "./../../utils/treatMonasteryName";
+import stripDiacritics from "../../utils/stripDiacritics";
 
 const MapSearch = ({}): JSX.Element => {
   const mapState = useAppSelector((state) => state.map);
@@ -25,11 +26,10 @@ const MapSearch = ({}): JSX.Element => {
 
   // filter by english name or other names
   const filterQuery = (object: any, props: any) =>
-    treatMonasteryName(object.name, object.communities)
+    stripDiacritics(treatMonasteryName(object.name, object.communities))
       .toLowerCase()
       .indexOf(props.text.toLowerCase()) !== -1 ||
-    object.other_names
-      .toString()
+    stripDiacritics(object.other_names.toString())
       .toLowerCase()
       .indexOf(props.text.toLowerCase()) !== -1;
 
