@@ -191,12 +191,32 @@ const MapComponent = ({}): JSX.Element => {
     return colorScale[cat];
   }
 
-  function setBorder(comm: Array<any>): any {
-    let sortedCom = [...comm].sort((a: any, b: any) => a.time[0] - b.time[0]);
-
+  function setBorder(d: any): any {
+    let sortedCom = [...d.communities].sort(
+      (a: any, b: any) => a.time[0] - b.time[0]
+    );
     let yrs = [...sortedCom[0].time.filter(Number)];
-    let borderColor = yrs.length > 0 ? [51, 51, 255] : [152, 152, 152];
+    let borderColor = [51, 51, 255];
+
+    if (yrs.length > 0) {
+      switch (d.geo_confidence[0]) {
+        case "1":
+          borderColor = [51, 51, 255]; // blue
+          break;
+        case "2":
+          borderColor = [255, 215, 0]; // gold
+          break;
+        case "3":
+          borderColor = [255, 99, 71]; // tomato
+          break;
+      }
+    } else {
+      borderColor = [152, 152, 152];
+    }
+    //
     return borderColor;
+    // tomato [255, 99, 71]
+    // gold [255, 215, 0]
   }
 
   function setSpotlightVisibility(item: any) {
@@ -222,7 +242,7 @@ const MapComponent = ({}): JSX.Element => {
     radiusMinPixels: mapState.zoom * 0.5,
     lineWidthMinPixels: 1,
     getFillColor: (d) => setColor(d.communities),
-    getLineColor: (d) => setBorder(d.communities),
+    getLineColor: (d) => setBorder(d),
     // hover buffer around object
     pickingRadius: 50,
     // props added by DataFilterExtension

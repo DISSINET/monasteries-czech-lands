@@ -721,6 +721,32 @@ const PanelComponent = ({}: PanelComponentProps): JSX.Element => {
               <div className="legendItem"></div>
               <small style={{ float: "left" }}> no datation</small>{" "}
             </small>
+            <br />
+            <small>Localization certainty:</small>
+            <br />
+            <small>
+              {" "}
+              <div
+                className="legendCircle"
+                style={{ border: "solid 1px rgb(51, 51, 255)" }}
+              ></div>
+              <div className="legendItem"></div>
+              <small style={{ float: "left" }}>precise</small>{" "}
+              <div className="legendItem"></div>
+              <div
+                className="legendCircle"
+                style={{ border: "solid 1px rgb(255, 215, 0)" }}
+              ></div>
+              <div className="legendItem"></div>
+              <small style={{ float: "left" }}>approximate</small>{" "}
+              <div className="legendItem"></div>
+              <div
+                className="legendCircle"
+                style={{ border: "solid 1px rgb(255, 99, 71)" }}
+              ></div>
+              <div className="legendItem"></div>
+              <small style={{ float: "left" }}>ambiguous</small>{" "}
+            </small>
           </span>
         </div>
 
