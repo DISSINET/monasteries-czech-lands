@@ -14,7 +14,6 @@ const MapScale = ({ definitionLayer }: MapScaleProps): JSX.Element => {
   const maxZoom = useAppSelector((state) => state.map.maxZoom);
   const maxWidth = 100; // of the scale bar
   const pitch = useAppSelector((state) => state.map.pitch);
-  const mapState = useAppSelector((state) => state.map);
 
   const DEG_TO_RAD = Math.PI / 180;
   const MAX_MERCATOR_LATITUDE = 85.051129;
@@ -89,7 +88,7 @@ const MapScale = ({ definitionLayer }: MapScaleProps): JSX.Element => {
   }
 
   function getColor() {
-    return pitch === 0 ? "black" : "gray";
+    return pitch < 0.5 ? "black" : "gray";
   }
 
   return (
@@ -103,7 +102,7 @@ const MapScale = ({ definitionLayer }: MapScaleProps): JSX.Element => {
       }}
     >
       <small>
-        <small>{pitch === 0 ? "" : "scale varies with perspective"}</small>
+        <small>{pitch < 0.5 ? "" : "scale varies with perspective"}</small>
       </small>
       <div
         style={{
