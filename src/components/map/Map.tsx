@@ -115,13 +115,17 @@ const MapComponent = ({}): JSX.Element => {
       });
     }
     if (selectedStatusIDs.length === 0) {
-      is_stat = item.statuses.map((c: any) => {
-        return ((c.time[2] || c.time[3]) >= timeFilter[0] &&
-          (c.time[0] || c.time[1]) <= timeFilter[1]) ||
-          is_no_datation.includes(1)
-          ? 1
-          : 0;
-      });
+      if (item.statuses.length === 0) {
+        is_stat = [1]; // show items with empty status list
+      } else {
+        is_stat = item.statuses.map((c: any) => {
+          return ((c.time[2] || c.time[3]) >= timeFilter[0] &&
+            (c.time[0] || c.time[1]) <= timeFilter[1]) ||
+            is_no_datation.includes(1)
+            ? 1
+            : 0;
+        });
+      }
     } else {
       is_stat = item.statuses.map((c: any) => {
         return selectedStatusIDs.includes(c.status) &&
